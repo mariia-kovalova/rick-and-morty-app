@@ -15,7 +15,7 @@ import { themeReducer } from './theme/slice';
 import { characterReducer } from './character/slice';
 import { episodesReducer } from './episodes/slice';
 import { episodeReducer } from './episode/slice';
-import { locationsReducer } from './locations/slice';
+// import { locationsReducer } from './locations/slice';
 import { locationReducer } from './location/slice';
 
 const persistConfig = {
