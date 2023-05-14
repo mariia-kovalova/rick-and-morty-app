@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrick_and_morty_app=self.webpackChunkrick_and_morty_app||[]).push([[794],{794:function(n,e,r){r.r(e);var t=r(907),c=r(329);e.default=function(){return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(t.ql,{children:(0,c.jsx)("title",{children:"Not Found"})}),(0,c.jsx)("div",{children:"NotFoundPage"})]})}}}]);
-//# sourceMappingURL=794.005dfa9e.chunk.js.map
