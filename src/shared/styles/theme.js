@@ -35,7 +35,7 @@ export const darkTheme = {
   iconFillStrokeHover: '#f2f9fe',
   paginationAccent: '#31d6b8',
 
-  alive: '#31d6b8',
+  alive: '#259c86',
   dead: 'red',
   unknown: 'grey',
 
