@@ -7,7 +7,6 @@ const LocationPage = () => {
       <Helmet>
         <title>Locations</title>
       </Helmet>
-      <div>LocationPage</div>
       <Locations />
     </>
   );

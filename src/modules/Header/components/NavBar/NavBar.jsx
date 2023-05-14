@@ -6,7 +6,7 @@ export const NavBar = () => {
     <nav>
       <StyledUl>
         {navLinksArr.map(({ name, path }) => (
-          <li>
+          <li key={name}>
             <NavBarLink key={path} to={path}>
               {name}
             </NavBarLink>
