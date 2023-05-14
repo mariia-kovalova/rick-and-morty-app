@@ -21,7 +21,7 @@ export const Locations = () => {
 
   useEffect(() => {
     dispatch(getLocationById(locationID));
-    console.log(location);
+    // console.log(location);
   }, [dispatch, locationID]);
 
   return (

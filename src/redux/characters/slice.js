@@ -1,5 +1,4 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getCharacters, getCharactersByFilter } from 'redux/characters/thunks';
 import { charactersActions } from 'redux/characters/thunks';
 
 const getActions = type => charactersActions.map(action => action[type]);
@@ -17,14 +16,6 @@ export const slice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      .addCase(getCharactersByFilter.fulfilled, (state, { payload }) => {
-        state.info = payload.info;
-        state.items = payload.results;
-      })
-      .addCase(getCharacters.fulfilled, (state, { payload }) => {
-        state.info = payload.info;
-        state.items = [...state.items, ...payload.results];
-      })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.isLoading = true;
       })
@@ -32,7 +23,9 @@ export const slice = createSlice({
         state.isLoading = false;
         state.error = payload;
       })
-      .addMatcher(isAnyOf(...getActions('fulfilled')), state => {
+      .addMatcher(isAnyOf(...getActions('fulfilled')), (state, { payload }) => {
+        state.info = payload.info;
+        state.items = payload.results;
         state.isLoading = false;
         state.error = null;
       }),

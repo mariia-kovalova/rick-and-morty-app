@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Library } from 'modules/Layout/Library';
+import { Library } from 'modules/Library';
 
 const LibraryPage = () => {
   return (
