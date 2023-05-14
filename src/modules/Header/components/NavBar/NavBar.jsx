@@ -1,18 +1,18 @@
-import { NavBarLink } from './NavBar.styled';
+import { NavBarLink, StyledUl } from './NavBar.styled';
 import { navLinksArr } from './navLinksArr';
 
 export const NavBar = () => {
   return (
     <nav>
-      <ul>
-        <li>
-          {navLinksArr.map(({ name, path }) => (
+      <StyledUl>
+        {navLinksArr.map(({ name, path }) => (
+          <li>
             <NavBarLink key={path} to={path}>
               {name}
             </NavBarLink>
-          ))}
-        </li>
-      </ul>
+          </li>
+        ))}
+      </StyledUl>
     </nav>
   );
 };
