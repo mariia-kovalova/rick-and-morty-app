@@ -1,5 +1,5 @@
 import { Container } from 'shared/styles/components/Container.styled';
-import { HiddenTittle, SectionHome, StyledBtn, StyledDiv } from './Home.styled';
+import { HiddenTittle, SectionHome, StyledDiv } from './Home.styled';
 
 export const Home = () => {
   return (
@@ -9,8 +9,11 @@ export const Home = () => {
         <StyledDiv className="container">
           <div className="container-left"></div>
           <div className="container-right"></div>
-          <div className="container-button">
-            <StyledBtn type="button">teleport</StyledBtn>
+          <div class="button-wrap">
+            <button type="button" class="clicker">
+              teleport
+            </button>
+            <div class="circle"></div>
           </div>
         </StyledDiv>
       </Container>
