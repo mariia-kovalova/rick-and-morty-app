@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrick_and_morty_app=self.webpackChunkrick_and_morty_app||[]).push([[849],{849:function(n,r,e){e.r(r),e.d(r,{default:function(){return d}});var i=e(907),t=e(329),c=function(){return(0,t.jsx)("div",{children:"Home"})},d=function(){return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(i.ql,{children:(0,t.jsx)("title",{children:"Rick and Morty App"})}),(0,t.jsx)("div",{children:"HomePage"}),(0,t.jsx)(c,{})]})}}}]);
-//# sourceMappingURL=849.a7c0a445.chunk.js.map
