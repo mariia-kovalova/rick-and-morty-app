@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getLocationsByFilter, locationsActions } from './thunks';
+import { getLocations, getLocationsByFilter, locationsActions } from './thunks';
 
 const getActions = type => locationsActions.map(action => action[type]);
 
@@ -20,7 +20,7 @@ export const slice = createSlice({
         state.info = payload.info;
         state.items = payload.results;
       })
-      .addCase(getActions.fulfilled, (state, { payload }) => {
+      .addCase(getLocations.fulfilled, (state, { payload }) => {
         state.info = payload.info;
         state.items = [...state.items, ...payload.results];
       })

@@ -15,8 +15,8 @@ import { themeReducer } from './theme/slice';
 import { characterReducer } from './character/slice';
 import { episodesReducer } from './episodes/slice';
 import { episodeReducer } from './episode/slice';
-// import { locationsReducer } from './locations/slice';
 import { locationReducer } from './location/slice';
+import { locationsReducer } from './locations/slice';
 
 const persistConfig = {
   key: 'R&M',
@@ -30,7 +30,7 @@ const rootReducer = combineReducers({
   episode: episodeReducer,
   episodes: episodesReducer,
   location: locationReducer,
-  // locations: locationsReducer,
+  locations: locationsReducer,
   // library:
   theme: themeReducer,
 });
