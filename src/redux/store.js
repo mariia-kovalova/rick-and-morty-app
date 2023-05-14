@@ -12,6 +12,11 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { charactersReducer } from './characters/slice';
 import { themeReducer } from './theme/slice';
+import { characterReducer } from './character/slice';
+import { episodesReducer } from './episodes/slice';
+import { episodeReducer } from './episode/slice';
+import { locationsReducer } from './locations/slice';
+import { locationReducer } from './location/slice';
 
 const persistConfig = {
   key: 'R&M',
@@ -20,9 +25,14 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
+  character: characterReducer,
   characters: charactersReducer,
+  episode: episodeReducer,
+  episodes: episodesReducer,
+  location: locationReducer,
+  locations: locationsReducer,
+  // library:
   theme: themeReducer,
-  // name: reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

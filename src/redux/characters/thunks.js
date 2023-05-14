@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API } from 'api';
 
 export const getCharacters = createAsyncThunk(
-  'characters/getAll',
+  'characters/getCharacters',
   async (page, { rejectWithValue }) => {
     try {
       return await API.characters.getCharacters(page);
@@ -12,30 +12,15 @@ export const getCharacters = createAsyncThunk(
   }
 );
 
-export const getCharacterById = createAsyncThunk(
-  'characters/getById',
-  async (id, { rejectWithValue }) => {
-    try {
-      return await API.characters.getCharacterById(id);
-    } catch (err) {
-      return rejectWithValue(err);
-    }
-  }
-);
-
 export const getCharactersByFilter = createAsyncThunk(
-  'characters/getByFilter',
+  'characters/getCharactersByFilter',
   async (params, { rejectWithValue }) => {
     try {
-      return await API.characters.getCharacterById(params);
+      return await API.characters.getCharactersByFilter(params);
     } catch (err) {
       return rejectWithValue(err);
     }
   }
 );
 
-export const charactersActions = [
-  getCharacters,
-  getCharacterById,
-  getCharactersByFilter,
-];
+export const charactersActions = [getCharacters, getCharactersByFilter];

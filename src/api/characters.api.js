@@ -16,7 +16,7 @@ export const characters = {
 
     return data;
   },
-  getCharacterByFilter: async ({ name, status, species, gender }) => {
+  getCharactersByFilter: async ({ name, status, species, gender }) => {
     const { data } = await axios.get(`/character`, {
       params: { name, status, species, gender },
     });

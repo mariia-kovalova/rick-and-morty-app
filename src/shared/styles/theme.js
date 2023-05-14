@@ -1,29 +1,27 @@
 export const lightTheme = {
-  primary: ' #5736a3',
-  secondary: '#ebd8ff',
-  accent: '#5cd3a8',
+  primary: '#b2dae4',
+  secondary: '#f8fe76',
+  accent: '#39ff14',
 
-  bgPrimary: 'ffffff',
+  bgPrimary: '#f2f9fe',
 
-  colText: '#373737',
+  textPrimary: '#373737',
+
   bgcHoverFocusLinks: 'rgba(0, 0, 0, 0.2)',
-
-  themeTogglerColor: '#3e85f3',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };
 
 export const darkTheme = {
-  primary: ' #5736a3',
-  secondary: '#ebd8ff',
-  accent: '#5cd3a8',
+  primary: '#b2dae4',
+  secondary: '#f8fe76',
+  accent: '#39ff14',
 
-  bgPrimary: '000000',
+  bgPrimary: '#171820;',
 
-  colText: '#373737',
+  textPrimary: '#f2f9fe',
+
   bgcHoverFocusLinks: 'rgba(0, 0, 0, 0.2)',
-
-  themeTogglerColor: '#3e85f3',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };

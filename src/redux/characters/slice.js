@@ -1,15 +1,10 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import {
-  getCharacterById,
-  getCharacters,
-  getCharactersByFilter,
-} from 'redux/characters/thunks';
+import { getCharacters, getCharactersByFilter } from 'redux/characters/thunks';
 import { charactersActions } from 'redux/characters/thunks';
 
 const getActions = type => charactersActions.map(action => action[type]);
 
 const initialState = {
-  currentItem: {},
   items: [],
   isLoading: false,
   error: null,
@@ -21,9 +16,6 @@ export const slice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      .addCase(getCharacterById.fulfilled, (state, { payload }) => {
-        state.currentItem = payload;
-      })
       .addCase(getCharactersByFilter.fulfilled, (state, { payload }) => {
         state.items = payload;
       })

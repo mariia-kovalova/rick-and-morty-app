@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { desktop } from 'shared/constants/deviceSizes';
 
 export const ThemeIcon = styled.svg`
-  fill: ${({ theme }) => theme.themeTogglerColor};
+  fill: ${({ theme }) => theme.accent};
   height: 24px;
   width: 24px;
 

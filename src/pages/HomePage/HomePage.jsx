@@ -7,7 +7,6 @@ const HomePage = () => {
       <Helmet>
         <title>Rick and Morty App</title>
       </Helmet>
-      <div>HomePage</div>
       <Home />
     </>
   );
