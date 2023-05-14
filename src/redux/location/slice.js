@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getLocationById } from './thunks';
 
 const initialState = {
-  item: {},
+  item: null,
   isLoading: false,
   error: null,
 };

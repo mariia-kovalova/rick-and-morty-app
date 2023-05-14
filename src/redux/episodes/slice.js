@@ -4,6 +4,7 @@ import { episodesActions, getEpisodes, getEpisodesByFilter } from './thunks';
 const getActions = type => episodesActions.map(action => action[type]);
 
 const initialState = {
+  info: null,
   items: [],
   isLoading: false,
   error: null,
@@ -16,10 +17,12 @@ export const slice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(getEpisodesByFilter.fulfilled, (state, { payload }) => {
-        state.items = payload;
+        state.info = payload.info;
+        state.items = payload.results;
       })
       .addCase(getEpisodes.fulfilled, (state, { payload }) => {
-        state.items = [...state.items, ...payload];
+        state.info = payload.info;
+        state.items = [...state.items, ...payload.results];
       })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.isLoading = true;

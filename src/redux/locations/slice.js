@@ -4,6 +4,7 @@ import { getLocationsByFilter, locationsActions } from './thunks';
 const getActions = type => locationsActions.map(action => action[type]);
 
 const initialState = {
+  info: null,
   items: [],
   isLoading: false,
   error: null,
@@ -16,10 +17,12 @@ export const slice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(getLocationsByFilter.fulfilled, (state, { payload }) => {
-        state.items = payload;
+        state.info = payload.info;
+        state.items = payload.results;
       })
       .addCase(getActions.fulfilled, (state, { payload }) => {
-        state.items = [...state.items, ...payload];
+        state.info = payload.info;
+        state.items = [...state.items, ...payload.results];
       })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.isLoading = true;

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getCharacterById } from 'redux/character/thunks';
 
 const initialState = {
-  item: {},
+  item: null,
   isLoading: false,
   error: null,
 };

@@ -5,6 +5,7 @@ import { charactersActions } from 'redux/characters/thunks';
 const getActions = type => charactersActions.map(action => action[type]);
 
 const initialState = {
+  info: null,
   items: [],
   isLoading: false,
   error: null,
@@ -17,10 +18,12 @@ export const slice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(getCharactersByFilter.fulfilled, (state, { payload }) => {
-        state.items = payload;
+        state.info = payload.info;
+        state.items = payload.results;
       })
       .addCase(getCharacters.fulfilled, (state, { payload }) => {
-        state.items = [...state.items, ...payload];
+        state.info = payload.info;
+        state.items = [...state.items, ...payload.results];
       })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.isLoading = true;
