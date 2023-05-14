@@ -5,7 +5,7 @@ import {
   selectCharacter,
 } from 'redux/character/selectors';
 
-export const useContacts = () => {
+export const useCharacter = () => {
   const character = useSelector(selectCharacter);
   const isLoading = useSelector(selectCharacterIsLoading);
   const error = useSelector(selectCharacterError);

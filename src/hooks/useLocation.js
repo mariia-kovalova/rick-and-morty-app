@@ -5,7 +5,7 @@ import {
   selectlocationIsLoading,
 } from 'redux/location/selectors';
 
-export const useContacts = () => {
+export const useLocation = () => {
   const location = useSelector(selectlocation);
   const isLoading = useSelector(selectlocationIsLoading);
   const error = useSelector(selectlocationError);

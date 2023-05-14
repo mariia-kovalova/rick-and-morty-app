@@ -3,11 +3,12 @@ axios.defaults.baseURL = 'https://rickandmortyapi.com/api';
 
 export const characters = {
   getCharacters: async page => {
-    const { data } = await axios.get('/character', {
+    const data = await axios.get('/character', {
       params: {
         page,
       },
     });
+    console.log(data);
 
     return data;
   },

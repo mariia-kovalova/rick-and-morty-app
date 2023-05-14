@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getEpisodeById } from './thunks';
 
 const initialState = {
-  item: null,
+  item: {},
   isLoading: false,
   error: null,
 };

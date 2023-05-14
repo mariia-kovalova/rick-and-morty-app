@@ -3,9 +3,9 @@ import {
   selectLocationsError,
   selectLocationsIsLoading,
   selectLocationsItems,
-} from 'redux/characters/selectors';
+} from 'redux/locations/selectors';
 
-export const useContacts = () => {
+export const useLocations = () => {
   const locations = useSelector(selectLocationsItems);
   const isLoading = useSelector(selectLocationsIsLoading);
   const error = useSelector(selectLocationsError);

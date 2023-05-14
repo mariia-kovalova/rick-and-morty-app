@@ -30,7 +30,7 @@ const rootReducer = combineReducers({
   episode: episodeReducer,
   episodes: episodesReducer,
   location: locationReducer,
-  locations: locationsReducer,
+  // locations: locationsReducer,
   // library:
   theme: themeReducer,
 });
