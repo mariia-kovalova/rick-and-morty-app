@@ -9,11 +9,11 @@ export const Home = () => {
         <StyledDiv className="container">
           <div className="container-left"></div>
           <div className="container-right"></div>
-          <div class="button-wrap">
-            <button type="button" class="clicker">
+          <div className="button-wrap">
+            <button type="button" className="clicker">
               teleport
             </button>
-            <div class="circle"></div>
+            <div className="circle"></div>
           </div>
         </StyledDiv>
       </Container>
