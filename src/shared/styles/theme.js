@@ -1,6 +1,7 @@
 export const lightTheme = {
   primary: '#b2dae4',
   secondary: '#f8fe76',
+  secondaryTransparent: 'rgba(248, 254, 118, 0.6)',
   accent: '#31d6b8',
   accentTransparent: 'rgba(178, 218, 228, 0.9)',
 
@@ -23,6 +24,8 @@ export const lightTheme = {
 export const darkTheme = {
   primary: '#b2dae4',
   secondary: '#f8fe76',
+  secondaryTransparent: 'rgba(248, 254, 118, 0.6)',
+
   accent: '#31d6b8',
   accentTransparent: 'rgba(49, 214, 184, 0.7)',
 
