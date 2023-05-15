@@ -12,6 +12,18 @@ export const getLocations = createAsyncThunk(
   }
 );
 
+// getLocationsByIds;
+export const getLocationsByIds = createAsyncThunk(
+  'location/getLocationsByIds',
+  async (ids, { rejectWithValue }) => {
+    try {
+      return await API.locations.getLocationsByIds(ids);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 export const getLocationsByFilter = createAsyncThunk(
   'locations/getLocationsByFilter',
   async (params, { rejectWithValue }) => {
@@ -23,4 +35,8 @@ export const getLocationsByFilter = createAsyncThunk(
   }
 );
 
-export const locationsActions = [getLocations, getLocationsByFilter];
+export const locationsActions = [
+  getLocations,
+  getLocationsByIds,
+  getLocationsByFilter,
+];

@@ -11,6 +11,11 @@ export const locations = {
 
     return data;
   },
+  getLocationsByIds: async ids => {
+    const { data } = await axios.get(`/location/${ids}`);
+
+    return data;
+  },
   getLocationById: async id => {
     const { data } = await axios.get(`/location/${id}`);
 
