@@ -3,8 +3,11 @@ import { useCharacter } from 'hooks/useCharacter';
 import { useDispatch } from 'react-redux';
 import { RandomButton } from 'shared/components/RandomButton';
 import { getCharacterById } from 'redux/character/thunks';
+import { getRandomId } from 'shared/utils/getRandomId';
+import { useCharacters } from 'hooks/useCharacters';
 
 export const RandomCharacter = () => {
+  const { info } = useCharacters();
   const { character, isLoading, error } = useCharacter();
   const [id, setId] = useState(1);
   const dispatch = useDispatch();
@@ -14,8 +17,8 @@ export const RandomCharacter = () => {
   }, [dispatch, id]);
 
   const handleGetRandomCharacter = () => {
-    setId(2);
-    //generate random id
+    const randomId = getRandomId({ max: info.count });
+    setId(randomId);
   };
 
   const shouldShowCharacter = character !== null && !isLoading && !error;
