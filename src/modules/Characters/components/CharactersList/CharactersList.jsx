@@ -17,9 +17,9 @@ export const CharactersList = () => {
   }, [dispatch, page]);
 
   const shouldRenderList = characters.length > 0 && !error;
-  const shouldShowError = !isLoading > 0 && error;
+  const shouldShowError = !isLoading && error;
   const shouldRenderPagination =
-    !error && characters.length > 0 && info !== null && info.pages > 1;
+    !error && characters.length > 0 && info?.pages > 1;
 
   return (
     <>
