@@ -1,11 +1,11 @@
 import { CharacterCard } from 'shared/components/CharacterCard';
-import { Item, List } from './CharactersList.styled';
 import { useCharacters } from 'hooks/useCharacters';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCharacters } from 'redux/characters/thunks';
 import { Pagination } from 'shared/components/Pagination';
 import { Loader } from 'shared/components/Loader';
+import { CardsList } from 'shared/components/CardsList';
 
 export const CharactersList = () => {
   const { info, characters, isLoading, error } = useCharacters();
@@ -25,13 +25,7 @@ export const CharactersList = () => {
     <>
       {isLoading && <Loader />}
       {shouldRenderList && (
-        <List>
-          {characters.map(character => (
-            <Item key={character.id}>
-              <CharacterCard character={character} />
-            </Item>
-          ))}
-        </List>
+        <CardsList items={characters} element={CharacterCard} />
       )}
       {shouldRenderPagination && (
         <Pagination

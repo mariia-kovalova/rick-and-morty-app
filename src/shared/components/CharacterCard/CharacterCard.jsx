@@ -12,8 +12,8 @@ import { Tooltip } from '../ToolTip';
 import { nameNormalize } from 'shared/utils/nameNormalize';
 import { spiecesNormalize } from 'shared/utils/spiecesNormalize';
 
-export const CharacterCard = ({ character }) => {
-  const { id, name, species, gender, status, image } = character;
+export const CharacterCard = props => {
+  const { id, name, species, gender, status, image } = props;
 
   return (
     <StyledLink to={home}>

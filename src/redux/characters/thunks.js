@@ -12,6 +12,17 @@ export const getCharacters = createAsyncThunk(
   }
 );
 
+export const getCharactersByIds = createAsyncThunk(
+  'characters/getCharactersByIds',
+  async (ids, { rejectWithValue }) => {
+    try {
+      return await API.characters.getCharactersByIds(ids);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 export const getCharactersByFilter = createAsyncThunk(
   'characters/getCharactersByFilter',
   async (params, { rejectWithValue }) => {
@@ -23,4 +34,8 @@ export const getCharactersByFilter = createAsyncThunk(
   }
 );
 
-export const charactersActions = [getCharacters, getCharactersByFilter];
+export const charactersActions = [
+  getCharacters,
+  getCharactersByIds,
+  getCharactersByFilter,
+];
