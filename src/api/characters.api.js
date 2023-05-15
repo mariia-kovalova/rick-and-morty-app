@@ -11,6 +11,11 @@ export const characters = {
 
     return data;
   },
+  getCharactersByIds: async ids => {
+    const { data } = await axios.get(`/character/${ids}`);
+
+    return data;
+  },
   getCharacterById: async id => {
     const { data } = await axios.get(`/character/${id}`);
 

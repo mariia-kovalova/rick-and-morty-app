@@ -21,5 +21,5 @@ export const Tooltip = ({ text, children }) => {
 
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

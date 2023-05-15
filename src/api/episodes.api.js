@@ -11,6 +11,11 @@ export const episodes = {
 
     return data;
   },
+  getEpisodesByIds: async ids => {
+    const { data } = await axios.get(`/episode/${ids}`);
+
+    return data;
+  },
   getEpisodeById: async id => {
     const { data } = await axios.get(`/episode/${id}`);
 

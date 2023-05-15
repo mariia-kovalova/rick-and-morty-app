@@ -12,6 +12,17 @@ export const getEpisodes = createAsyncThunk(
   }
 );
 
+export const getEpisodesByIds = createAsyncThunk(
+  'episode/getEpisodesByIds',
+  async (ids, { rejectWithValue }) => {
+    try {
+      return await API.episodes.getEpisodesByIds(ids);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 export const getEpisodesByFilter = createAsyncThunk(
   'episodes/getEpisodesByFilter',
   async (params, { rejectWithValue }) => {
@@ -23,4 +34,8 @@ export const getEpisodesByFilter = createAsyncThunk(
   }
 );
 
-export const episodesActions = [getEpisodes, getEpisodesByFilter];
+export const episodesActions = [
+  getEpisodes,
+  getEpisodesByIds,
+  getEpisodesByFilter,
+];

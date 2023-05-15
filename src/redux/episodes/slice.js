@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { episodesActions, getEpisodes, getEpisodesByFilter } from './thunks';
+import { episodesActions } from './thunks';
 
 const getActions = type => episodesActions.map(action => action[type]);
 
@@ -16,14 +16,6 @@ export const slice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      .addCase(getEpisodesByFilter.fulfilled, (state, { payload }) => {
-        state.info = payload.info;
-        state.items = payload.results;
-      })
-      .addCase(getEpisodes.fulfilled, (state, { payload }) => {
-        state.info = payload.info;
-        state.items = [...state.items, ...payload.results];
-      })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.isLoading = true;
       })
@@ -31,9 +23,11 @@ export const slice = createSlice({
         state.isLoading = false;
         state.error = payload;
       })
-      .addMatcher(isAnyOf(...getActions('fulfilled')), state => {
+      .addMatcher(isAnyOf(...getActions('fulfilled')), (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
+        state.info = payload?.info || null;
+        state.items = payload.results;
       }),
 });
 export const episodesReducer = slice.reducer;
