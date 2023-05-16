@@ -1,5 +1,5 @@
-import { FlexCard } from '../Episodes.styled';
-import { TextInfo } from './EpisodeCard/EpisodeCard.styled';
+import { FlexCard } from '../../Episodes.styled';
+import { TextInfo } from '../EpisodeCard/EpisodeCard.styled';
 
 
 const EpisodeCardInfo = ({ episode }) => {
