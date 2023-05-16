@@ -3,6 +3,46 @@ import styled from '@emotion/styled';
 import { alive, dead, unknown } from 'shared/constants/characterStatus';
 import { desktop } from 'shared/constants/deviceSizes';
 
+const shine = keyframes`
+   0% {
+    background-position: -32px;
+  }
+  40%, 100% {
+    background-position: 208px;
+  }
+`;
+
+export const MainInfo = styled.div`
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    width: 205px;
+    height: 205px;
+
+    background-color: rgb(228, 227, 227);
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%
+      )
+      rgb(228, 227, 227);
+    background-size: 100% 100%;
+    background-position-x: 0;
+    animation: ${shine} 1s ease infinite;
+    border-radius: 4px;
+
+    @media screen and (min-width: ${desktop}) {
+      width: 193px;
+      height: 193px;
+    }
+  }
+`;
+
 export const Number = styled.div`
   position: absolute;
   top: 4%;
@@ -18,6 +58,18 @@ export const Number = styled.div`
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
+  gap: 7px;
+`;
+
+export const Img = styled.img`
+  position: relative;
+  z-index: 2;
+  margin-bottom: 10px;
+  border-radius: 6px;
+
+  @media screen and (min-width: ${desktop}) {
+    margin-bottom: 20px;
+  }
 `;
 
 const getStatus = ({ theme, marker }) => {
@@ -42,7 +94,8 @@ const beam = keyframes`
   }
   100% {
     opacity: 0;
-  }`;
+  }
+`;
 
 export const Status = styled.div`
   position: relative;
@@ -70,21 +123,11 @@ export const Status = styled.div`
 `;
 
 export const Name = styled.span`
-  padding-left: 10px;
-
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.5;
   letter-spacing: 0.15px;
-`;
-export const Img = styled.img`
-  margin-bottom: 10px;
-  border-radius: 6px;
-
-  @media screen and (min-width: ${desktop}) {
-    margin-bottom: 20px;
-  }
 `;
 
 export const Description = styled.p`
@@ -113,6 +156,7 @@ export const FullInfo = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   @media screen and (max-width: ${desktop}) {
     position: absolute;
     width: 1px;

@@ -38,11 +38,16 @@ export const StyledLink = styled(Link)`
   border-radius: 6px;
 `;
 
-export const Status = styled.div`
-  position: absolute;
-  top: 26%;
-  left: 6%;
+export const Img = styled.img`
+  border-radius: inherit;
+`;
 
+export const MainInfo = styled.div`
+  display: flex;
+  gap: 8px;
+`;
+
+export const Status = styled.div`
   width: 12px;
   height: 12px;
 
@@ -68,8 +73,12 @@ export const Status = styled.div`
   }
 `;
 
-export const Img = styled.img`
-  border-radius: inherit;
+export const Name = styled.p`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.15px;
 `;
 
 export const Wrap = styled.div`
@@ -82,15 +91,6 @@ export const Wrap = styled.div`
 
   border-radius: 0 0 6px 6px;
   background-color: ${({ theme }) => theme.accentTransparent};
-`;
-
-export const Name = styled.p`
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 0.15px;
-  padding-left: 22px;
 `;
 
 export const Description = styled.p`

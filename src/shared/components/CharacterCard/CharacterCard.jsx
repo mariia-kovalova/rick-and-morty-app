@@ -2,6 +2,7 @@ import { home } from 'shared/constants/routes';
 import {
   Description,
   Img,
+  MainInfo,
   Name,
   Number,
   Status,
@@ -19,10 +20,12 @@ export const CharacterCard = props => {
     <StyledLink to={home}>
       <Img src={image} width="289" height="289" alt={name} loading="lazy" />
       <Wrap>
-        <Tooltip text={status}>
-          <Status marker={status} />
-        </Tooltip>
-        <Name>{nameNormalize(name)}</Name>
+        <MainInfo>
+          <Tooltip text={status} ariaLabel="character status">
+            <Status marker={status} />
+          </Tooltip>
+          <Name>{nameNormalize(name)}</Name>
+        </MainInfo>
         <Description>
           {spiecesNormalize(species)} | {gender}
         </Description>

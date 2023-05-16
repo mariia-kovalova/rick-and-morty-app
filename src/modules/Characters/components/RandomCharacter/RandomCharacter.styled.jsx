@@ -9,9 +9,7 @@ export const Wrap = styled.div`
 
 export const CardWrap = styled(Link)`
   position: relative;
-  display: flex;
-  gap: 60px;
-
+  display: block;
   padding: 60px 20px 20px 20px;
   width: 250px;
   height: 350px;
@@ -22,8 +20,12 @@ export const CardWrap = styled(Link)`
   border-radius: 4px;
 
   @media screen and (min-width: ${desktop}) {
-    padding: 60px 30px 30px 30px;
+    padding: 60px 50px 30px 50px;
     width: 550px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
   }
 
   &::before {
@@ -59,6 +61,7 @@ export const Decoration = styled.div`
   position: relative;
   width: fit-content;
   z-index: 1;
+
   &::before {
     content: '';
     position: absolute;
@@ -72,6 +75,10 @@ export const Decoration = styled.div`
     border: solid ${({ theme }) => theme.paginationAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
+
+    @media screen and (min-width: ${desktop}) {
+      right: -1%;
+    }
   }
 
   &::after {
@@ -88,5 +95,9 @@ export const Decoration = styled.div`
     border: solid ${({ theme }) => theme.paginationAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
+
+    @media screen and (min-width: ${desktop}) {
+      left: -1%;
+    }
   }
 `;

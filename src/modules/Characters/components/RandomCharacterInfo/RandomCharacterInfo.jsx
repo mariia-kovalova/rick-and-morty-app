@@ -4,6 +4,7 @@ import {
   FullInfo,
   Img,
   Label,
+  MainInfo,
   Name,
   Number,
   Status,
@@ -25,20 +26,19 @@ export const RandomCharacterInfo = ({ character }) => {
 
   return (
     <>
-      <div>
-        <Number>#{id}</Number>
-        <Img src={image} width="200" height="200" alt={name} loading="lazy" />
+      <Number>#{id}</Number>
+      <MainInfo>
+        <Img src={image} width="205" height="205" alt={name} loading="lazy" />
         <Wrap>
           <Tooltip text={status}>
             <Status marker={status} />
           </Tooltip>
           <Name>{nameNormalize(name)}</Name>
         </Wrap>
-
         <Description>
           {spiecesNormalize(species)} | {gender}
         </Description>
-      </div>
+      </MainInfo>
       <FullInfo>
         {info.map(({ label, data }) => (
           <li key={label}>
