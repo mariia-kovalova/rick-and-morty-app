@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { desktop, mobile, tablet } from 'shared/constants/deviceSizes';
 
 import locationPageChooseLocationBG_1 from '../../../../shared/images/locationPageChooseLocationBG_1.png';
 import locationPageChooseLocationBG_2 from '../../../../shared/images/locationPageChooseLocationBG_2.png';
@@ -15,8 +16,24 @@ export const StyledDiv = styled.div`
   margin-right: auto;
   margin-top: 20px;
 
-  height: 330px;
-  width: 1000px;
+  /* height: 330px;
+  width: 1000px; */
+
+  @media screen and (min-width: ${mobile}) {
+    flex-direction: column-reverse;
+    width: 255px;
+  }
+
+  @media screen and (min-width: ${tablet}) {
+    flex-direction: row;
+    width: 700px;
+    height: 350px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    height: 330px;
+    width: 1000px;
+  }
 
   border: 3px solid ${({ theme }) => theme.paginationAccent};
 
@@ -49,17 +66,21 @@ export const LocationCard = styled.div`
     background-repeat: no-repeat;
   }
   &::before {
-    content: '';
-    position: absolute;
-    top: -21px;
-    left: -20.6px;
-    transform: rotate(45deg);
+    display: none;
 
-    width: 40px;
-    height: 40px;
+    @media screen and (min-width: ${tablet}) {
+      content: '';
+      position: absolute;
+      top: -21px;
+      left: -20.6px;
+      transform: rotate(45deg);
 
-    background-color: ${({ theme }) => theme.bgPrimary};
-    border-right: 3px solid ${({ theme }) => theme.paginationAccent};
+      width: 40px;
+      height: 40px;
+
+      background-color: ${({ theme }) => theme.bgPrimary};
+      border-right: 3px solid ${({ theme }) => theme.paginationAccent};
+    }
   }
 
   &::after {
@@ -99,8 +120,19 @@ export const LocationCardDetails = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  width: 400px;
-  height: 220px;
+  @media screen and (min-width: ${mobile}) {
+    width: 250px;
+  }
+
+  /* @media screen and (min-width: ${tablet}) {
+    width: 300px;
+    height: 220px;
+  } */
+
+  @media screen and (min-width: ${desktop}) {
+    width: 400px;
+    height: 220px;
+  }
 
   background-color: ${({ theme }) => theme.bgPrimaryTransparent};
 `;
@@ -126,6 +158,10 @@ export const StyledH3 = styled.h3`
 
   background-color: #a3a3a3;
   border-radius: 5px;
+
+  @media screen and (min-width: ${mobile}) {
+    width: 250px;
+  }
 `;
 
 export const Detail = styled.p`
@@ -152,6 +188,9 @@ export const LocationChoose = styled.div`
   justify-content: space-around;
 
   height: 100%;
+  @media screen and (max-width: calc(${mobile} -1)) {
+    width: 250px;
+  }
 
   &::after {
     content: '';
@@ -184,12 +223,24 @@ export const LocationChoose = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  width: 250px;
   height: 70px;
 
   font-size: 20px;
 
   border-radius: 5px;
+
+  @media screen and (min-width: ${mobile}) {
+    width: 200px;
+
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  @media screen and (min-width: ${tablet}) {
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 250px;
+  }
 `;
 
 export const Paragraph = styled.p`

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { getLocationById } from 'redux/location/thunks';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectlocation } from 'redux/location/selectors';
+import {
+  selectlocation,
+  selectlocationError,
+  selectlocationIsLoading,
+} from 'redux/location/selectors';
 import {
   LocationCard,
   LocationCardDetails,
@@ -15,12 +19,15 @@ import {
 } from './LocationPicker.styled';
 import { getRandomLocation } from 'shared/utils/getRandomLocation';
 import sprite from '../../../../shared/icons/sprite.svg';
+import { CardLoader } from 'modules/Characters/components/CardLoader/CardLoader';
 
 export const LocationPicker = () => {
   const [locationID, setLocationID] = useState(1);
   const [backgroundNum, setBackgroundNum] = useState(1);
   const dispatch = useDispatch();
   const location = useSelector(selectlocation);
+  const isLoading = useSelector(selectlocationIsLoading);
+  const error = useSelector(selectlocationError);
 
   // Random button click
   const handleRandomBtn = () => {
@@ -36,11 +43,14 @@ export const LocationPicker = () => {
     dispatch(getLocationById(locationID));
   }, [dispatch, locationID]);
 
+  const shouldShowLocation = location !== null && !isLoading && !error;
+
   return (
     <StyledDiv>
       <LocationCard className={`location-card${backgroundNum}`}>
         <StyledH2>Location Data</StyledH2>
-        {location !== null && (
+        {isLoading && <CardLoader />}
+        {shouldShowLocation && (
           <LocationCardDetails>
             <StyledH3>{location.name}</StyledH3>
             <Detail>
