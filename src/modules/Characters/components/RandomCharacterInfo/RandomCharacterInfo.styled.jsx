@@ -5,7 +5,7 @@ import { desktop } from 'shared/constants/deviceSizes';
 
 const shine = keyframes`
    0% {
-    background-position: -32px;
+    background-position: -5px;
   }
   40%, 100% {
     background-position: 208px;
@@ -14,6 +14,7 @@ const shine = keyframes`
 
 export const MainInfo = styled.div`
   position: relative;
+
   &::after {
     content: '';
     position: absolute;
@@ -23,22 +24,23 @@ export const MainInfo = styled.div`
     width: 205px;
     height: 205px;
 
-    background-color: rgb(228, 227, 227);
-    background: linear-gradient(
-        100deg,
-        rgba(255, 255, 255, 0) 40%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0) 60%
-      )
-      rgb(228, 227, 227);
-    background-size: 100% 100%;
-    background-position-x: 0;
-    animation: ${shine} 1s ease infinite;
+    background-color: rgba(81, 107, 107, 0.801);
+    border: 1px solid ${({ theme }) => theme.paginationAccent};
     border-radius: 4px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 70%
+      )
+      rgba(255, 255, 255, 0.384);
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: ${shine} 2s ${({ theme }) => theme.cubic} infinite;
 
     @media screen and (min-width: ${desktop}) {
-      width: 193px;
-      height: 193px;
+      width: 192.5px;
+      height: 191.5px;
     }
   }
 `;
@@ -118,7 +120,7 @@ export const Status = styled.div`
     background-color: ${getStatus};
     opacity: 0.5;
     border-radius: 50%;
-    animation: ${beam} 1.5s ease-in-out infinite;
+    animation: ${beam} 1.5s ease-in-out both;
   }
 `;
 

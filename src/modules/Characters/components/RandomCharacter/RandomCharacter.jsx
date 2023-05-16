@@ -5,10 +5,18 @@ import { RandomButton } from 'shared/components/RandomButton';
 import { getCharacterById } from 'redux/character/thunks';
 import { getRandomId } from 'shared/utils/getRandomId';
 import { useCharacters } from 'hooks/useCharacters';
-import { CardWrap, Decoration, Wrap } from './RandomCharacter.styled';
+import {
+  CardWrap,
+  Decoration,
+  Randomazier,
+  RicksText,
+  SvgRick,
+  Wrap,
+} from './RandomCharacter.styled';
 import { CardLoader } from '../CardLoader/CardLoader';
 import { RandomCharacterInfo } from '../RandomCharacterInfo/RandomCharacterInfo';
 import { home } from 'shared/constants/routes';
+import sprite from 'shared/icons/sprite.svg';
 
 export const RandomCharacter = () => {
   const { info } = useCharacters();
@@ -38,9 +46,15 @@ export const RandomCharacter = () => {
           {shouldShowError && <div>Oops, something went wrong...</div>}
         </CardWrap>
       </Decoration>
-      <RandomButton onClick={handleGetRandomCharacter}>
-        Random Character
-      </RandomButton>
+      <Randomazier>
+        <SvgRick width="100" height="100">
+          <use href={`${sprite}#icons8-rick-sanchez`} />
+        </SvgRick>
+        <RicksText>Yeah, just get a random character ...whatever</RicksText>
+        <RandomButton onClick={handleGetRandomCharacter} isLoading={isLoading}>
+          <span>Random Character</span>
+        </RandomButton>
+      </Randomazier>
     </Wrap>
   );
 };

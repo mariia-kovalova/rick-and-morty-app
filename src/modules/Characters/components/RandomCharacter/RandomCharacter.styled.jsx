@@ -1,10 +1,16 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { desktop } from 'shared/constants/deviceSizes';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 
 export const Wrap = styled.div`
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: ${tablet}) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 `;
 
 export const CardWrap = styled(Link)`
@@ -99,5 +105,61 @@ export const Decoration = styled.div`
     @media screen and (min-width: ${desktop}) {
       left: -1%;
     }
+  }
+`;
+
+export const Randomazier = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 300px;
+  padding-top: 26px;
+
+  @media screen and (min-width: ${tablet}) {
+    padding-top: 40px;
+    gap: 20px;
+    align-items: center;
+    padding-top: 16px;
+    width: 250px;
+  }
+  @media screen and (min-width: ${desktop}) {
+    width: 500px;
+    gap: 30px;
+  }
+`;
+
+export const SvgRick = styled.svg`
+  @media screen and (max-width: ${tablet}) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+`;
+
+export const RicksText = styled.p`
+  font-size: 24px;
+  text-align: center;
+
+  @media screen and (max-width: ${tablet}) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
 `;

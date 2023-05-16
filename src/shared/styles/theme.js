@@ -17,6 +17,9 @@ export const lightTheme = {
   paginationAccent: '#7dd3e8',
   characterCardTextAccent: '#3ea7c2',
 
+  boxShadow: 'rgba(17, 17, 17, 0.1)',
+  disabled: 'rgba(159, 202, 212, 0.641)',
+
   alive: '#31d6b8',
   dead: 'red',
   unknown: 'grey',
@@ -43,6 +46,9 @@ export const darkTheme = {
   iconFillStrokeHover: '#f2f9fe',
   paginationAccent: '#31d6b8',
   characterCardTextAccent: '#d7fcf6',
+
+  boxShadow: 'rgba(252, 252, 252, 0.1)',
+  disabled: 'rgba(109, 158, 149, 0.641)',
 
   alive: '#259c86',
   dead: 'red',

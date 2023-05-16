@@ -22,7 +22,7 @@ export const ModalWindow = styled.div`
   padding: 40px 28px;
 
   background: ${({ theme }) => theme.bgPrimary};
-  box-shadow: 0px 4px 16px rgba rgba(17, 17, 17, 0.1);
+  box-shadow: 0px 4px 16px ${({ theme }) => theme.boxShadow};
   border-radius: 8px;
 `;
 

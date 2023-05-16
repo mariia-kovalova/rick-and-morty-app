@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
 
 export const List = styled.ul`
-  padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
 
@@ -14,7 +13,7 @@ export const List = styled.ul`
   gap: 16px;
 
   @media screen and (min-width: ${tablet}) {
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 40px;
     gap: 20px;
   }
