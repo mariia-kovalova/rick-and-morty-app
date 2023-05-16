@@ -6,7 +6,7 @@ import { getEpisodeById } from 'redux/episode/thunks';
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
 import Card from './components/EpisodeCard/EpisodeCard';
-import EpisodeCardInfo from './components/EpisodeCardInfo';
+import EpisodeCardInfo from './components/EpisodCardInfo/EpisodeCardInfo';
 // import wave from '../../shared/icons/wave.gif';
 
 export const Episodes = () => {
