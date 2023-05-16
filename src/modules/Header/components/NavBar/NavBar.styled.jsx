@@ -5,7 +5,7 @@ export const NavBarLink = styled(NavLink)`
   color: ${({ theme }) => theme.textPrimary};
 
   &.active {
-    font-weight: 600;
+    /* font-weight: 600; */
   }
 `;
 
@@ -38,7 +38,8 @@ export const StyledUl = styled.ul`
         opacity: 0.3;
         transition: all 0.3s;
       }
-      & a:hover:before {
+      & a:hover:before,
+      .active:before {
         height: 100%;
       }
     }
@@ -52,11 +53,12 @@ export const StyledUl = styled.ul`
         right: 0px;
         top: 0px;
         content: '';
-        background: ${({ theme }) => theme.bgcHoverFocusLinks};
+        background: ${({ theme }) => theme.primary};
         opacity: 0.3;
         transition: all 0.3s;
       }
-      & a:hover:before {
+      & a:hover:before,
+      .active:before {
         height: 100%;
       }
     }

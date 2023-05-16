@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import {
   Description,
   Img,
+  ImgWrap,
   Infobox,
   Name,
   Number,
+  ResidentsButton,
   StyledLink,
   Wrap,
 } from './LocationCard.styled';
@@ -28,23 +30,31 @@ export const LocationCard = ({ location, resident }) => {
   return (
     <StyledLink to={home}>
       <Description>
-        <Img
-          src={residentImage}
-          width="289"
-          height="289"
-          alt="location"
-          loading="lazy"
-        />
+        <ImgWrap>
+          <Img
+            src={residentImage}
+            width="289"
+            height="289"
+            alt="location"
+            loading="lazy"
+          />
+        </ImgWrap>
         <Infobox>
           <Name className="location-card__name">{location.name}</Name>
-          <Name>Type: {location.type}</Name>
-          <Name>Dimension: {location.dimension}</Name>
-          <Name>Number of residents: {location.residents.length}</Name>
+          <Name>
+            Type: <p>{location.type}</p>
+          </Name>
+          <Name>
+            Dimension: <p>{location.dimension}</p>
+          </Name>
+          <Name>
+            Number of residents: <p>{location.residents.length}</p>
+          </Name>
         </Infobox>
+        <ResidentsButton to={home}>Residents</ResidentsButton>
       </Description>
-
       <Wrap>
-        <Number>{location.id}</Number>
+        <Number>#{location.id}</Number>
       </Wrap>
     </StyledLink>
   );
