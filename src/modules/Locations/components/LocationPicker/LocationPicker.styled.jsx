@@ -22,6 +22,7 @@ export const StyledDiv = styled.div`
   @media screen and (min-width: ${mobile}) {
     flex-direction: column-reverse;
     width: 255px;
+    height: 605px;
   }
 
   @media screen and (min-width: ${tablet}) {
@@ -122,12 +123,8 @@ export const LocationCardDetails = styled.div`
 
   @media screen and (min-width: ${mobile}) {
     width: 250px;
+    height: 250px;
   }
-
-  /* @media screen and (min-width: ${tablet}) {
-    width: 300px;
-    height: 220px;
-  } */
 
   @media screen and (min-width: ${desktop}) {
     width: 400px;
@@ -188,9 +185,6 @@ export const LocationChoose = styled.div`
   justify-content: space-around;
 
   height: 100%;
-  @media screen and (max-width: calc(${mobile} -1)) {
-    width: 250px;
-  }
 
   &::after {
     content: '';
