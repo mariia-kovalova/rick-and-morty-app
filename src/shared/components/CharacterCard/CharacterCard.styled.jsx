@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { alive, dead, unknown } from 'shared/constants/characterStatus';
@@ -14,6 +15,17 @@ const getStatus = ({ theme, marker }) => {
       return theme.unknown;
   }
 };
+
+const beam = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }`;
 
 export const StyledLink = styled(Link)`
   position: relative;
@@ -49,6 +61,10 @@ export const Status = styled.div`
     background-color: ${getStatus};
     opacity: 0.5;
     border-radius: 50%;
+  }
+
+  &:hover::before {
+    animation: ${beam} 1.5s ease-in-out infinite;
   }
 `;
 
@@ -92,7 +108,7 @@ export const Number = styled.div`
   z-index: 1;
 
   font-weight: 700;
-  font-size: 40px;
+  font-size: 35px;
   line-height: 1.5;
   letter-spacing: 0.15px;
 `;

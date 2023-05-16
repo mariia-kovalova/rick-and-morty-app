@@ -5,10 +5,15 @@ import { RandomButton } from 'shared/components/RandomButton';
 import { getCharacterById } from 'redux/character/thunks';
 import { getRandomId } from 'shared/utils/getRandomId';
 import { useCharacters } from 'hooks/useCharacters';
+import { CardWrap, Decoration, Wrap } from './RandomCharacter.styled';
+import { CardLoader } from '../CardLoader/CardLoader';
+import { RandomCharacterInfo } from '../RandomCharacterInfo/RandomCharacterInfo';
+import { home } from 'shared/constants/routes';
 
 export const RandomCharacter = () => {
   const { info } = useCharacters();
   const { character, isLoading, error } = useCharacter();
+
   const [id, setId] = useState(1);
   const dispatch = useDispatch();
 
@@ -25,15 +30,17 @@ export const RandomCharacter = () => {
   const shouldShowError = !isLoading && error;
 
   return (
-    <>
-      <div>
-        {isLoading && <div>Loading...</div>}
-        {shouldShowCharacter && <div>{character.name}</div>}
-        {shouldShowError && <div>Oops, something went wrong...</div>}
-      </div>
+    <Wrap>
+      <Decoration>
+        <CardWrap to={home}>
+          {isLoading && <CardLoader />}
+          {shouldShowCharacter && <RandomCharacterInfo character={character} />}
+          {shouldShowError && <div>Oops, something went wrong...</div>}
+        </CardWrap>
+      </Decoration>
       <RandomButton onClick={handleGetRandomCharacter}>
         Random Character
       </RandomButton>
-    </>
+    </Wrap>
   );
 };

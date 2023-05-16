@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { modernNormalizeCss } from 'emotion-modern-normalize';
+import '@fontsource/montserrat';
 
 export const GlobalStyles = css`
   ${modernNormalizeCss}
