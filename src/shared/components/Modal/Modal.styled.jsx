@@ -48,7 +48,7 @@ export const Svg = styled.svg`
   padding: 3px;
   border-radius: 50%;
 
-  fill: ${props => props.theme.text};
+  fill: ${({ theme }) => theme.textPrimary};
   transition: backgrond-color 250ms ${({ theme }) => theme.cubic};
 
   &:hover,
