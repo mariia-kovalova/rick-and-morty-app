@@ -2,10 +2,9 @@ import styled from '@emotion/styled/macro';
 
 export const Text = styled.div`
   position: absolute;
-  top: -34%;
-  left: 7.5%;
+  top: -45px;
+  left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
 
   background-color: #333;
   color: #fff;
@@ -32,7 +31,13 @@ export const Text = styled.div`
 `;
 
 export const Trigger = styled.div`
-  &:hover + ${Text} {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover ${Text} {
     opacity: 1;
   }
 `;

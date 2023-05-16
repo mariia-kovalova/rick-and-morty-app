@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Text, Trigger } from './ToolTip.styled';
 
-export const Tooltip = ({ text, children }) => {
+export const Tooltip = ({ text, children, ariaLabel = 'tooltip' }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleTooltip = () => {
@@ -13,8 +13,8 @@ export const Tooltip = ({ text, children }) => {
     <>
       <Trigger onMouseEnter={toggleTooltip} onMouseLeave={toggleTooltip}>
         {children}
+        {isVisible && <Text aria-label={ariaLabel}>{text}</Text>}
       </Trigger>
-      {isVisible && <Text aria-label="Character name">{text}</Text>}
     </>
   );
 };
@@ -22,4 +22,5 @@ export const Tooltip = ({ text, children }) => {
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   text: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string,
 };
