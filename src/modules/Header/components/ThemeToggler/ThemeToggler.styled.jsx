@@ -6,6 +6,13 @@ export const ThemeIcon = styled.svg`
   height: 24px;
   width: 24px;
 
+  transition: transform 250ms ${({ theme }) => theme.cubic};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+
   @media (min-width: ${desktop}) {
     height: 32px;
     width: 32px;

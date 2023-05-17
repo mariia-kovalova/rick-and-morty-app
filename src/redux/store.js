@@ -21,7 +21,7 @@ import { locationsReducer } from './locations/slice';
 const persistConfig = {
   key: 'R&M',
   storage,
-  whitelist: ['library', 'theme'],
+  whitelist: ['library', 'theme', 'character', 'episode', 'location'],
 };
 
 const rootReducer = combineReducers({

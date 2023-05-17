@@ -120,7 +120,7 @@ export const Status = styled.div`
     background-color: ${getStatus};
     opacity: 0.5;
     border-radius: 50%;
-    animation: ${beam} 1.5s ease-in-out both;
+    animation: ${beam} 1.5s ease-in-out infinite;
   }
 `;
 

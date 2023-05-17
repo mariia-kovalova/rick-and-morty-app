@@ -24,6 +24,14 @@ export const CardWrap = styled(Link)`
   background: ${({ theme }) => theme.bgCharacterCard};
   border: 3px solid ${({ theme }) => theme.paginationAccent};
   border-radius: 4px;
+  transition: transform 250ms ${({ theme }) => theme.cubic},
+    color 250ms ${({ theme }) => theme.cubic};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    color: ${({ theme }) => theme.characterCardTexHover};
+  }
 
   @media screen and (min-width: ${desktop}) {
     padding: 60px 50px 30px 50px;

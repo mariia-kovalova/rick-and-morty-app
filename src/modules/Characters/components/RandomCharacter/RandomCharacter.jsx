@@ -5,6 +5,8 @@ import { RandomButton } from 'shared/components/RandomButton';
 import { getCharacterById } from 'redux/character/thunks';
 import { getRandomId } from 'shared/utils/getRandomId';
 import { useCharacters } from 'hooks/useCharacters';
+import { characters } from 'shared/constants/routes';
+import { useLocation } from 'react-router';
 import {
   CardWrap,
   Decoration,
@@ -15,14 +17,17 @@ import {
 } from './RandomCharacter.styled';
 import { CardLoader } from '../CardLoader/CardLoader';
 import { RandomCharacterInfo } from '../RandomCharacterInfo/RandomCharacterInfo';
-import { home } from 'shared/constants/routes';
 import sprite from 'shared/icons/sprite.svg';
 
+const FIRST_CHARACTER_ID = 1;
+
 export const RandomCharacter = () => {
+  const location = useLocation();
   const { info } = useCharacters();
   const { character, isLoading, error } = useCharacter();
+  const persisredCharacterId = character?.id;
 
-  const [id, setId] = useState(1);
+  const [id, setId] = useState(persisredCharacterId || FIRST_CHARACTER_ID);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +45,7 @@ export const RandomCharacter = () => {
   return (
     <Wrap>
       <Decoration>
-        <CardWrap to={home}>
+        <CardWrap to={`/${characters}/${id}`} state={{ from: location }}>
           {isLoading && <CardLoader />}
           {shouldShowCharacter && <RandomCharacterInfo character={character} />}
           {shouldShowError && <div>Oops, something went wrong...</div>}

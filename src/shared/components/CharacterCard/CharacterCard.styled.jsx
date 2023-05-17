@@ -36,6 +36,14 @@ export const StyledLink = styled(Link)`
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
+  transition: transform 250ms ${({ theme }) => theme.cubic},
+    color 250ms ${({ theme }) => theme.cubic};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    color: ${({ theme }) => theme.secondary};
+  }
 `;
 
 export const Img = styled.img`

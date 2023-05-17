@@ -2,10 +2,6 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled/macro';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
 
-export const Svg = styled.svg`
-  fill: ${({ theme }) => theme.bgPrimary};
-`;
-
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -13,7 +9,7 @@ const rotate = keyframes`
   to {
     transform: rotate(359deg);
   }
-  `;
+`;
 
 export const Button = styled.button`
   position: relative;
@@ -36,13 +32,16 @@ export const Button = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.bgPrimary};
+  transition: transform 250ms ${({ theme }) => theme.cubic},
+    color 250ms ${({ theme }) => theme.cubic};
 
   &:disabled {
     background-color: ${({ theme }) => theme.disabled};
   }
 
-  &:hover ${Svg} {
-    animation: ${rotate} 0.7s ${({ theme }) => theme.cubic} both;
+  &:hover {
+    transform: scale(1.05);
+    color: ${({ theme }) => theme.secondary};
   }
 
   &::before {
@@ -79,5 +78,15 @@ export const Button = styled.button`
   @media (min-width: ${desktop}) {
     width: 280px;
     font-size: 20px;
+  }
+`;
+
+export const Svg = styled.svg`
+  fill: ${({ theme }) => theme.bgPrimary};
+  transition: fill 250ms ${({ theme }) => theme.cubic};
+
+  ${Button}:hover & {
+    animation: ${rotate} 0.7s ${({ theme }) => theme.cubic} both;
+    fill: ${({ theme }) => theme.secondary};
   }
 `;

@@ -1,4 +1,8 @@
-import { home } from 'shared/constants/routes';
+import { characters } from 'shared/constants/routes';
+import { useLocation } from 'react-router';
+import { nameNormalize } from 'shared/utils/nameNormalize';
+import { spiecesNormalize } from 'shared/utils/spiecesNormalize';
+import { Tooltip } from '../ToolTip';
 import {
   Description,
   Img,
@@ -9,15 +13,13 @@ import {
   StyledLink,
   Wrap,
 } from './CharacterCard.styled';
-import { Tooltip } from '../ToolTip';
-import { nameNormalize } from 'shared/utils/nameNormalize';
-import { spiecesNormalize } from 'shared/utils/spiecesNormalize';
 
 export const CharacterCard = props => {
+  const location = useLocation();
   const { id, name, species, gender, status, image } = props;
 
   return (
-    <StyledLink to={home}>
+    <StyledLink to={`/${characters}/${id}`} state={{ from: location }}>
       <Img src={image} width="289" height="289" alt={name} loading="lazy" />
       <Wrap>
         <MainInfo>

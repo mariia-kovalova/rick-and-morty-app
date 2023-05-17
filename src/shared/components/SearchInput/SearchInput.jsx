@@ -9,7 +9,7 @@ export const SearchInput = ({ id, ...rest }) => {
           <use href={`${sprite}#icon-search-Icon`} />
         </Svg>
       </Label>
-      <Input {...rest} />
+      <Input id={id} {...rest} />
     </Wrap>
   );
 };
