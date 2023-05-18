@@ -70,6 +70,7 @@ export const LocationCard = styled.div`
     display: none;
 
     @media screen and (min-width: ${tablet}) {
+      display: block;
       content: '';
       position: absolute;
       top: -21px;
