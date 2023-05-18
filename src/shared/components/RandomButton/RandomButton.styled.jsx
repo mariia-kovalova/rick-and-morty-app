@@ -74,7 +74,6 @@ export const Button = styled.button`
     }
 
     @media (min-width: ${desktop}) {
-      /* width: 280px; */
       font-size: 20px;
     }
 

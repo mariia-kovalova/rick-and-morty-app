@@ -1,12 +1,17 @@
 import styled from '@emotion/styled';
-import { tablet } from 'shared/constants/deviceSizes';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 
 export const StyledDiv = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
+
+  @media (min-width: ${desktop}) {
+    flex-direction: row;
+  }
 `;
 
 export const Wrap = styled.div`
@@ -52,9 +57,14 @@ export const Input = styled.input`
   border-radius: 0 8px 8px 0;
   color: #212121;
   padding: 14px 10px 14px 0px;
-  width: 140px;
+  width: 200px;
 
   @media screen and (min-width: ${tablet}) {
+    padding: 20px 10px 20px 0;
+    width: 450px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
     padding: 20px 10px 20px 0;
     width: 300px;
   }
