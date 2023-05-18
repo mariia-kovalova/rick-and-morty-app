@@ -10,7 +10,7 @@ import {
   StyledDiv,
   Wrap,
 } from './LocationCard.styled';
-import { home } from 'shared/constants/routes';
+import { home, locations } from 'shared/constants/routes';
 import image from '../../../../shared/images/locationCard.jpg';
 import { useDispatch } from 'react-redux';
 
@@ -51,7 +51,9 @@ export const LocationCard = ({ location, resident }) => {
             Number of residents: <span>{location.residents.length}</span>
           </Name>
         </Infobox>
-        <ResidentsButton to={home}>Residents</ResidentsButton>
+        <ResidentsButton to={`/${locations}/${location.id}`}>
+          Residents
+        </ResidentsButton>
       </Description>
       <Wrap>
         <Number>#{location.id}</Number>
