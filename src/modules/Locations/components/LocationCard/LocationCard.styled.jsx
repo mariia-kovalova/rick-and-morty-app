@@ -25,6 +25,11 @@ export const StyledDiv = styled.div`
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
+  transition: transform 250ms ${({ theme }) => theme.cubic};
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const Status = styled.div`
