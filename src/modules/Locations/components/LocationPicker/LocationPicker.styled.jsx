@@ -122,17 +122,32 @@ export const LocationCardDetails = styled.div`
   margin-left: auto;
   margin-right: auto;
 
+  background-color: ${({ theme }) => theme.bgPrimaryTransparent};
+
+  transition: transform 300ms ${({ theme }) => theme.cubic},
+    background-color 300ms ${({ theme }) => theme.cubic};
+
   @media screen and (min-width: ${mobile}) {
     width: 250px;
     height: 250px;
+    &:hover {
+      background-color: ${({ theme }) => theme.bgPrimary};
+    }
+  }
+
+  @media screen and (min-width: ${tablet}) {
+    border-radius: 10px;
+
+    &:hover {
+      transform: scale(1.02);
+      background-color: ${({ theme }) => theme.bgPrimary};
+    }
   }
 
   @media screen and (min-width: ${desktop}) {
     width: 400px;
     height: 220px;
   }
-
-  background-color: ${({ theme }) => theme.bgPrimaryTransparent};
 `;
 
 export const StyledH3 = styled.h3`
@@ -153,6 +168,7 @@ export const StyledH3 = styled.h3`
   text-align: center;
   font-size: 22px;
   font-weight: 600;
+  color: ${({ theme }) => theme.textPrimary};
 
   background-color: #a3a3a3;
   border-radius: 5px;
@@ -166,6 +182,7 @@ export const Detail = styled.p`
   padding: 10px;
   font-size: 18px;
   font-weight: 600;
+  color: ${({ theme }) => theme.textPrimary};
 
   & span {
     display: inline;
