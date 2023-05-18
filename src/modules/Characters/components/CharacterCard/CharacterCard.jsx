@@ -2,17 +2,17 @@ import { characters } from 'shared/constants/routes';
 import { useLocation } from 'react-router';
 import { nameNormalize } from 'shared/utils/nameNormalize';
 import { spiecesNormalize } from 'shared/utils/spiecesNormalize';
-import { Tooltip } from '../ToolTip';
+import { Tooltip } from '../../../../shared/components/ToolTip';
 import {
   Description,
   Img,
   MainInfo,
   Name,
-  Number,
-  Status,
   StyledLink,
+  StyledNumber,
   Wrap,
 } from './CharacterCard.styled';
+import { CharacterStatus } from '../CharacterStatus/CharacterStatus';
 
 export const CharacterCard = props => {
   const location = useLocation();
@@ -23,15 +23,13 @@ export const CharacterCard = props => {
       <Img src={image} width="289" height="289" alt={name} loading="lazy" />
       <Wrap>
         <MainInfo>
-          <Tooltip text={status} ariaLabel="character status">
-            <Status marker={status} />
-          </Tooltip>
+          <CharacterStatus status={status} />
           <Name>{nameNormalize(name)}</Name>
         </MainInfo>
         <Description>
           {spiecesNormalize(species)} | {gender}
         </Description>
-        <Number>#{id}</Number>
+        <StyledNumber>#{id}</StyledNumber>
       </Wrap>
     </StyledLink>
   );

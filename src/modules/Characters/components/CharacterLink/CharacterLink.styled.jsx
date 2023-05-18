@@ -3,30 +3,23 @@ import { Link } from 'react-router-dom';
 
 export const StyledLink = styled(Link)`
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  display: block;
 
-  padding-left: 20px;
+  color: inherit;
+  transition: transform 250ms ${({ theme }) => theme.cubic},
+    color 250ms ${({ theme }) => theme.cubic};
 
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.25px;
-  text-decoration: none;
-  color: ${({ theme }) => theme.textPrimary};
-
-  :hover,
-  :focus {
-    color: ${({ theme }) => theme.accent};
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    color: ${({ theme }) => theme.characterCardTexHover};
   }
 `;
 
 export const Svg = styled.svg`
   position: absolute;
   top: 50%;
-  left: 0;
+  right: 0;
   transform: translate(0, -50%);
 
   padding: 1px;
@@ -36,6 +29,6 @@ export const Svg = styled.svg`
   transition: stroke 100ms ${({ theme }) => theme.cubic};
 
   ${StyledLink}:hover & {
-    stroke: ${({ theme }) => theme.accent};
+    stroke: ${({ theme }) => theme.characterCardTexHover};
   }
 `;

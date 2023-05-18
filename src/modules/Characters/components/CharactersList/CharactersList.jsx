@@ -1,4 +1,4 @@
-import { CharacterCard } from 'shared/components/CharacterCard';
+import { CharacterCard } from 'modules/Characters/components/CharacterCard';
 import { useCharacters } from 'hooks/useCharacters';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';

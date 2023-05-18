@@ -24,7 +24,7 @@ export const lightTheme = {
   disabled: 'rgba(159, 202, 212, 0.641)',
 
   alive: '#31d6b8',
-  dead: 'red',
+  dead: '#f07e96',
   unknown: 'grey',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -56,7 +56,7 @@ export const darkTheme = {
   disabled: 'rgba(109, 158, 149, 0.641)',
 
   alive: '#259c86',
-  dead: 'red',
+  dead: '#f07e96',
   unknown: 'grey',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',

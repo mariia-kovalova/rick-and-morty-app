@@ -1,4 +1,5 @@
 import { useCharacter } from 'hooks/useCharacter';
+import { CharacterBlock } from 'modules/Characters/components/CharacterBlock/CharacterBlock';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
@@ -22,6 +23,9 @@ const CharacterPage = () => {
     dispatch(getCharacterById(characterId));
   }, [characterId, dispatch]);
 
+  const shouldShowCharacter = character !== null && !error;
+  const shouldShowError = !isLoading && error;
+
   return (
     <>
       <Helmet>
@@ -37,9 +41,8 @@ const CharacterPage = () => {
         </Container>
       </Section>
       <Section>
-        <Container>
-          <div>{character?.name}</div>
-        </Container>
+        <Container>{shouldShowCharacter && <CharacterBlock />}</Container>
+        {shouldShowError && <div>Oops, something went wrong...</div>}
       </Section>
     </>
   );

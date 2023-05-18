@@ -7,17 +7,10 @@ import { getRandomId } from 'shared/utils/getRandomId';
 import { useCharacters } from 'hooks/useCharacters';
 import { characters } from 'shared/constants/routes';
 import { useLocation } from 'react-router';
-import {
-  CardWrap,
-  Decoration,
-  Randomazier,
-  RicksText,
-  SvgRick,
-  Wrap,
-} from './RandomCharacter.styled';
-import { CardLoader } from '../CardLoader/CardLoader';
-import { RandomCharacterInfo } from '../RandomCharacterInfo/RandomCharacterInfo';
-import sprite from 'shared/icons/sprite.svg';
+import { Randomazier, StyledLink, Wrap } from './RandomCharacter.styled';
+import { RickForRandomizer } from 'shared/components/RickForRandomizer';
+import { desktop } from 'shared/constants/deviceSizes';
+import { Character } from 'modules/Characters/components/Character/Character';
 
 const FIRST_CHARACTER_ID = 1;
 
@@ -30,6 +23,15 @@ export const RandomCharacter = () => {
   const [id, setId] = useState(persisredCharacterId || FIRST_CHARACTER_ID);
   const dispatch = useDispatch();
 
+  const { species, gender, origin, location: characterLocation } = character;
+
+  const characterInfo = [
+    { label: 'species', data: species },
+    { label: 'gender', data: gender },
+    { label: 'origin', data: origin.name },
+    { label: 'location', data: characterLocation.name },
+  ];
+
   useEffect(() => {
     dispatch(getCharacterById(id));
   }, [dispatch, id]);
@@ -39,25 +41,23 @@ export const RandomCharacter = () => {
     setId(randomId);
   };
 
-  const shouldShowCharacter = character !== null && !isLoading && !error;
-  const shouldShowError = !isLoading && error;
+  const shouldShowCharacter = character !== null && !error;
 
   return (
     <Wrap>
-      <Decoration>
-        <CardWrap to={`/${characters}/${id}`} state={{ from: location }}>
-          {isLoading && <CardLoader />}
-          {shouldShowCharacter && <RandomCharacterInfo character={character} />}
-          {shouldShowError && <div>Oops, something went wrong...</div>}
-        </CardWrap>
-      </Decoration>
+      <StyledLink to={`/${characters}/${id}`} state={{ from: location }}>
+        {shouldShowCharacter && (
+          <Character
+            character={character}
+            info={characterInfo}
+            isLoading={isLoading}
+          />
+        )}
+      </StyledLink>
       <Randomazier>
-        <SvgRick width="100" height="100">
-          <use href={`${sprite}#icons8-rick-sanchez`} />
-        </SvgRick>
-        <RicksText>Yeah, just get a random character ...whatever</RicksText>
+        <RickForRandomizer showOnDeviceWidth={desktop} />
         <RandomButton onClick={handleGetRandomCharacter} isLoading={isLoading}>
-          <span>Random Character</span>
+          Random Character
         </RandomButton>
       </Randomazier>
     </Wrap>
