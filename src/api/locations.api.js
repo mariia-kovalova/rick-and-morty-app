@@ -21,9 +21,9 @@ export const locations = {
 
     return data;
   },
-  getLocationsByFilter: async ({ name, dimension }) => {
+  getLocationsByFilter: async ({ name, type, dimension }) => {
     const { data } = await axios.get(`/location`, {
-      params: { name, dimension },
+      params: { name, type, dimension },
     });
 
     return data;

@@ -66,6 +66,17 @@ export const Button = styled.button`
   }
 
   &.locationBtn {
+    width: 230px;
+    @media (min-width: ${tablet}) {
+      width: 280px;
+      padding: 16px 23px;
+      font-size: 18px;
+    }
+
+    @media (min-width: ${desktop}) {
+      font-size: 20px;
+    }
+
     &::before {
       content: '';
       position: absolute;

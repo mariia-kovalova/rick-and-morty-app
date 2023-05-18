@@ -1,9 +1,9 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const flashing = keyframes`
- 0% {
-    background-color: ${({ theme }) => theme.paginationAccent};
+const flashing = ({ theme }) => keyframes`
+  0% {
+    background-color: ${theme.paginationAccent};
   }
   50%, 100% {
     background-color: rgba(152, 128, 255, 0.2);

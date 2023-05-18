@@ -1,10 +1,17 @@
 import styled from '@emotion/styled';
 
 export const StyledH2 = styled.h2`
-  margin-bottom: 30px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
 
-  text-align: center;
-  font-size: 40px;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 `;
 
 export const StyledUl = styled.ul`
@@ -13,4 +20,5 @@ export const StyledUl = styled.ul`
   gap: 25px;
 
   margin-bottom: 30px;
+  margin-top: 40px;
 `;

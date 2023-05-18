@@ -6,7 +6,7 @@ import {
 } from 'redux/location/selectors';
 import { selectLocationsInfo } from 'redux/locations/selectors';
 
-export const useLocation = () => {
+export const useOneLocation = () => {
   const info = useSelector(selectLocationsInfo);
   const location = useSelector(selectlocation);
   const isLoading = useSelector(selectlocationIsLoading);

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getLocationById } from 'redux/location/thunks';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectlocation,
-  selectlocationError,
-  selectlocationIsLoading,
-} from 'redux/location/selectors';
+import { useDispatch } from 'react-redux';
+
 import {
   LocationCard,
   LocationCardDetails,
@@ -20,14 +16,15 @@ import { getRandomLocation } from 'shared/utils/getRandomLocation';
 import sprite from '../../../../shared/icons/sprite.svg';
 import { RandomButton } from 'shared/components/RandomButton';
 import { CardLoader } from 'shared/components/CardLoader/CardLoader';
+import { useOneLocation } from 'hooks/useOneLocation';
+import { Link } from 'react-router-dom';
+import { home } from 'shared/constants/routes';
 
 export const LocationPicker = () => {
   const [locationID, setLocationID] = useState(1);
   const [backgroundNum, setBackgroundNum] = useState(1);
   const dispatch = useDispatch();
-  const location = useSelector(selectlocation);
-  const isLoading = useSelector(selectlocationIsLoading);
-  const error = useSelector(selectlocationError);
+  const { location, isLoading, error } = useOneLocation();
 
   // Random button click
   const handleRandomBtn = () => {
@@ -52,18 +49,20 @@ export const LocationPicker = () => {
         {isLoading && <CardLoader />}
         {shouldShowLocation && (
           <LocationCardDetails>
-            <StyledH3>{location.name}</StyledH3>
-            <Detail>
-              Dimension:
-              <p> {location.dimension}</p>
-            </Detail>
-            <Detail>
-              Type:<p> {location.type}</p>
-            </Detail>
-            <Detail>
-              Number of residents:
-              <p> {location.residents.length}</p>
-            </Detail>
+            <Link to={home}>
+              <StyledH3>{location.name}</StyledH3>
+              <Detail>
+                Dimension:
+                <span> {location.dimension}</span>
+              </Detail>
+              <Detail>
+                Type:<span> {location.type}</span>
+              </Detail>
+              <Detail>
+                Number of residents:
+                <span> {location.residents.length}</span>
+              </Detail>
+            </Link>
           </LocationCardDetails>
         )}
       </LocationCard>
@@ -77,6 +76,7 @@ export const LocationPicker = () => {
           className="locationBtn"
           type="button"
           onClick={handleRandomBtn}
+          isLoading={isLoading}
         >
           Random location
         </RandomButton>

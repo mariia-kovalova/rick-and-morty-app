@@ -16,7 +16,7 @@ const getStatus = ({ theme, marker }) => {
   }
 };
 
-export const StyledLink = styled(Link)`
+export const StyledDiv = styled.div`
   position: relative;
 
   display: block;
@@ -25,6 +25,11 @@ export const StyledLink = styled(Link)`
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
+  transition: transform 250ms ${({ theme }) => theme.cubic};
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const Status = styled.div`
@@ -115,7 +120,7 @@ export const Name = styled.p`
     font-size: 20px;
   }
 
-  & p {
+  & span {
     display: inline;
     margin-left: 7px;
 
@@ -191,11 +196,42 @@ export const ResidentsButton = styled(Link)`
   line-height: 1.5;
   letter-spacing: 0.15px;
   text-decoration: none;
-  color: ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.bgPrimary};
 
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.paginationAccent};
 
   border-radius: 5px;
+  transition: clip-path 250ms ${({ theme }) => theme.cubic},
+    color 250ms ${({ theme }) => theme.cubic};
+
+  clip-path: polygon(
+    12% 0%,
+    100% 0%,
+    100% 30%,
+    100% 60%,
+    88% 100%,
+    0% 100%,
+    0% 70%,
+    0% 40%
+  );
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.disabled};
+  }
+
+  &:hover {
+    clip-path: polygon(
+      0% 0%,
+      100% 0,
+      100% 0%,
+      100% 100%,
+      88% 100%,
+      0% 100%,
+      0% 70%,
+      0% 0%
+    );
+    color: ${({ theme }) => theme.secondary};
+  }
 
   @media screen and (min-width: ${mobile}) {
     z-index: 1;
