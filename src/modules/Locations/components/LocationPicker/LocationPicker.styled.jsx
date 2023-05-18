@@ -167,7 +167,7 @@ export const Detail = styled.p`
   font-size: 18px;
   font-weight: 600;
 
-  & p {
+  & span {
     display: inline;
     font-weight: 900;
     font-size: 20px;

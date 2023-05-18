@@ -16,7 +16,7 @@ const getStatus = ({ theme, marker }) => {
   }
 };
 
-export const StyledLink = styled(Link)`
+export const StyledDiv = styled.div`
   position: relative;
 
   display: block;
@@ -115,7 +115,7 @@ export const Name = styled.p`
     font-size: 20px;
   }
 
-  & p {
+  & span {
     display: inline;
     margin-left: 7px;
 

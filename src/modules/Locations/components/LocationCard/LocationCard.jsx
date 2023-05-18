@@ -7,7 +7,7 @@ import {
   Name,
   Number,
   ResidentsButton,
-  StyledLink,
+  StyledDiv,
   Wrap,
 } from './LocationCard.styled';
 import { home } from 'shared/constants/routes';
@@ -28,7 +28,7 @@ export const LocationCard = ({ location, resident }) => {
   }, [dispatch, resident]);
 
   return (
-    <StyledLink to={home}>
+    <StyledDiv>
       <Description>
         <ImgWrap>
           <Img
@@ -42,13 +42,13 @@ export const LocationCard = ({ location, resident }) => {
         <Infobox>
           <Name className="location-card__name">{location.name}</Name>
           <Name>
-            Type: <p>{location.type}</p>
+            Type: <span>{location.type}</span>
           </Name>
           <Name>
-            Dimension: <p>{location.dimension}</p>
+            Dimension: <span>{location.dimension}</span>
           </Name>
           <Name>
-            Number of residents: <p>{location.residents.length}</p>
+            Number of residents: <span>{location.residents.length}</span>
           </Name>
         </Infobox>
         <ResidentsButton to={home}>Residents</ResidentsButton>
@@ -56,6 +56,6 @@ export const LocationCard = ({ location, resident }) => {
       <Wrap>
         <Number>#{location.id}</Number>
       </Wrap>
-    </StyledLink>
+    </StyledDiv>
   );
 };

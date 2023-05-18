@@ -20,14 +20,16 @@ import { getRandomLocation } from 'shared/utils/getRandomLocation';
 import sprite from '../../../../shared/icons/sprite.svg';
 import { RandomButton } from 'shared/components/RandomButton';
 import { CardLoader } from 'shared/components/CardLoader/CardLoader';
+import { useOneLocation } from 'hooks/useOneLocation';
 
 export const LocationPicker = () => {
   const [locationID, setLocationID] = useState(1);
   const [backgroundNum, setBackgroundNum] = useState(1);
   const dispatch = useDispatch();
-  const location = useSelector(selectlocation);
-  const isLoading = useSelector(selectlocationIsLoading);
-  const error = useSelector(selectlocationError);
+  const { location, isLoading, error } = useOneLocation();
+  // const location = useSelector(selectlocation);
+  // const isLoading = useSelector(selectlocationIsLoading);
+  // const error = useSelector(selectlocationError);
 
   // Random button click
   const handleRandomBtn = () => {
@@ -55,14 +57,14 @@ export const LocationPicker = () => {
             <StyledH3>{location.name}</StyledH3>
             <Detail>
               Dimension:
-              <p> {location.dimension}</p>
+              <span> {location.dimension}</span>
             </Detail>
             <Detail>
-              Type:<p> {location.type}</p>
+              Type:<span> {location.type}</span>
             </Detail>
             <Detail>
               Number of residents:
-              <p> {location.residents.length}</p>
+              <span> {location.residents.length}</span>
             </Detail>
           </LocationCardDetails>
         )}
@@ -77,6 +79,7 @@ export const LocationPicker = () => {
           className="locationBtn"
           type="button"
           onClick={handleRandomBtn}
+          isLoading={isLoading}
         >
           Random location
         </RandomButton>
