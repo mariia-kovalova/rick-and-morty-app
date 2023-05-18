@@ -191,11 +191,42 @@ export const ResidentsButton = styled(Link)`
   line-height: 1.5;
   letter-spacing: 0.15px;
   text-decoration: none;
-  color: ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.bgPrimary};
 
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.paginationAccent};
 
   border-radius: 5px;
+  transition: clip-path 250ms ${({ theme }) => theme.cubic},
+    color 250ms ${({ theme }) => theme.cubic};
+
+  clip-path: polygon(
+    12% 0%,
+    100% 0%,
+    100% 30%,
+    100% 60%,
+    88% 100%,
+    0% 100%,
+    0% 70%,
+    0% 40%
+  );
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.disabled};
+  }
+
+  &:hover {
+    clip-path: polygon(
+      0% 0%,
+      100% 0,
+      100% 0%,
+      100% 100%,
+      88% 100%,
+      0% 100%,
+      0% 70%,
+      0% 0%
+    );
+    color: ${({ theme }) => theme.secondary};
+  }
 
   @media screen and (min-width: ${mobile}) {
     z-index: 1;
