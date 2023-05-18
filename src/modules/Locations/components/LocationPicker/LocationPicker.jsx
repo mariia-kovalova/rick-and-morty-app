@@ -14,12 +14,12 @@ import {
   StyledH3,
   Detail,
   LocationChoose,
-  StyledButton,
   Paragraph,
 } from './LocationPicker.styled';
 import { getRandomLocation } from 'shared/utils/getRandomLocation';
 import sprite from '../../../../shared/icons/sprite.svg';
-import { CardLoader } from 'modules/Characters/components/CardLoader/CardLoader';
+import { RandomButton } from 'shared/components/RandomButton';
+import { CardLoader } from 'shared/components/CardLoader/CardLoader';
 
 export const LocationPicker = () => {
   const [locationID, setLocationID] = useState(1);
@@ -73,9 +73,13 @@ export const LocationPicker = () => {
         </svg>
         <Paragraph>Yeah, just go to the random location ...whatever</Paragraph>
 
-        <StyledButton type="button" onClick={handleRandomBtn}>
+        <RandomButton
+          className="locationBtn"
+          type="button"
+          onClick={handleRandomBtn}
+        >
           Random location
-        </StyledButton>
+        </RandomButton>
       </LocationChoose>
     </StyledDiv>
   );

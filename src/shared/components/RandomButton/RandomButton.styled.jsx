@@ -64,6 +64,45 @@ export const Button = styled.button`
     width: 280px;
     font-size: 20px;
   }
+
+  &.locationBtn {
+    &::before {
+      content: '';
+      position: absolute;
+      top: -21px;
+      left: -20.6px;
+      transform: rotate(0deg);
+
+      width: 0px;
+      height: 0px;
+
+      background-color: ${({ theme }) => theme.bgPrimary};
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -21px;
+      right: -20.6px;
+      transform: rotate(0deg);
+
+      width: 0px;
+      height: 0px;
+
+      background-color: ${({ theme }) => theme.bgPrimary};
+    }
+
+    clip-path: polygon(
+      10% 0%,
+      100% 0%,
+      100% 30%,
+      100% 60%,
+      90% 100%,
+      0% 100%,
+      0% 70%,
+      0% 40%
+    );
+  }
 `;
 
 export const Svg = styled.svg`
