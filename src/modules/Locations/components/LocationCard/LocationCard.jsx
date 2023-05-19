@@ -10,7 +10,7 @@ import {
   StyledDiv,
   Wrap,
 } from './LocationCard.styled';
-import { home, locations } from 'shared/constants/routes';
+import { locations } from 'shared/constants/routes';
 import image from '../../../../shared/images/locationCard.jpg';
 import { useDispatch } from 'react-redux';
 
