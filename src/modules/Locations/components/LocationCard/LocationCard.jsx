@@ -13,11 +13,12 @@ import {
 import { locations } from 'shared/constants/routes';
 import image from '../../../../shared/images/locationCard.jpg';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router';
 
-export const LocationCard = ({ location, resident }) => {
+export const LocationCard = ({ location, resident, showResidentsBtn }) => {
   const [residentImage, setResidentImage] = useState(image);
-
   const dispatch = useDispatch();
+  const locationPath = useLocation();
 
   useEffect(() => {
     if (resident) {
@@ -51,9 +52,14 @@ export const LocationCard = ({ location, resident }) => {
             Number of residents: <span>{location.residents.length}</span>
           </Name>
         </Infobox>
-        <ResidentsButton to={`/${locations}/${location.id}`}>
-          Residents
-        </ResidentsButton>
+        {showResidentsBtn && (
+          <ResidentsButton
+            to={`/${locations}/${location.id}`}
+            state={{ from: locationPath }}
+          >
+            Residents
+          </ResidentsButton>
+        )}
       </Description>
       <Wrap>
         <Number>#{location.id}</Number>

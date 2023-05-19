@@ -1,24 +1,37 @@
 import { useOneLocation } from 'hooks/useOneLocation';
 import { LocationCard } from 'modules/Locations/components/LocationCard/LocationCard';
+import { ResidentList } from 'modules/Locations/components/Residents/ResidentList';
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useParams } from 'react-router';
+import { selectCharactersItems } from 'redux/characters/selectors';
+import { getCharactersByIds } from 'redux/characters/thunks';
 import { getLocationById } from 'redux/location/thunks';
+import { GoBackLink } from 'shared/components/GoBackLink/GoBackLink';
+import { home } from 'shared/constants/routes';
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
 import { nameNormalize } from 'shared/utils/nameNormalize';
 
 const LocationPage = () => {
   const params = useParams();
-  console.log(params);
-
   const dispatch = useDispatch();
   const { location, isLoading, error } = useOneLocation();
+
+  const locationPath = useLocation();
+
+  const path = locationPath.state?.from ?? home;
 
   useEffect(() => {
     dispatch(getLocationById(params.locationId));
   }, [dispatch, params]);
+
+  useEffect(() => {
+    const residentsID = location.residents.map(resident => resident.slice(42));
+
+    dispatch(getCharactersByIds(residentsID));
+  }, [dispatch, location]);
 
   const shouldShowLocation = location !== null && !isLoading && !error;
 
@@ -33,12 +46,22 @@ const LocationPage = () => {
       </Helmet>
       <Section>
         <Container>
+          <GoBackLink to={path} />
+        </Container>
+      </Section>
+      <Section>
+        <Container>
           {shouldShowLocation && (
             <LocationCard
               location={location}
               resident={location.residents[0]}
             />
           )}
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <ResidentList />
         </Container>
       </Section>
     </>

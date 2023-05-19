@@ -15,6 +15,8 @@ export const LocationsList = () => {
   const locations = useSelector(selectLocationsItems);
   const locationsInfo = useSelector(selectLocationsInfo);
 
+  const showResidentsBtn = true;
+
   useEffect(() => {
     dispatch(getLocations(page));
   }, [dispatch, page]);
@@ -29,6 +31,7 @@ export const LocationsList = () => {
               <LocationCard
                 location={location}
                 resident={location.residents[0]}
+                showResidentsBtn={showResidentsBtn}
               />
             </li>
           ))}

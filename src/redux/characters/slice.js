@@ -25,7 +25,7 @@ export const slice = createSlice({
       })
       .addMatcher(isAnyOf(...getActions('fulfilled')), (state, { payload }) => {
         state.info = payload?.info || null;
-        state.items = payload.results;
+        state.items = payload;
         state.isLoading = false;
         state.error = null;
       }),
