@@ -22,7 +22,11 @@ export const CharacterCard = props => {
   return (
     <StyledLink to={`/${characters}/${id}`} state={{ from: location }}>
       <HeartWrap>
-        <Heart isFavourire={false} libraryListName="favouriteCharacters" />
+        <Heart
+          id={id}
+          isFavourire={false}
+          libraryListName="favouriteCharacters"
+        />
       </HeartWrap>
       <Img src={image} width="289" height="289" alt={name} loading="lazy" />
       <Wrap>
