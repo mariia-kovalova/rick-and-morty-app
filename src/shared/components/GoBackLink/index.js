@@ -1,0 +1,1 @@
+export { GoBackLink } from './GoBackLink';

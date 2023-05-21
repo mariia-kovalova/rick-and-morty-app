@@ -5,7 +5,7 @@ import {
   selectEpisodeIsLoading,
 } from 'redux/episode/selectors';
 
-export const useEpisode = () => {
+export const useOneEpisode = () => {
   const episode = useSelector(selectEpisode);
   const isLoading = useSelector(selectEpisodeIsLoading);
   const error = useSelector(selectEpisodeError);

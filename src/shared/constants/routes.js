@@ -6,6 +6,7 @@ export const ROUTES = {
   locations: 'locations',
   location: 'locations/:locationId',
   episodes: 'episodes',
+  episode: 'episodes/:episodeId',
   library: 'library',
   all: '*',
 };
@@ -18,6 +19,7 @@ export const {
   locations,
   location,
   episodes,
+  episode,
   library,
   all,
 } = ROUTES;

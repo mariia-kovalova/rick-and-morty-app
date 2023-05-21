@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useCharacters } from 'hooks/useCharacters';
 import { useDispatch } from 'react-redux';
-import { getCharacters, getCharactersByFilter } from 'redux/characters/thunks';
+import { getCharactersByFilter } from 'redux/characters/thunks';
 import { getDefaultValues } from 'shared/utils/getDefaultValues';
 import { Pagination } from 'shared/components/Pagination';
 import { Loader } from 'shared/components/Loader';
 import { CardsList } from 'shared/components/CardsList';
 import { CharacterCard } from 'modules/Characters/components/CharacterCard';
+import { ResultsNotFound } from 'shared/components/ResultsNotFound';
 
 export const PARAMS_ARR = ['name', 'status', 'gender'];
 
@@ -27,7 +28,8 @@ export const CharactersList = () => {
   }, [dispatch, page, searchParams]);
 
   const shouldRenderList = characters.length > 0 && !error;
-  const shouldShowError = !isLoading && error;
+  const shouldShowError = !isLoading && error && error.status !== 404;
+  const shouldShowNotFoundError = !isLoading && error && error.status === 404;
   const shouldRenderPagination =
     !error && characters.length > 0 && info?.pages > 1;
 
@@ -45,6 +47,7 @@ export const CharactersList = () => {
         />
       )}
       {shouldShowError && <div>Oops, something went wrong </div>}
+      {shouldShowNotFoundError && <ResultsNotFound />}
     </>
   );
 };

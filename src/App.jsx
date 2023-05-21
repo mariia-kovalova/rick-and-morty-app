@@ -1,14 +1,15 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router';
 import {
-  all,
+  home,
   character,
   characters,
-  episodes,
-  home,
-  library,
   location,
   locations,
+  episodes,
+  episode,
+  library,
+  all,
 } from 'shared/constants/routes';
 import { Layout } from 'modules/Layout';
 
@@ -20,6 +21,7 @@ const CharacterPage = lazy(() => import('pages/CharacterPage/CharacterPage'));
 const LocationsPage = lazy(() => import('pages/LocationsPage/LocationsPage'));
 const LocationPage = lazy(() => import('pages/LocationPage/LocationPage'));
 const EpisodesPage = lazy(() => import('pages/EpisodesPage/EpisodesPage'));
+const EpisodePage = lazy(() => import('pages/EpisodePage/EpisodePage'));
 const LibraryPage = lazy(() => import('pages/LibraryPage/LibraryPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
@@ -33,6 +35,7 @@ export const App = () => {
         <Route path={locations} element={<LocationsPage />} />
         <Route path={location} element={<LocationPage />} />
         <Route path={episodes} element={<EpisodesPage />} />
+        <Route path={episode} element={<EpisodePage />} />
         <Route path={library} element={<LibraryPage />} />
         <Route path={all} element={<NotFoundPage />} />
       </Route>

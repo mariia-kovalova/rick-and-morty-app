@@ -3,8 +3,10 @@ import { useLocation } from 'react-router';
 import { nameNormalize } from 'shared/utils/nameNormalize';
 import { spiecesNormalize } from 'shared/utils/spiecesNormalize';
 import { CharacterStatus } from '../CharacterStatus/CharacterStatus';
+import { Heart } from 'shared/components/Heart';
 import {
   Description,
+  HeartWrap,
   Img,
   MainInfo,
   Name,
@@ -19,6 +21,9 @@ export const CharacterCard = props => {
 
   return (
     <StyledLink to={`/${characters}/${id}`} state={{ from: location }}>
+      <HeartWrap>
+        <Heart isFavourire={false} libraryListName="favouriteCharacters" />
+      </HeartWrap>
       <Img src={image} width="289" height="289" alt={name} loading="lazy" />
       <Wrap>
         <MainInfo>

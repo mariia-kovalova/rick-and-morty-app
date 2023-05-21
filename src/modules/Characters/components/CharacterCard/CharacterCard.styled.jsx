@@ -21,6 +21,15 @@ export const StyledLink = styled(Link)`
   }
 `;
 
+export const HeartWrap = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  width: 30px;
+  height: 30px;
+`;
+
 export const Img = styled.img`
   border-radius: inherit;
 `;

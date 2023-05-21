@@ -27,6 +27,8 @@ export const lightTheme = {
   dead: '#f07e96',
   unknown: 'grey',
 
+  bgcHeartTransparent: 'rgba(0, 0, 0, 0.2)',
+
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };
 
@@ -58,6 +60,8 @@ export const darkTheme = {
   alive: '#259c86',
   dead: '#f07e96',
   unknown: 'grey',
+
+  bgcHeartTransparent: '#ffffff',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };

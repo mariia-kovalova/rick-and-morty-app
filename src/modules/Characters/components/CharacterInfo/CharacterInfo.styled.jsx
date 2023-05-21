@@ -41,6 +41,21 @@ export const MainInfo = styled.div`
   }
 `;
 
+export const HeartWrap = styled.div`
+  position: absolute;
+  top: -13%;
+  left: 3%;
+  z-index: 1;
+
+  width: 30px;
+  height: 30px;
+
+  @media screen and (min-width: ${tablet}) {
+    top: -10%;
+    left: 220%;
+  }
+`;
+
 export const StyledNumber = styled(Number)`
   position: absolute;
   top: -16%;

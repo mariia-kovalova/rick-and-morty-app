@@ -23,7 +23,7 @@ export const slice = createSlice({
       })
       .addCase(getLocationById.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
+        state.error = payload.response;
       }),
 });
 export const locationReducer = slice.reducer;

@@ -21,7 +21,7 @@ export const slice = createSlice({
       })
       .addMatcher(isAnyOf(...getActions('rejected')), (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
+        state.error = payload.response;
       })
       .addMatcher(isAnyOf(...getActions('fulfilled')), (state, { payload }) => {
         state.info = payload?.info || null;
