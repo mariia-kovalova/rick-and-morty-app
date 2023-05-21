@@ -1,31 +1,30 @@
-import { useEpisode } from 'hooks/useEpisode';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getEpisodeById } from 'redux/episode/thunks';
-
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
-import Card from './components/EpisodeCard/EpisodeCard';
-import EpisodeCardInfo from './components/EpisodCardInfo/EpisodeCardInfo';
-// import wave from '../../shared/icons/wave.gif';
+
+import { SearchEpisodes } from './components/SearchEpisodes/SearchEpisodes';
+import EpisodeCardList from './components/EpisodeCardList/EpisodeCardList';
+import Episode from './components/Episode/Episode';
+
+// import EpisodeCard from './components/EpisodeCard/EpisodeCard';
 
 export const Episodes = () => {
-  const { episode, isLoading, error } = useEpisode();
-  const dispatchFunc = useDispatch();
-  // console.log(episode)
-  useEffect(() => {
-    dispatchFunc(getEpisodeById(1));
-  }, []);
-
   return (
-    <Section>
-      <Container>
-        {episode && <EpisodeCardInfo episode={episode} />}
-        <Card>
-          <img src="" alt="" />
-        </Card>
-        <button>Random Episod</button>
-      </Container>
-    </Section>
+    <>
+      <Section>
+        <Container>
+          <Episode/>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <SearchEpisodes />
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <EpisodeCardList />
+        </Container>
+      </Section>
+    </>
   );
 };

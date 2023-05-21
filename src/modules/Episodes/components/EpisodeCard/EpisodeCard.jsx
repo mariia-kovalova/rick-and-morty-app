@@ -1,11 +1,22 @@
-import { EpisodeCard } from "./EpisodeCard.styled"; 
+import { CardWrapper, ImgWrap } from './EpisodeCard.styled';
+import jpg from '../../../../shared/images/locationCard.jpg';
+import EpisodeCardInfo from '../EpisodCardInfo/EpisodeCardInfo';
 
-const Card = ({children}) => {
-    return (
-        <EpisodeCard >
-            {children}
-        </EpisodeCard>
-    )
-}
+const EpisodeCard = ({episode}) => {
+  const { name, air_date, episode: number } = episode;
+  return (
+    <CardWrapper>
+      <ImgWrap>
+        <img src={jpg} alt="" />
+      </ImgWrap>
+      <EpisodeCardInfo 
+        name={name}
+        date={air_date}
+        namber={number}
+      />
+      <div></div>
+    </CardWrapper>
+  );
+};
 
-export default Card;
+export default EpisodeCard;

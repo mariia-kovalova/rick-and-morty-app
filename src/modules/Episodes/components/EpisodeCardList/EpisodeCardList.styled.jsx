@@ -31,6 +31,5 @@ export const CardWrapper = styled.div`
 export const ImgWrap = styled.div`
   height: 260px;
   width: 260px;
-  /* border: 2px solid rgba(178, 218, 228, 0.9); */
-  border: 3px solid #7dd3e8;
+  border: 2px solid rgba(178, 218, 228, 0.9);
 `;
