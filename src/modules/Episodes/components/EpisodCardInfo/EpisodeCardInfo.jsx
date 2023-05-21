@@ -1,22 +1,27 @@
-import { FlexCard } from '../../Episodes.styled';
-import { TextInfo } from '../EpisodeCard/EpisodeCard.styled';
+import { FlexInfo } from '../../Episodes.styled';
+import { TextInfo } from '../WrapperCard/WrapperCard.styled';
 
-
-const EpisodeCardInfo = ({ episode }) => {
-  const { name, air_date, episode: number } = episode;
+const EpisodeCardInfo = ({ name, date, number}) => {
+  // const { name, air_date, episode: number } = episode;
   console.log(name);
   return (
-    <FlexCard>
+    <FlexInfo>
       <TextInfo>
-        <h3>Episode name: {name}</h3>
+        <h3>
+          Episode name: <span>{name}</span>
+        </h3>
       </TextInfo>
       <TextInfo>
-        <p>Air date: {air_date}</p>
+        <h3>
+          Episode: <span>{number}</span>
+        </h3>
       </TextInfo>
       <TextInfo>
-        <p>Episode: {number}</p>
+        <h3>
+          Air date: <span>{date}</span>
+        </h3>
       </TextInfo>
-    </FlexCard>
+    </FlexInfo>
   );
 };
 
