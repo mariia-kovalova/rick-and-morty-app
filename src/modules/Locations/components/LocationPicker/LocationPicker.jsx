@@ -17,14 +17,15 @@ import sprite from '../../../../shared/icons/sprite.svg';
 import { RandomButton } from 'shared/components/RandomButton';
 import { CardLoader } from 'shared/components/CardLoader/CardLoader';
 import { useOneLocation } from 'hooks/useOneLocation';
-import { Link } from 'react-router-dom';
-import { home } from 'shared/constants/routes';
+import { Link, useLocation } from 'react-router-dom';
+import { locations } from 'shared/constants/routes';
 
 export const LocationPicker = () => {
   const [locationID, setLocationID] = useState(1);
   const [backgroundNum, setBackgroundNum] = useState(1);
   const dispatch = useDispatch();
   const { location, isLoading, error } = useOneLocation();
+  const locationPath = useLocation();
 
   // Random button click
   const handleRandomBtn = () => {
@@ -49,7 +50,10 @@ export const LocationPicker = () => {
         {isLoading && <CardLoader />}
         {shouldShowLocation && (
           <LocationCardDetails>
-            <Link to={home}>
+            <Link
+              to={`/${locations}/${location.id}`}
+              state={{ from: locationPath }}
+            >
               <StyledH3>{location.name}</StyledH3>
               <Detail>
                 Dimension:
