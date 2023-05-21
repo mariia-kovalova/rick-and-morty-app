@@ -11,16 +11,16 @@ import EpisodeCardInfo from '../EpisodCardInfo/EpisodeCardInfo';
 
 const Episode = () => {
   const [image, setImage] = useState(images[0].image);
-  const {episode} = useOneEpisode()
+  const { episode, isLoading } = useOneEpisode();
   const dispatchFunc = useDispatch();
-  
+
   useEffect(() => {
     dispatchFunc(getEpisodeById(1));
   }, [dispatchFunc]);
 
   const handleRandomEpisode = () => {
     //рандомное число
-    const randomId = getRandomIndex(images.length );
+    const randomId = getRandomIndex(images.length);
     setImage(images[randomId].image);
   };
   return (
@@ -38,7 +38,9 @@ const Episode = () => {
           <use href={`${sprite}#icons8-rick-sanchez`} />
         </svg>
         <p>Yeah, just go to the random episode ...whatever</p>
-        <RandomButton onClick={handleRandomEpisode}>Random Episod</RandomButton>
+        <RandomButton onClick={handleRandomEpisode} isLoading={isLoading}>
+          Random Episode
+        </RandomButton>
       </div>
     </WrapperCard>
   );
