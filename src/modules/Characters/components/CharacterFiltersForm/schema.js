@@ -6,13 +6,11 @@ import {
   genderless,
   genderunknown,
 } from 'shared/constants/characterGender';
-
-const latinRegex = /^[a-zA-Z]+$/;
-const nameLatinLettersMessage = 'You can use latin letters only';
+import { message, regex } from 'shared/constants/serchInput';
 
 export const schema = Yup.object({
-  name: Yup.string().matches(latinRegex, {
-    message: nameLatinLettersMessage,
+  name: Yup.string().matches(regex, {
+    message: message,
     excludeEmptyString: true,
   }),
   status: Yup.string().oneOf([alive, dead, unknown, '']),

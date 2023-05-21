@@ -1,11 +1,9 @@
+import { message, regex } from 'shared/constants/serchInput';
 import * as Yup from 'yup';
 
-const latinRegex = /^[a-zA-Z]+$/;
-const nameLatinLettersMessage = 'You can use latin letters only';
-
 export const schema = Yup.object({
-  name: Yup.string().matches(latinRegex, {
-    message: nameLatinLettersMessage,
+  name: Yup.string().matches(regex, {
+    message: message,
     excludeEmptyString: true,
   }),
 });
