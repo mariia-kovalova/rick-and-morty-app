@@ -22,16 +22,11 @@ export const CharactersFilter = () => {
   const {
     register,
     formState: { errors },
-    getFieldState,
   } = useForm({
     defaultValues: { name: searchParams.get(input.inputName) ?? '' },
     resolver: yupResolver(schema),
     mode: 'onChange',
   });
-
-  const { invalid } = getFieldState(input.inputName);
-
-  console.log(invalid);
 
   const handleSearch = debounce(async name => {
     if (name.trim() === '') {
@@ -39,7 +34,7 @@ export const CharactersFilter = () => {
       setSearchParams(searchParams);
       return;
     }
-
+    if (errors[input.inputName]) return;
     setSearchParams({ name, ...searchParams });
   }, 300);
 
@@ -48,17 +43,14 @@ export const CharactersFilter = () => {
   return (
     <>
       <Wrap>
-        <form>
-          <SearchInput
-            id={input.id}
-            type="text"
-            inputName={input.inputName}
-            register={register}
-            errors={errors}
-            onChange={e => handleSearch(e.target.value)}
-            placeholder="Filter by name..."
-          />
-        </form>
+        <SearchInput
+          id={input.id}
+          inputName={input.inputName}
+          register={register}
+          errors={errors}
+          onChange={e => handleSearch(e.target.value)}
+          placeholder="Filter by name..."
+        />
         <AvancedFilters type="button" onClick={handleToggleModal}>
           <Svg width="30" height="30">
             <use href={`${sprite}#icon-filter-solid`} />
