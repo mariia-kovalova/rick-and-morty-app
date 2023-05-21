@@ -10,8 +10,8 @@ export const IconBtn = styled.button`
 
 const getColor = ({
   isFavourire,
-  theme: { hightlightTransparent, bgcHeartTransparent },
-}) => (isFavourire ? hightlightTransparent : bgcHeartTransparent);
+  theme: { hightlight, bgcHeartTransparent },
+}) => (isFavourire ? hightlight : bgcHeartTransparent);
 
 export const Svg = styled.svg`
   stroke: ${getColor};

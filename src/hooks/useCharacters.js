@@ -11,9 +11,10 @@ import { selectFavCharactersIds } from 'redux/library/selectors';
 const selectTweetWithIsFollowing = createSelector(
   [selectCharactersItems, selectFavCharactersIds],
   (characters, ids) => {
+    console.log(ids);
     return characters.map(character => ({
       ...character,
-      isFavourite: ids.includes(character.id),
+      isFavourire: ids.includes(character.id),
     }));
   }
 );

@@ -18,12 +18,16 @@ import { favcharacters } from 'shared/constants/libaryListName';
 
 export const CharacterCard = props => {
   const location = useLocation();
-  const { id, name, species, gender, status, image } = props;
+  const { id, name, species, gender, status, image, isFavourire } = props;
 
   return (
     <StyledLink to={`/${characters}/${id}`} state={{ from: location }}>
       <HeartWrap>
-        <Heart id={id} isFavourire={false} libraryListName={favcharacters} />
+        <Heart
+          id={id}
+          isFavourire={isFavourire}
+          libraryListName={favcharacters}
+        />
       </HeartWrap>
       <Img src={image} width="289" height="289" alt={name} loading="lazy" />
       <Wrap>

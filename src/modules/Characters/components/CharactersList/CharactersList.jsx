@@ -7,8 +7,8 @@ import { getDefaultValues } from 'shared/utils/getDefaultValues';
 import { Pagination } from 'shared/components/Pagination';
 import { Loader } from 'shared/components/Loader';
 import { CardsList } from 'shared/components/CardsList';
-import { CharacterCard } from 'modules/Characters/components/CharacterCard';
 import { ResultsNotFound } from 'shared/components/ResultsNotFound';
+import { CharacterCard } from '../CharacterCard';
 
 export const PARAMS_ARR = ['name', 'status', 'gender'];
 
