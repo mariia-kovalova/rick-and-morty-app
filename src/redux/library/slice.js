@@ -9,7 +9,7 @@ import {
 } from 'shared/constants/libaryListName';
 
 const initialState = {
-  library: {
+  lib: {
     [favcharacters]: [],
     [favepisodes]: [],
     [favlocations]: [],
@@ -23,17 +23,17 @@ export const slice = createSlice({
   name: 'library',
   initialState,
   reducers: {
-    addToLibrary: (state, { payload }) => {
-      state.library[payload.listName] = [
-        ...state.library[payload.listName],
+    addToLibrary(state, { payload }) {
+      state.lib[payload.libraryListName] = [
+        ...state.lib[payload.libraryListName],
         payload.id,
       ];
     },
-    removeFromLibrary: (state, { payload }) => {
-      const index = state.library[payload.listName].findIndex(
+    removeFromLibrary(state, { payload }) {
+      const index = state.lib[payload.libraryListName].findIndex(
         id => id === payload.id
       );
-      state.library[payload.listName].splice(index, 1);
+      state.lib[payload.libraryListName].splice(index, 1);
     },
   },
 });

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 export const Heart = ({ id, isFavourire, libraryListName }) => {
   const [isFav, setIsFav] = useState(isFavourire);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(addToLibrary({ id, libraryListName }));
   }, [dispatch, id, libraryListName]);
