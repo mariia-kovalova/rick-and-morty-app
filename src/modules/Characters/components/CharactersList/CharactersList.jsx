@@ -1,20 +1,30 @@
-import { CharacterCard } from 'modules/Characters/components/CharacterCard';
-import { useCharacters } from 'hooks/useCharacters';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useCharacters } from 'hooks/useCharacters';
 import { useDispatch } from 'react-redux';
-import { getCharacters } from 'redux/characters/thunks';
+import { getCharacters, getCharactersByFilter } from 'redux/characters/thunks';
+import { getDefaultValues } from 'shared/utils/getDefaultValues';
 import { Pagination } from 'shared/components/Pagination';
 import { Loader } from 'shared/components/Loader';
 import { CardsList } from 'shared/components/CardsList';
+import { CharacterCard } from 'modules/Characters/components/CharacterCard';
+
+export const PARAMS_ARR = ['name', 'status', 'gender'];
 
 export const CharactersList = () => {
+  const [searchParams] = useSearchParams();
   const { info, characters, isLoading, error } = useCharacters();
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCharacters(page));
-  }, [dispatch, page]);
+    dispatch(
+      getCharactersByFilter({
+        page,
+        ...getDefaultValues(PARAMS_ARR, searchParams),
+      })
+    );
+  }, [dispatch, page, searchParams]);
 
   const shouldRenderList = characters.length > 0 && !error;
   const shouldShowError = !isLoading && error;

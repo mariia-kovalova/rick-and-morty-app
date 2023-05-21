@@ -1,7 +1,8 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/react';
-import { desktop, tablet } from 'shared/constants/deviceSizes';
+import { tablet } from 'shared/constants/deviceSizes';
 import { Number } from 'shared/styles/components/Number.styled';
+import { StyledLink } from '../RandomCharacter/RandomCharacter.styled';
 
 const shine = keyframes`
    0% {
@@ -42,12 +43,19 @@ export const MainInfo = styled.div`
 
 export const StyledNumber = styled(Number)`
   position: absolute;
-  top: -18%;
+  top: -16%;
   right: 0;
   z-index: 1;
 
+  transition: color 250ms ${({ theme }) => theme.cubic};
+
   @media screen and (min-width: ${tablet}) {
+    top: -12%;
     right: -167%;
+  }
+
+  ${StyledLink}:hover & {
+    color: ${({ theme }) => theme.paginationAccent};
   }
 `;
 
@@ -60,18 +68,19 @@ export const NameWrap = styled.div`
 export const Img = styled.img`
   position: relative;
   z-index: 2;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 6px;
-
-  @media screen and (min-width: ${desktop}) {
-    margin-bottom: 20px;
-  }
 `;
 
 export const Name = styled.span`
   font-style: normal;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
   letter-spacing: 0.15px;
+  transition: color 250ms ${({ theme }) => theme.cubic};
+
+  ${StyledLink}:hover & {
+    color: ${({ theme }) => theme.characterCardTexHover};
+  }
 `;

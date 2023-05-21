@@ -5,6 +5,7 @@ export const Text = styled.div`
   top: -45px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1000;
 
   background-color: #333;
   color: #fff;

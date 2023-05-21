@@ -5,6 +5,7 @@ export const CardDecoration = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
+  min-height: fit-content;
   margin: 0 auto;
 
   @media screen and (min-width: ${desktop}) {

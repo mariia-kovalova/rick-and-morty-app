@@ -2,7 +2,7 @@ import { characters } from 'shared/constants/routes';
 import { useLocation } from 'react-router';
 import { nameNormalize } from 'shared/utils/nameNormalize';
 import { spiecesNormalize } from 'shared/utils/spiecesNormalize';
-import { Tooltip } from '../../../../shared/components/ToolTip';
+import { CharacterStatus } from '../CharacterStatus/CharacterStatus';
 import {
   Description,
   Img,
@@ -12,7 +12,6 @@ import {
   StyledNumber,
   Wrap,
 } from './CharacterCard.styled';
-import { CharacterStatus } from '../CharacterStatus/CharacterStatus';
 
 export const CharacterCard = props => {
   const location = useLocation();

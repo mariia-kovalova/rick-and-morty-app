@@ -19,8 +19,9 @@ export const Button = styled.button`
   column-gap: 10px;
 
   padding: 14px 28px;
-  width: 100%;
-  height: 60px;
+  margin: 0 auto;
+  width: 230px;
+  height: 45px;
 
   background-color: ${({ theme }) => theme.paginationAccent};
   border-radius: 4px;
@@ -28,21 +29,13 @@ export const Button = styled.button`
 
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.bgPrimary};
   transition: transform 250ms ${({ theme }) => theme.cubic},
+    clip-path 250ms ${({ theme }) => theme.cubic},
     color 250ms ${({ theme }) => theme.cubic};
-
-  &:disabled {
-    background-color: ${({ theme }) => theme.disabled};
-  }
-
-  &:hover {
-    transform: scale(1.05);
-    color: ${({ theme }) => theme.secondary};
-  }
 
   clip-path: polygon(
     10% 0%,
@@ -55,27 +48,34 @@ export const Button = styled.button`
     0% 40%
   );
 
+  &:disabled {
+    background-color: ${({ theme }) => theme.disabled};
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    color: ${({ theme }) => theme.secondary};
+    clip-path: polygon(
+      0% 0%,
+      100% 0,
+      100% 0%,
+      100% 100%,
+      88% 100%,
+      0% 100%,
+      0% 70%,
+      0% 0%
+    );
+  }
+
   @media (min-width: ${tablet}) {
     padding: 16px 23px;
+    width: 280px;
+    height: 60px;
     font-size: 18px;
   }
 
   @media (min-width: ${desktop}) {
-    width: 280px;
     font-size: 20px;
-  }
-
-  &.locationBtn {
-    width: 230px;
-    @media (min-width: ${tablet}) {
-      width: 280px;
-      padding: 16px 23px;
-      font-size: 18px;
-    }
-
-    @media (min-width: ${desktop}) {
-      font-size: 20px;
-    }
   }
 `;
 

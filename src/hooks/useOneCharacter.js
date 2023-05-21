@@ -5,7 +5,7 @@ import {
   selectCharacter,
 } from 'redux/character/selectors';
 
-export const useCharacter = () => {
+export const useOneCharacter = () => {
   const character = useSelector(selectCharacter);
   const isLoading = useSelector(selectCharacterIsLoading);
   const error = useSelector(selectCharacterError);

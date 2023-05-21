@@ -18,13 +18,11 @@ export const StyledLink = styled(Link)`
   width: 100%;
 
   color: inherit;
-  transition: transform 250ms ${({ theme }) => theme.cubic},
-    color 250ms ${({ theme }) => theme.cubic};
+  transition: transform 250ms ${({ theme }) => theme.cubic};
 
   &:hover,
   &:focus {
     transform: scale(1.05);
-    color: ${({ theme }) => theme.characterCardTexHover};
   }
 `;
 

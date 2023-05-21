@@ -25,9 +25,9 @@ export const slice = createSlice({
       })
       .addMatcher(isAnyOf(...getActions('fulfilled')), (state, { payload }) => {
         state.isLoading = false;
-        state.error = null;
         state.info = payload?.info || null;
-        state.items = payload.results;
+        state.items = payload?.results || payload;
+        state.error = null;
       }),
 });
 export const locationsReducer = slice.reducer;

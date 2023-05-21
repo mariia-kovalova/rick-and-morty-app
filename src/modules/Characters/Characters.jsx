@@ -1,7 +1,7 @@
 import { Section } from 'shared/styles/components/Section.styled';
 import { Container } from 'shared/styles/components/Container.styled';
 import { RandomCharacter } from './components/RandomCharacter/RandomCharacter';
-import { Filter } from './components/Filter/Filter';
+import { CharactersFilter } from './components/CharactersFilter/CharactersFilter';
 import { CharactersList } from './components/CharactersList/CharactersList';
 import { FilterSection, StyledH1 } from './Characters.styled';
 
@@ -16,7 +16,7 @@ export const Characters = () => {
       </Section>
       <FilterSection>
         <Container>
-          <Filter />
+          <CharactersFilter />
         </Container>
       </FilterSection>
       <Section>

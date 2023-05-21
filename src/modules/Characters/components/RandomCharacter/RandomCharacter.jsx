@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useCharacter } from 'hooks/useCharacter';
+import { useOneCharacter } from 'hooks/useOneCharacter';
 import { useDispatch } from 'react-redux';
 import { RandomButton } from 'shared/components/RandomButton';
 import { getCharacterById } from 'redux/character/thunks';
@@ -17,19 +17,19 @@ const FIRST_CHARACTER_ID = 1;
 export const RandomCharacter = () => {
   const location = useLocation();
   const { info } = useCharacters();
-  const { character, isLoading, error } = useCharacter();
-  const persisredCharacterId = character?.id;
-
-  const [id, setId] = useState(persisredCharacterId || FIRST_CHARACTER_ID);
+  const { character, isLoading, error } = useOneCharacter();
+  const [id, setId] = useState(character?.id ?? FIRST_CHARACTER_ID);
   const dispatch = useDispatch();
 
-  const { species, gender, origin, location: characterLocation } = character;
-
   const characterInfo = [
-    { label: 'species', data: species },
-    { label: 'gender', data: gender },
-    { label: 'origin', data: origin.name },
-    { label: 'location', data: characterLocation.name },
+    { label: 'full name', data: character !== null ? character.name : '' },
+    { label: 'species', data: character !== null ? character.species : '' },
+    { label: 'gender', data: character !== null ? character.gender : '' },
+    { label: 'origin', data: character !== null ? character.origin.name : '' },
+    {
+      label: 'location',
+      data: character !== null ? character.location.name : '',
+    },
   ];
 
   useEffect(() => {

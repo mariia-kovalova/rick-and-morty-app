@@ -1,7 +1,7 @@
 const CHARACTER_GENDER = {
-  female: 'Female',
-  male: 'Male',
-  genderless: 'Genderless',
+  female: 'female',
+  male: 'male',
+  genderless: 'genderless',
   genderunknown: 'unknown',
 };
 

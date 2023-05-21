@@ -35,9 +35,7 @@ export const MobileInfoDecoration = styled(CardDecoration)`
   }
 `;
 
-export const CharacterCardWrap = styled(CardWrap)`
-  min-height: 376px;
-
+export const CharacterInfoWrap = styled(CardWrap)`
   &::before {
     top: -18px;
     left: -18.6px;

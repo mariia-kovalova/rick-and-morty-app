@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfoList, Item, Label } from './CharacterInfoList.styled';
+import { Data, InfoList, Item, Label } from './CharacterInfoList.styled';
 import { CharacterLink } from '../CharacterLink/CharacterLink';
 
 export const CharacterInfoList = ({ info, links = [], isMobile = false }) => {
@@ -8,7 +8,7 @@ export const CharacterInfoList = ({ info, links = [], isMobile = false }) => {
       {info.map(({ label, data }) => (
         <Item key={`${label}${isMobile && 'mobile'}`}>
           <Label>{label}</Label>
-          <p>{data}</p>
+          <Data>{data}</Data>
         </Item>
       ))}
       {links.length > 0 &&
@@ -16,7 +16,7 @@ export const CharacterInfoList = ({ info, links = [], isMobile = false }) => {
           <Item key={`${label}${isMobile && 'mobile'}`}>
             <CharacterLink to={path}>
               <Label>{label}</Label>
-              <p>{data}</p>
+              <Data>{data}</Data>
             </CharacterLink>
           </Item>
         ))}

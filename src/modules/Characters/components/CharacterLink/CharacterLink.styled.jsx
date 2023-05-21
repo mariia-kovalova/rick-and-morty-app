@@ -26,7 +26,7 @@ export const Svg = styled.svg`
 
   fill: transparent;
   stroke: ${({ theme }) => theme.textPrimary};
-  transition: stroke 100ms ${({ theme }) => theme.cubic};
+  transition: stroke 250ms ${({ theme }) => theme.cubic};
 
   ${StyledLink}:hover & {
     stroke: ${({ theme }) => theme.characterCardTexHover};

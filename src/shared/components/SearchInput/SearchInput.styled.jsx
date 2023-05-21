@@ -1,9 +1,5 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { tablet } from 'shared/constants/deviceSizes';
-
-export const Wrap = styled.div`
-  display: flex;
-`;
 
 export const Label = styled.label`
   position: relative;
@@ -36,6 +32,15 @@ export const Svg = styled.svg`
   }
 `;
 
+export const Wrap = styled.div`
+  position: relative;
+  display: flex;
+
+  &:hover ${Svg} {
+    transform: translate(-40%, -40%);
+  }
+`;
+
 export const Input = styled.input`
   background-color: #fff;
   outline: none;
@@ -56,7 +61,17 @@ export const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
-
     color: grey;
   }
+`;
+
+export const Error = styled.p`
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
 `;

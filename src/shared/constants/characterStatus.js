@@ -1,6 +1,6 @@
 const CHARACTER_STATUS = {
-  alive: 'Alive',
-  dead: 'Dead',
+  alive: 'alive',
+  dead: 'dead',
   unknown: 'unknown',
 };
 
