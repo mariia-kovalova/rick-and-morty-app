@@ -4,13 +4,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
 import { getDefaultValues } from 'shared/utils/getDefaultValues';
 import { fieldsArr, radioFieldsArr } from './inputs';
-import { nanoid } from '@reduxjs/toolkit';
-
-import { SearchInput } from 'shared/components/SearchInput';
 import { RadioBtnField } from '../RadioBtnField/RadioBtnField';
 import { getCleanValues } from 'shared/utils/getCleanValues';
-
-const nameId = nanoid();
+import {
+  Btn,
+  BtnsItem,
+  BtnsList,
+  FormTittle,
+  List,
+  ListTittle,
+  ListWrap,
+} from './CharacterFiltersForm.styled';
+import { getValuesForReset } from 'shared/utils/getValuesForReset';
 
 export const CharacterFiltersForm = ({ onCloseModal }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,7 +23,7 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
     register,
     reset,
     handleSubmit,
-    formState: { isDirty, errors, isSubmitting },
+    formState: { isDirty, isSubmitting },
   } = useForm({
     defaultValues: getDefaultValues(fieldsArr, searchParams),
     resolver: yupResolver(schema),
@@ -30,33 +35,51 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <SearchInput
-        id={nameId}
-        type="text"
-        inputName="name"
-        register={register}
-        errors={errors}
-        placeholder="Filter by name..."
-      />
-      {radioFieldsArr.map((item, index) => (
-        <ul key={index}>
-          {item.map(field => (
-            <li key={field.id}>
-              <RadioBtnField {...field} register={register} />
-            </li>
-          ))}
-        </ul>
-      ))}
-      <button type="submit" disabled={!isDirty || isSubmitting}>
-        Apply filters
-      </button>
-      <button type="button" onClick={() => reset()}>
-        Reset filters
-      </button>
-      <button type="button" onClick={() => onCloseModal()}>
-        Cancel
-      </button>
-    </form>
+    <>
+      <FormTittle>filter</FormTittle>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {radioFieldsArr.map(({ tittle, arr }, index) => (
+          <ListWrap key={tittle}>
+            <ListTittle>{tittle}</ListTittle>
+            <List key={index}>
+              {arr.map(field => (
+                <li key={field.id}>
+                  <RadioBtnField {...field} register={register} />
+                </li>
+              ))}
+            </List>
+          </ListWrap>
+        ))}
+        <BtnsList>
+          <BtnsItem>
+            <Btn
+              className="apply"
+              type="submit"
+              disabled={!isDirty || isSubmitting}
+            >
+              Apply filters
+            </Btn>
+          </BtnsItem>
+          <BtnsItem>
+            <Btn
+              className="reset"
+              type="button"
+              onClick={() => reset(getValuesForReset(fieldsArr))}
+            >
+              Reset filters
+            </Btn>
+          </BtnsItem>
+          <BtnsItem>
+            <Btn
+              className="cancel"
+              type="button"
+              onClick={() => onCloseModal()}
+            >
+              Cancel
+            </Btn>
+          </BtnsItem>
+        </BtnsList>
+      </form>
+    </>
   );
 };

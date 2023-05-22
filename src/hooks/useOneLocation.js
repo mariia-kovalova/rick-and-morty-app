@@ -1,19 +1,28 @@
+import { createSelector } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
+import { selectFavCharactersIds } from 'redux/library/selectors';
 import {
-  selectlocation,
-  selectlocationError,
-  selectlocationIsLoading,
+  selectLocation,
+  selectLocationError,
+  selectLocationIsLoading,
 } from 'redux/location/selectors';
-import { selectLocationsInfo } from 'redux/locations/selectors';
+
+const selectLocationWithIsFav = createSelector(
+  [selectLocation, selectFavCharactersIds],
+  (location, ids) => {
+    return {
+      ...location,
+      isFavourite: ids.includes(location.id),
+    };
+  }
+);
 
 export const useOneLocation = () => {
-  const info = useSelector(selectLocationsInfo);
-  const location = useSelector(selectlocation);
-  const isLoading = useSelector(selectlocationIsLoading);
-  const error = useSelector(selectlocationError);
+  const location = useSelector(selectLocationWithIsFav);
+  const isLoading = useSelector(selectLocationIsLoading);
+  const error = useSelector(selectLocationError);
 
   return {
-    info,
     location,
     isLoading,
     error,

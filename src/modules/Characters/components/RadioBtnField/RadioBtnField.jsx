@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
+import { Input, Label } from './RadioBtnField.styled';
 
 export const RadioBtnField = ({ id, inputName, value, label, register }) => {
   return (
-    <div>
-      <input id={id} type="radio" value={value} {...register(inputName)} />
-      <label htmlFor={id}>{label}</label>
-    </div>
+    <>
+      <Input id={id} type="radio" value={value} {...register(inputName)} />
+      <Label htmlFor={id}>{label}</Label>
+    </>
   );
 };
 

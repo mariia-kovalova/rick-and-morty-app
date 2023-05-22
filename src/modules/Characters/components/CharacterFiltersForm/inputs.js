@@ -78,5 +78,8 @@ const radioFieldsGenderArr = [
   },
 ];
 
-export const radioFieldsArr = [radioFieldsStatusArr, radioFieldsGenderArr];
-export const fieldsArr = ['name', 'status', 'gender'];
+export const radioFieldsArr = [
+  { tittle: 'status', arr: radioFieldsStatusArr },
+  { tittle: 'gender', arr: radioFieldsGenderArr },
+];
+export const fieldsArr = ['status', 'gender'];

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { dark } from 'shared/constants/theme';
 
 export const Overlay = styled.div`
   position: fixed;
@@ -12,7 +13,7 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1200;
 `;
 
@@ -23,6 +24,7 @@ export const ModalWindow = styled.div`
 
   background: ${({ theme }) => theme.bgPrimary};
   box-shadow: 0px 4px 16px ${({ theme }) => theme.boxShadow};
+  border: 2px solid ${({ theme }) => theme.borderModal};
   border-radius: 8px;
 `;
 
@@ -53,6 +55,6 @@ export const Svg = styled.svg`
 
   &:hover,
   &:focus {
-    background-color: rgba(17, 17, 17, 0.1);
+    background-color: ${({ theme }) => theme.bgcHoverFocus};
   }
 `;

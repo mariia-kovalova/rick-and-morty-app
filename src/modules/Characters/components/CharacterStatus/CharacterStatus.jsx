@@ -1,4 +1,3 @@
-import React from 'react';
 import { Tooltip } from 'shared/components/ToolTip';
 import { Status } from './CharacterStatus.styled';
 
