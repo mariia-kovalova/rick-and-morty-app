@@ -41,6 +41,11 @@ export const MainInfo = styled.div`
   }
 `;
 
+const getColor = ({
+  isFavourite,
+  theme: { hightlight, bgcHeartTransparent },
+}) => (isFavourite ? hightlight : bgcHeartTransparent);
+
 export const HeartWrap = styled.div`
   position: absolute;
   top: -13%;
@@ -53,6 +58,11 @@ export const HeartWrap = styled.div`
   @media screen and (min-width: ${tablet}) {
     top: -10%;
     left: 220%;
+  }
+
+  & svg {
+    stroke: ${getColor};
+    fill: ${getColor};
   }
 `;
 

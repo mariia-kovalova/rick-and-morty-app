@@ -5,7 +5,7 @@ import { CharacterInfo } from '../CharacterInfo/CharacterInfo';
 import { useOneCharacter } from 'hooks/useOneCharacter';
 
 export const Character = ({ ...rest }) => {
-  const { isLoading } = useOneCharacter();
+  const { isLoading, character } = useOneCharacter();
   return (
     <>
       <CardDecoration>
@@ -14,7 +14,7 @@ export const Character = ({ ...rest }) => {
             <CardLoader />
           ) : (
             <>
-              <CharacterInfo {...rest} />
+              <CharacterInfo character={character} {...rest} />
             </>
           )}
         </CharacterCardWrap>
