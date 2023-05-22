@@ -11,9 +11,12 @@ import {
 } from './CharacterInfo.styled';
 import { Heart } from 'shared/components/Heart';
 import { favcharacters } from 'shared/constants/libaryListName';
+import { useOneCharacter } from 'hooks/useOneCharacter';
 
-export const CharacterInfo = ({ info = [], links = [], character }) => {
-  const { id, name, status, image, isFavourire } = character;
+export const CharacterInfo = ({ info = [], links = [] }) => {
+  const {
+    character: { id, name, status, image, isFavourite },
+  } = useOneCharacter();
 
   return (
     <>
@@ -21,7 +24,7 @@ export const CharacterInfo = ({ info = [], links = [], character }) => {
         <HeartWrap>
           <Heart
             id={id}
-            isFavourire={isFavourire}
+            isFavourite={isFavourite}
             libraryListName={favcharacters}
           />
         </HeartWrap>

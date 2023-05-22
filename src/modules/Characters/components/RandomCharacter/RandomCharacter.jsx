@@ -46,13 +46,7 @@ export const RandomCharacter = () => {
   return (
     <Wrap>
       <StyledLink to={`/${characters}/${id}`} state={{ from: location }}>
-        {shouldShowCharacter && (
-          <Character
-            character={character}
-            info={characterInfo}
-            isLoading={isLoading}
-          />
-        )}
+        {shouldShowCharacter && <Character info={characterInfo} />}
       </StyledLink>
       <Randomazier>
         <RickForRandomizer showOnDeviceWidth={desktop} />

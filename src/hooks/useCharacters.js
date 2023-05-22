@@ -8,20 +8,19 @@ import {
 } from 'redux/characters/selectors';
 import { selectFavCharactersIds } from 'redux/library/selectors';
 
-const selectTweetWithIsFollowing = createSelector(
+const selectCharactersWithIsFav = createSelector(
   [selectCharactersItems, selectFavCharactersIds],
   (characters, ids) => {
-    console.log(ids);
     return characters.map(character => ({
       ...character,
-      isFavourire: ids.includes(character.id),
+      isFavourite: ids.includes(character.id),
     }));
   }
 );
 
 export const useCharacters = () => {
   const info = useSelector(selectCharactersInfo);
-  const characters = useSelector(selectTweetWithIsFollowing);
+  const characters = useSelector(selectCharactersWithIsFav);
   const isLoading = useSelector(selectCharactersIsLoading);
   const error = useSelector(selectCharactersError);
 

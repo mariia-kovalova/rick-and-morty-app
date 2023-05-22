@@ -28,12 +28,7 @@ export const CharacterBlock = () => {
 
   return (
     <Wrap>
-      <Character
-        character={character}
-        info={info}
-        links={links}
-        isLoading={isLoading}
-      />
+      <Character info={info} links={links} />
       <MobileInfoDecoration>
         <CharacterInfoWrap>
           {isLoading ? (

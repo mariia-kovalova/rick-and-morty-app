@@ -1,12 +1,22 @@
+import { createSelector } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 import {
   selectCharacterError,
   selectCharacterIsLoading,
   selectCharacter,
 } from 'redux/character/selectors';
+import { selectFavCharactersIds } from 'redux/library/selectors';
+
+const selectCharacterWithIsFav = createSelector(
+  [selectCharacter, selectFavCharactersIds],
+  (character, ids) => ({
+    ...character,
+    isFavourite: ids.includes(character.id),
+  })
+);
 
 export const useOneCharacter = () => {
-  const character = useSelector(selectCharacter);
+  const character = useSelector(selectCharacterWithIsFav);
   const isLoading = useSelector(selectCharacterIsLoading);
   const error = useSelector(selectCharacterError);
 
