@@ -44,30 +44,33 @@ export const BtnsList = styled.ul`
   flex-wrap: wrap;
   gap: 5px;
 
-  max-width: 220px;
+  width: 220px;
   margin: 20px auto;
 
   @media (min-width: ${tablet}) {
-    max-width: 100%;
+    width: 320px;
   }
 `;
 
 export const BtnsItem = styled.li`
   &:nth-of-type(1) {
-    @media (max-width: ${tablet}) {
-      flex-basis: 100%;
-    }
+    flex-basis: 100%;
+  }
+  &:nth-of-type(2) {
+    flex-basis: calc(60% - 5px);
+  }
+  &:nth-of-type(3) {
+    flex-basis: calc(40%);
   }
 `;
 
 export const Btn = styled(BaseButton)`
   padding: 10px 18px;
-  transition: border-color 250ms ${({ theme }) => theme.cubic};
+
+  width: 100%;
 
   &.apply {
-    @media (max-width: ${tablet}) {
-      width: 100%;
-    }
+    width: 100%;
   }
 
   &.reset {

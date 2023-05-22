@@ -10,6 +10,7 @@ import { SearchInput } from 'shared/components/SearchInput';
 import { AvancedFilters, Svg, Wrap } from './CharactersFilter.styled';
 import { CharacterFiltersForm } from '../CharacterFiltersForm/CharacterFiltersForm';
 import sprite from 'shared/icons/sprite.svg';
+import { Tooltip } from 'shared/components/ToolTip';
 
 const searchInput = {
   id: nanoid(),
@@ -54,9 +55,11 @@ export const CharactersFilter = () => {
           placeholder="Filter by name..."
         />
         <AvancedFilters type="button" onClick={handleToggleModal}>
-          <Svg width="30" height="30">
-            <use href={`${sprite}#icon-filter-solid`} />
-          </Svg>
+          <Tooltip text="advanced filters" ariaLabel="advanced filters">
+            <Svg width="30" height="30">
+              <use href={`${sprite}#icon-filter-solid`} />
+            </Svg>
+          </Tooltip>
         </AvancedFilters>
       </Wrap>
       {showModal && (

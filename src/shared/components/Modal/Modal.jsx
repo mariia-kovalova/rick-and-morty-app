@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { Button, ModalWindow, Overlay, Svg } from './Modal.styled';
 import sprite from 'shared/icons/sprite.svg';
+import { Tooltip } from '../ToolTip';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -28,9 +29,11 @@ export const Modal = ({ children, onCloseModal }) => {
     <Overlay onClick={handleOverlayClick}>
       <ModalWindow>
         <Button type="button" onClick={() => onCloseModal()}>
-          <Svg width="20" height="20">
-            <use href={`${sprite}#icon-x-close`} />
-          </Svg>
+          <Tooltip text="close modal window" ariaLabel="close modal window">
+            <Svg width="20" height="20">
+              <use href={`${sprite}#icon-x-close`} />
+            </Svg>
+          </Tooltip>
         </Button>
         {children}
       </ModalWindow>

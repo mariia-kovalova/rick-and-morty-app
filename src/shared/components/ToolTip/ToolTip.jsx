@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Text, Trigger } from './ToolTip.styled';
 
-export const Tooltip = ({ text, children, ariaLabel = 'tooltip' }) => {
+export const Tooltip = ({ text, ariaLabel = 'tooltip', children }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleTooltip = () => {

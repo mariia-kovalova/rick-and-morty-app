@@ -15,16 +15,24 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
+  cursor: pointer;
   display: block;
   padding: 5px;
 
   text-transform: capitalize;
   border: 3px solid ${({ theme }) => theme.disabled};
   color: ${({ theme }) => theme.disabled};
-  transition: color 250ms ${({ theme }) => theme.cubic},
+  transition: transform 250ms ${({ theme }) => theme.cubic},
+    color 250ms ${({ theme }) => theme.cubic},
     border-color 250ms ${({ theme }) => theme.cubic};
 
   ${Input}:checked + & {
+    color: ${({ theme }) => theme.characterCardTextAccent};
+    border: 3px solid ${({ theme }) => theme.characterCardTextAccent};
+  }
+
+  &:hover {
+    transform: scale(1.05);
     color: ${({ theme }) => theme.characterCardTextAccent};
     border: 3px solid ${({ theme }) => theme.characterCardTextAccent};
   }

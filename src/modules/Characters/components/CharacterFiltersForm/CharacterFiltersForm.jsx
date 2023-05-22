@@ -52,11 +52,7 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
         ))}
         <BtnsList>
           <BtnsItem>
-            <Btn
-              className="apply"
-              type="submit"
-              disabled={!isDirty || isSubmitting}
-            >
+            <Btn type="submit" disabled={!isDirty || isSubmitting}>
               Apply filters
             </Btn>
           </BtnsItem>

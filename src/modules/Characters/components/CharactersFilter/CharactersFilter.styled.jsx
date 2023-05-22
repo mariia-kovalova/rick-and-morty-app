@@ -2,6 +2,7 @@ import styled from '@emotion/styled/macro';
 
 export const Wrap = styled.div`
   display: flex;
+  justify-content: center;
   gap: 20px;
 
   margin: 0 auto;

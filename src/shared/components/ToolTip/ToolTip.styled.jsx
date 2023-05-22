@@ -7,6 +7,9 @@ export const Text = styled.div`
   transform: translateX(-50%);
   z-index: 1000;
 
+  height: fit-content;
+  width: fit-content;
+
   background-color: #333;
   color: #fff;
   padding: 8px;
@@ -16,6 +19,7 @@ export const Text = styled.div`
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
+  ${({ castomCss }) => castomCss}
 
   &::before {
     content: '';

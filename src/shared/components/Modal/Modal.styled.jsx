@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { dark } from 'shared/constants/theme';
 
 export const Overlay = styled.div`
   position: fixed;
