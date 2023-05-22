@@ -12,7 +12,7 @@ const selectEpisodeWithIsFav = createSelector(
   (episode, ids) => {
     return {
       ...episode,
-      isFavourite: ids.includes(episode.id),
+      isFavourite: ids.includes(episode?.id) ?? false,
     };
   }
 );

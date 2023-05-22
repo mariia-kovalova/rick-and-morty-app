@@ -12,7 +12,7 @@ const selectLocationWithIsFav = createSelector(
   (location, ids) => {
     return {
       ...location,
-      isFavourite: ids.includes(location.id),
+      isFavourite: ids.includes(location?.id) ?? false,
     };
   }
 );

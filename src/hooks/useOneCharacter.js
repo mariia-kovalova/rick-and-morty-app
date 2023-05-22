@@ -12,7 +12,7 @@ const selectCharacterWithIsFav = createSelector(
   (character, ids) => {
     return {
       ...character,
-      isFavourite: ids.includes(character.id),
+      isFavourite: ids.includes(character?.id) ?? false,
     };
   }
 );

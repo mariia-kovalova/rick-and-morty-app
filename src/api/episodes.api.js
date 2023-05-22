@@ -21,9 +21,9 @@ export const episodes = {
 
     return data;
   },
-  getEpisodesByFilter: async ({ name, episode }) => {
+  getEpisodesByFilter: async ({ page, name, episode }) => {
     const { data } = await axios.get(`/episode`, {
-      params: { name, episode },
+      params: { page, name, episode },
     });
 
     return data;
