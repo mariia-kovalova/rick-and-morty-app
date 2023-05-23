@@ -10,6 +10,7 @@ import { selectFavCharactersIds } from 'redux/library/selectors';
 const selectCharacterWithIsFav = createSelector(
   [selectCharacter, selectFavCharactersIds],
   (character, ids) => {
+    if (!character) return null;
     return {
       ...character,
       isFavourite: ids.includes(character?.id) ?? false,

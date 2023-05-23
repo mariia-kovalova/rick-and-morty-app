@@ -1,6 +1,7 @@
 import styled from '@emotion/styled/macro';
 import { BasicWrapper } from 'modules/Episodes/Episodes.styled';
 import { Link } from 'react-router-dom';
+import { tablet } from 'shared/constants/deviceSizes';
 import { Number } from 'shared/styles/components/Number.styled';
 import { getHeartColor } from 'shared/utils/getHeartColor';
 
@@ -44,10 +45,15 @@ export const StyledNumber = styled(Number)`
   bottom: 5px;
   right: 20px;
 
+  font-size: 24px;
   transition: color 250ms ${({ theme }) => theme.cubic};
 
   ${StyledLink}:hover & {
     color: ${({ theme }) => theme.characterCardTextAccent};
+  }
+
+  @media screen and (min-width: ${tablet}) {
+    font-size: 30px;
   }
 `;
 

@@ -10,6 +10,7 @@ import {
 const selectLocationWithIsFav = createSelector(
   [selectLocation, selectFavEpisodesIds],
   (location, ids) => {
+    if (!location) return null;
     return {
       ...location,
       isFavourite: ids.includes(location?.id) ?? false,

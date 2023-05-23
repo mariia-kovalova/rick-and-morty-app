@@ -11,12 +11,12 @@ import { getRandomId } from 'shared/utils/getRandomId';
 import { Episode } from '../Episode/Episode';
 import { episodes } from 'shared/constants/routes';
 import { RickForRandomizer } from 'shared/components/RickForRandomizer';
-import { tablet } from 'shared/constants/deviceSizes';
-import { Link } from 'react-router-dom';
+import { desktop } from 'shared/constants/deviceSizes';
 import {
   RandomEpisodeDecor,
   RandomEpisodeWrap,
   Randomizer,
+  StyledLink,
 } from './RandomEpisode.styled';
 
 const FIRST_EPISODE_ID = 1;
@@ -45,11 +45,11 @@ export const RandomEpisode = () => {
   return (
     <RandomEpisodeDecor>
       <RandomEpisodeWrap>
-        <Link to={`/${episodes}/${id}`} state={{ from: location }}>
+        <StyledLink to={`/${episodes}/${id}`} state={{ from: location }}>
           {shouldShowEpisode && <Episode image={image} />}
-        </Link>
+        </StyledLink>
         <Randomizer>
-          <RickForRandomizer showOnDeviceWidth={tablet} />
+          <RickForRandomizer showOnDeviceWidth={desktop} />
           <RandomButton onClick={handleRandomEpisode} isLoading={isLoading}>
             Random Episode
           </RandomButton>

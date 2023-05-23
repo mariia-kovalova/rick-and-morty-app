@@ -10,7 +10,9 @@ export const Episode = ({ image }) => {
 
   return (
     <Wrap>
-      <StyledNumber>Episode #{id}</StyledNumber>
+      <StyledNumber>
+        <span>Episode </span>#{id}
+      </StyledNumber>
       <HeartWrap isFavourite={isFavourite}>
         <Heart
           id={id}
