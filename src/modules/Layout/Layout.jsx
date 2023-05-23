@@ -1,5 +1,5 @@
-// import { Footer } from 'modules/Footer';
-// import { Header } from 'modules/Header';
+import { Footer } from 'modules/Footer';
+import { Header } from 'modules/Header';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 import { Wrap, Main } from './Layout.styled';
@@ -7,13 +7,13 @@ import { Wrap, Main } from './Layout.styled';
 export const Layout = () => {
   return (
     <Wrap>
-      {/* <Header /> */}
+      <Header />
       <Main>
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
       </Main>
-      {/* <Footer /> */}
+      <Footer />
     </Wrap>
   );
 };
