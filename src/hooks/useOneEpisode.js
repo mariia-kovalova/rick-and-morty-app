@@ -5,10 +5,10 @@ import {
   selectEpisodeError,
   selectEpisodeIsLoading,
 } from 'redux/episode/selectors';
-import { selectFavCharactersIds } from 'redux/library/selectors';
+import { selectFavEpisodesIds } from 'redux/library/selectors';
 
 const selectEpisodeWithIsFav = createSelector(
-  [selectEpisode, selectFavCharactersIds],
+  [selectEpisode, selectFavEpisodesIds],
   (episode, ids) => {
     return {
       ...episode,

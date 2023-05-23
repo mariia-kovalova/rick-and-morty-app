@@ -7,7 +7,6 @@ const EpisodesPage = () => {
       <Helmet>
         <title>Episodes</title>
       </Helmet>
-      <div>EpisodesPage</div>
       <Episodes />
     </>
   );

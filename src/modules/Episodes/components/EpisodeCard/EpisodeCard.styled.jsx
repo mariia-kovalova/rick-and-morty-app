@@ -1,36 +1,66 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
+import { BasicWrapper } from 'modules/Episodes/Episodes.styled';
+import { Link } from 'react-router-dom';
+import { Number } from 'shared/styles/components/Number.styled';
+import { getHeartColor } from 'shared/utils/getHeartColor';
 
-export const CardWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  width: 500px;
-  height: 300px;
-  opacity: 0.7;
-  text-align: center;
-  background-color: #c0de7f;
-  /* ${({ theme }) => theme.bgCharacterCard}; */
-  
-  & .img-episode {
-    flex: 0 1 60%;
-    border: 4px solid rgba(178, 218, 228, 0.9);
-    border-radius: 10px;
-    margin: 0px 10px 0px 10px;
-  }
-  & .random-episod {
-    display: flex;
-    flex: 0 1 20%;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+export const StyledLink = styled(Link)`
+  display: block;
+  width: 100%;
+  color: inherit;
+  transition: transform 250ms ${({ theme }) => theme.cubic};
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;
-export const ImgWrap = styled.div`
-  height: 260px;
-  width: 260px;
-  /* border: 2px solid rgba(178, 218, 228, 0.9); */
-  border: 3px solid #7dd3e8;
+
+export const Wrap = styled(BasicWrapper)`
+  position: relative;
+
+  background-color: ${({ theme }) => theme.bgPrimary};
+  border: 3px solid ${({ theme }) => theme.paginationAccent};
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 50px;
+
+    background-color: ${({ theme }) => theme.bgEpisodesTransparent};
+  }
+`;
+
+export const Img = styled.img`
+  margin-left: auto;
+
+  border-radius: 0 8px 8px 0;
+`;
+
+export const StyledNumber = styled(Number)`
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+
+  transition: color 250ms ${({ theme }) => theme.cubic};
+
+  ${StyledLink}:hover & {
+    color: ${({ theme }) => theme.characterCardTextAccent};
+  }
+`;
+
+export const HeartWrap = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 30px;
+  height: 30px;
+
+  & svg {
+    stroke: ${getHeartColor};
+    fill: ${getHeartColor};
+  }
 `;

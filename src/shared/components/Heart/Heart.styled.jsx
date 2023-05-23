@@ -1,24 +1,22 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
+import { getHeartColor } from 'shared/utils/getHeartColor';
 
 export const IconBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 50px;
+  height: 40px;
 
   background-color: transparent;
 `;
 
-const getColor = ({
-  isFavourite,
-  theme: { hightlight, bgcHeartTransparent },
-}) => (isFavourite ? hightlight : bgcHeartTransparent);
-
 export const Svg = styled.svg`
-  stroke: ${getColor};
-  fill: ${getColor};
+  stroke: ${getHeartColor};
+  fill: ${getHeartColor};
   transition: trasform 250ms ${({ theme }) => theme.cubic};
 
-  &:hover {
+  ${IconBtn}:hover & {
     transform: scale(1.2);
   }
 `;

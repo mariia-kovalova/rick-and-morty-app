@@ -3,6 +3,7 @@ import { keyframes } from '@emotion/react';
 import { tablet } from 'shared/constants/deviceSizes';
 import { Number } from 'shared/styles/components/Number.styled';
 import { StyledLink } from '../RandomCharacter/RandomCharacter.styled';
+import { getHeartColor } from 'shared/utils/getHeartColor';
 
 const shine = keyframes`
    0% {
@@ -41,14 +42,9 @@ export const MainInfo = styled.div`
   }
 `;
 
-const getColor = ({
-  isFavourite,
-  theme: { hightlight, bgcHeartTransparent },
-}) => (isFavourite ? hightlight : bgcHeartTransparent);
-
 export const HeartWrap = styled.div`
   position: absolute;
-  top: -13%;
+  top: -15%;
   left: 3%;
   z-index: 1;
 
@@ -61,8 +57,8 @@ export const HeartWrap = styled.div`
   }
 
   & svg {
-    stroke: ${getColor};
-    fill: ${getColor};
+    stroke: ${getHeartColor};
+    fill: ${getHeartColor};
   }
 `;
 

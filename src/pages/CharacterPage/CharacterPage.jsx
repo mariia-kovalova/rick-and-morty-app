@@ -1,12 +1,11 @@
 import { useOneCharacter } from 'hooks/useOneCharacter';
 import { CharacterBlock } from 'modules/Characters/components/CharacterBlock/CharacterBlock';
-import { EpisodeCard } from 'modules/Characters/components/EpisodeCard/EpisodeCard';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router';
 import { getCharacterById } from 'redux/character/thunks';
-import { CardsList } from 'shared/components/CardsList';
+// import { CardsList } from 'shared/components/CardsList';
 import { GoBackLink } from 'shared/components/GoBackLink/GoBackLink';
 import { home } from 'shared/constants/routes';
 import { Container } from 'shared/styles/components/Container.styled';
@@ -50,7 +49,7 @@ const CharacterPage = () => {
       </Section>
       <Section>
         <Container>
-          <CardsList items={[]} element={<EpisodeCard />} />
+          {/* <CardsList items={[]} element={<EpisodeCard />} /> */}
         </Container>
       </Section>
     </>

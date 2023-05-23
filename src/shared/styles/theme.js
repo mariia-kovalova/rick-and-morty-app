@@ -1,9 +1,15 @@
 export const lightTheme = {
   primary: '#b2dae4',
+
   secondary: '#f8fe76',
   secondaryTransparent: 'rgba(248, 254, 118, 0.6)',
+
+  tertiary: '#c0de7f',
+  tertiaryTransparent: 'rgba(192, 222, 127, 0.8)',
+
   accent: '#31d6b8',
   accentTransparent: 'rgba(178, 218, 228, 0.9)',
+
   hightlight: '#f07e96',
   hightlightTransparent: 'rgba(240, 126, 150, 0.7)',
 
@@ -20,6 +26,8 @@ export const lightTheme = {
   characterCardTextAccent: '#3ea7c2',
   characterCardTexHover: '#ffffff',
 
+  bgEpisodesTransparent: 'rgba(242, 249, 254, 0.9)',
+
   boxShadow: 'rgba(17, 17, 17, 0.1)',
   disabled: 'rgba(159, 202, 212, 0.641)',
 
@@ -27,7 +35,7 @@ export const lightTheme = {
   dead: '#f07e96',
   unknown: 'grey',
 
-  bgcHeartTransparent: 'rgba(0, 0, 0, 0.2)',
+  bgcHeartTransparent: 'rgba(242, 249, 254, 0.9)',
   borderModal: '#f2f9fe',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -35,10 +43,16 @@ export const lightTheme = {
 
 export const darkTheme = {
   primary: '#b2dae4',
+
   secondary: '#f8fe76',
   secondaryTransparent: 'rgba(248, 254, 118, 0.6)',
+
+  tertiary: '#c0de7f',
+  tertiaryTransparent: 'rgba(192, 222, 127, 0.7)',
+
   accent: '#31d6b8',
   accentTransparent: 'rgba(49, 214, 184, 0.7)',
+
   hightlight: '#f07e96',
   hightlightTransparent: 'rgba(240, 126, 150, 0.7)',
 
@@ -54,6 +68,8 @@ export const darkTheme = {
   paginationAccent: '#31d6b8',
   characterCardTextAccent: '#d7fcf6',
   characterCardTexHover: '#f8fe76',
+
+  bgEpisodesTransparent: 'rgba(23, 24, 32, 0.7)',
 
   boxShadow: 'rgba(252, 252, 252, 0.1)',
   disabled: 'rgba(109, 158, 149, 0.641)',

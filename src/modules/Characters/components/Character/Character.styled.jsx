@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { tablet } from 'shared/constants/deviceSizes';
 import { CardWrap } from 'shared/styles/components/CardDecoration.styled';
 

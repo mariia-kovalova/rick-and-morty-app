@@ -1,28 +1,17 @@
-import { FlexInfo } from '../../Episodes.styled';
-import { TextInfo } from '../WrapperCard/WrapperCard.styled';
+import { CradInfoText, FlexInfo } from './EpisodeCardInfo.styled';
+import { episodeNameNoramlize } from 'shared/utils/episodeNameNormalize';
 
-const EpisodeCardInfo = ({ name, date, number}) => {
-  // const { name, air_date, episode: number } = episode;
-  console.log(name);
+export const EpisodeCardInfo = ({ episode }) => {
+  const { name, episode: episodeCode, air_date } = episode;
+
+  const info = [episodeNameNoramlize(name), air_date, episodeCode];
   return (
     <FlexInfo>
-      <TextInfo>
-        <h3>
-          Episode name: <span>{name}</span>
-        </h3>
-      </TextInfo>
-      <TextInfo>
-        <h3>
-          Episode: <span>{number}</span>
-        </h3>
-      </TextInfo>
-      <TextInfo>
-        <h3>
-          Air date: <span>{date}</span>
-        </h3>
-      </TextInfo>
+      {info.map(data => (
+        <li key={data}>
+          <CradInfoText>{data}</CradInfoText>
+        </li>
+      ))}
     </FlexInfo>
   );
 };
-
-export default EpisodeCardInfo;

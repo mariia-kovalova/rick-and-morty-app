@@ -1,35 +1,28 @@
 import styled from '@emotion/styled';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 
-export const CardWrapper = styled.div`
+export const List = styled.ul`
+  padding-bottom: 20px;
+  margin: 0 auto;
+
   display: flex;
+  flex-wrap: wrap;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  width: 500px;
-  height: 300px;
-  opacity: 0.7;
-  text-align: center;
-  background-color: #c0de7f;
-  /* ${({ theme }) => theme.bgCharacterCard}; */
-  
-  & .img-episode {
-    flex: 0 1 60%;
-    border: 4px solid rgba(178, 218, 228, 0.9);
-    border-radius: 10px;
-    margin: 0px 10px 0px 10px;
-  }
-  & .random-episod {
-    display: flex;
-    flex: 0 1 20%;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+  justify-content: center;
+  gap: 16px;
+
+  @media screen and (min-width: ${tablet}) {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    gap: 20px;
   }
 `;
-export const ImgWrap = styled.div`
-  height: 260px;
-  width: 260px;
-  border: 2px solid rgba(178, 218, 228, 0.9);
+
+export const Item = styled.li`
+  flex-basis: 100%;
+
+  @media screen and (min-width: ${desktop}) {
+    flex-basis: calc((100% - 20px) / 2);
+  }
 `;

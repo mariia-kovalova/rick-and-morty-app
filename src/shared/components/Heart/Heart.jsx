@@ -19,7 +19,7 @@ export const Heart = ({ id, isFavourite, libraryListName }) => {
   return (
     <Tooltip text={isFav ? 'remove from my favourite' : 'add to my favourite'}>
       <IconBtn onClick={hendleHeartClick}>
-        <Svg width="25" height="25" isFavourite={isFav}>
+        <Svg width="30" height="30" isFavourite={isFav}>
           <use href={`${sprite}#icon-heart-icon`} />
         </Svg>
       </IconBtn>
