@@ -11,7 +11,8 @@ export const StyledLink = styled(Link)`
   color: inherit;
   transition: transform 250ms ${({ theme }) => theme.cubic};
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.05);
   }
 `;
@@ -22,6 +23,29 @@ export const Wrap = styled(BasicWrapper)`
   background-color: ${({ theme }) => theme.bgPrimary};
   border: 3px solid ${({ theme }) => theme.paginationAccent};
 
+  & ul > li:not(:first-of-type) {
+    @media screen and (max-width: ${tablet}) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+
+      white-space: nowrap;
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+  }
+
+  & ul {
+    @media screen and (max-width: ${tablet}) {
+      top: 107px;
+      left: 41px;
+    }
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -31,6 +55,10 @@ export const Wrap = styled(BasicWrapper)`
     height: 50px;
 
     background-color: ${({ theme }) => theme.bgEpisodesTransparent};
+
+    @media screen and (max-width: ${tablet}) {
+      display: none;
+    }
   }
 `;
 

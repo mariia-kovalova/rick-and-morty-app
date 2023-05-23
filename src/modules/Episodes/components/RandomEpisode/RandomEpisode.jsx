@@ -13,8 +13,8 @@ import { episodes } from 'shared/constants/routes';
 import { RickForRandomizer } from 'shared/components/RickForRandomizer';
 import { desktop } from 'shared/constants/deviceSizes';
 import {
+  EpisodeWrap,
   RandomEpisodeDecor,
-  RandomEpisodeWrap,
   Randomizer,
   StyledLink,
 } from './RandomEpisode.styled';
@@ -44,7 +44,7 @@ export const RandomEpisode = () => {
 
   return (
     <RandomEpisodeDecor>
-      <RandomEpisodeWrap>
+      <EpisodeWrap>
         <StyledLink to={`/${episodes}/${id}`} state={{ from: location }}>
           {shouldShowEpisode && <Episode image={image} />}
         </StyledLink>
@@ -54,7 +54,7 @@ export const RandomEpisode = () => {
             Random Episode
           </RandomButton>
         </Randomizer>
-      </RandomEpisodeWrap>
+      </EpisodeWrap>
     </RandomEpisodeDecor>
   );
 };

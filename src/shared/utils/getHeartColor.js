@@ -1,4 +1,4 @@
 export const getHeartColor = ({
   isFavourite,
-  theme: { hightlight, bgcHoverFocus },
-}) => (isFavourite ? hightlight : bgcHoverFocus);
+  theme: { hightlight, bgcHeartTransparent },
+}) => (isFavourite ? hightlight : bgcHeartTransparent);

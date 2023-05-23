@@ -9,8 +9,8 @@ export const Wrap = styled.div`
   transition: transform 250ms ${({ theme }) => theme.cubic};
 
   & ul {
-    bottom: -41%;
-    left: 9px;
+    bottom: -175%;
+    left: 0;
 
     @media screen and (min-width: ${tablet}) {
       bottom: -8%;

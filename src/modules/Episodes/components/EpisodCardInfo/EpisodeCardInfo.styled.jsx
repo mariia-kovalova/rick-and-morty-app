@@ -1,6 +1,6 @@
 import styled from '@emotion/styled/macro';
-import { FlexCard, TextInfo } from 'modules/Episodes/Episodes.styled';
-import { tablet } from 'shared/constants/deviceSizes';
+import { FlexUl, TextInfo } from 'modules/Episodes/Episodes.styled';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 
 export const CradInfoText = styled(TextInfo)`
   width: 230px;
@@ -41,7 +41,7 @@ export const CradInfoText = styled(TextInfo)`
   }
 `;
 
-export const FlexInfo = styled(FlexCard)`
+export const FlexInfo = styled(FlexUl)`
   position: absolute;
   top: 83px;
   left: 9px;
@@ -54,9 +54,14 @@ export const FlexInfo = styled(FlexCard)`
     left: 79px;
   }
 
+  @media screen and (min-width: ${desktop}) {
+    top: 20px;
+    left: 46px;
+  }
+
   & > li:first-of-type ${CradInfoText} {
-    width: 220px;
-    font-size: 20px;
+    width: 230px;
+    font-size: 18px;
 
     @media screen and (min-width: ${tablet}) {
       width: 270px;
@@ -65,36 +70,18 @@ export const FlexInfo = styled(FlexCard)`
   }
 
   & > li:nth-of-type(2) ${CradInfoText} {
-    @media screen and (max-width: ${tablet}) {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      border: 0;
-      padding: 0;
+    width: 200px;
 
-      white-space: nowrap;
-      clip-path: inset(100%);
-      clip: rect(0 0 0 0);
-      overflow: hidden;
+    @media screen and (min-width: ${tablet}) {
+      width: 230px;
     }
   }
 
   & > li:last-of-type ${CradInfoText} {
-    width: 180px;
+    width: 160px;
 
-    @media screen and (max-width: ${tablet}) {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      border: 0;
-      padding: 0;
-
-      white-space: nowrap;
-      clip-path: inset(100%);
-      clip: rect(0 0 0 0);
-      overflow: hidden;
+    @media screen and (min-width: ${tablet}) {
+      width: 180px;
     }
   }
 `;

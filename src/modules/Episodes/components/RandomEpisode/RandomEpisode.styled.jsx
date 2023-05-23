@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { desktop } from 'shared/constants/deviceSizes';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 import {
   CardDecoration,
   CardWrap,
@@ -18,12 +18,16 @@ export const RandomEpisodeDecor = styled(CardDecoration)`
   }
 `;
 
-export const RandomEpisodeWrap = styled(CardWrap)`
+export const EpisodeWrap = styled(CardWrap)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  gap: 30px;
+  gap: 196px;
+
+  @media screen and (min-width: ${tablet}) {
+    gap: 30px;
+  }
 
   @media screen and (min-width: ${desktop}) {
     flex-direction: row;
@@ -49,6 +53,7 @@ export const StyledLink = styled(Link)`
 
 export const Randomizer = styled.div`
   align-self: center;
+
   @media screen and (min-width: ${desktop}) {
     width: 300px;
     display: flex;

@@ -35,7 +35,7 @@ export const lightTheme = {
   dead: '#f07e96',
   unknown: 'grey',
 
-  bgcHeartTransparent: 'rgba(242, 249, 254, 0.9)',
+  bgcHeartTransparent: 'rgba(255, 255, 255, 0.9)',
   borderModal: '#f2f9fe',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',

@@ -14,7 +14,7 @@ export const StyledH1 = styled.h1`
   overflow: hidden;
 `;
 
-export const FlexCard = styled.ul`
+export const FlexUl = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
