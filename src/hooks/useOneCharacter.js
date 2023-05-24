@@ -6,16 +6,11 @@ import {
   selectCharacter,
 } from 'redux/character/selectors';
 import { selectFavCharactersIds } from 'redux/library/selectors';
+import { addIsFavouriteToItem } from 'shared/utils/addIsFavourite';
 
 const selectCharacterWithIsFav = createSelector(
   [selectCharacter, selectFavCharactersIds],
-  (character, ids) => {
-    if (!character) return null;
-    return {
-      ...character,
-      isFavourite: ids.includes(character?.id) ?? false,
-    };
-  }
+  addIsFavouriteToItem
 );
 
 export const useOneCharacter = () => {

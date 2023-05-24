@@ -7,23 +7,11 @@ import {
   selectEpisodessInfo,
 } from 'redux/episodes/selectors';
 import { selectFavEpisodesIds } from 'redux/library/selectors';
+import { addIsFavouriteToList } from 'shared/utils/addIsFavourite';
 
 const selectEpisodesWithIsFav = createSelector(
   [selectEpisodesItems, selectFavEpisodesIds],
-  (episodesData, ids) => {
-    if (!Array.isArray(episodesData)) {
-      return [
-        {
-          ...episodesData,
-          isFavourite: ids ? ids.includes(episodesData?.id) : false,
-        },
-      ];
-    }
-    return episodesData.map(episode => ({
-      ...episode,
-      isFavourite: ids ? ids.includes(episode?.id) : false,
-    }));
-  }
+  addIsFavouriteToList
 );
 
 export const useEpisodes = () => {

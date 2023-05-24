@@ -6,16 +6,11 @@ import {
   selectEpisodeIsLoading,
 } from 'redux/episode/selectors';
 import { selectFavEpisodesIds } from 'redux/library/selectors';
+import { addIsFavouriteToItem } from 'shared/utils/addIsFavourite';
 
 const selectEpisodeWithIsFav = createSelector(
   [selectEpisode, selectFavEpisodesIds],
-  (episode, ids) => {
-    if (!episode) return null;
-    return {
-      ...episode,
-      isFavourite: ids.includes(episode?.id) ?? false,
-    };
-  }
+  addIsFavouriteToItem
 );
 
 export const useOneEpisode = () => {

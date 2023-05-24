@@ -6,16 +6,11 @@ import {
   selectLocationError,
   selectLocationIsLoading,
 } from 'redux/location/selectors';
+import { addIsFavouriteToItem } from 'shared/utils/addIsFavourite';
 
 const selectLocationWithIsFav = createSelector(
   [selectLocation, selectFavEpisodesIds],
-  (location, ids) => {
-    if (!location) return null;
-    return {
-      ...location,
-      isFavourite: ids.includes(location?.id) ?? false,
-    };
-  }
+  addIsFavouriteToItem
 );
 
 export const useOneLocation = () => {

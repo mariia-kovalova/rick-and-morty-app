@@ -7,23 +7,11 @@ import {
   selectCharactersItems,
 } from 'redux/characters/selectors';
 import { selectFavCharactersIds } from 'redux/library/selectors';
+import { addIsFavouriteToList } from 'shared/utils/addIsFavourite';
 
 const selectCharactersWithIsFav = createSelector(
   [selectCharactersItems, selectFavCharactersIds],
-  (charactersData, ids) => {
-    if (!Array.isArray(charactersData)) {
-      return [
-        {
-          ...charactersData,
-          isFavourite: ids ? ids.includes(charactersData?.id) : false,
-        },
-      ];
-    }
-    return charactersData.map(character => ({
-      ...character,
-      isFavourite: ids ? ids.includes(character?.id) : false,
-    }));
-  }
+  addIsFavouriteToList
 );
 
 export const useCharacters = () => {

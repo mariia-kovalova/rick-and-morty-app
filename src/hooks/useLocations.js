@@ -6,23 +6,11 @@ import {
   selectLocationsIsLoading,
   selectLocationsItems,
 } from 'redux/locations/selectors';
+import { addIsFavouriteToList } from 'shared/utils/addIsFavourite';
 
 const selectLocationsWithIsFav = createSelector(
   [selectLocationsItems, selectFavLocationsIds],
-  (locationsData, ids) => {
-    if (!Array.isArray(locationsData)) {
-      return [
-        {
-          ...locationsData,
-          isFavourite: ids ? ids.includes(locationsData?.id) : false,
-        },
-      ];
-    }
-    return locationsData.map(location => ({
-      ...location,
-      isFavourite: ids ? ids.includes(location?.id) : false,
-    }));
-  }
+  addIsFavouriteToList
 );
 
 export const useLocations = () => {
