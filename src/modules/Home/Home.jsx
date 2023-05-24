@@ -53,18 +53,22 @@ export const Home = () => {
         <StyledDiv className="container">
           <RandomContainer>
             <HomeRandomCharacter characterID={characterID} />
+            <div className="button-wrap">
+              <button
+                type="button"
+                className="clicker"
+                onClick={handleRandomBtn}
+              >
+                ☀
+              </button>
+              <div className="circle"></div>
+            </div>
             <HomeRandomLocation
               locationID={locationID}
               backgroundNum={backgroundNum}
             />
           </RandomContainer>
 
-          <div className="button-wrap">
-            <button type="button" className="clicker" onClick={handleRandomBtn}>
-              teleport
-            </button>
-            <div className="circle"></div>
-          </div>
           <Stories storyTextID={storyTextID} />
         </StyledDiv>
       </Container>
