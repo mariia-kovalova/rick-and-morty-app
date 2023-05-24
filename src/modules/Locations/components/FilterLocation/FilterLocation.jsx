@@ -1,72 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getLocationsByFilter } from 'redux/locations/thunks';
-import { Input, Label, StyledDiv, Svg, Wrap } from './FilterLocation.styled';
-import sprite from 'shared/icons/sprite.svg';
+import { nanoid } from '@reduxjs/toolkit';
+import debounce from 'lodash.debounce';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { useSearchParams } from 'react-router-dom';
+import { schema } from './schema';
+import { getDefaultValues } from 'shared/utils/getDefaultValues';
+import { SearchInput } from 'shared/components/SearchInput';
+import { StyledDiv } from './FilterLocation.styled';
+
+const inputs = [
+  { id: nanoid(), inputName: 'name', placeholder: 'Filter by name...' },
+  { id: nanoid(), inputName: 'type', placeholder: 'Filter by type...' },
+  { id: nanoid(), inputName: 'dimesion', placeholder: 'Filter by dimesion...' },
+];
+
+const DELAY = 500;
 
 export const FilterLocation = () => {
-  const [filterData, setFilterData] = useState({
-    name: '',
-    type: '',
-    dimension: '',
+  const [searchParams, setSearchParams] = useSearchParams();
+  const {
+    register,
+    formState: { errors },
+  } = useForm({
+    defaultValues: getDefaultValues(inputs, searchParams),
+    resolver: yupResolver(schema),
+    mode: 'onChange',
   });
 
-  const dispatch = useDispatch();
-
-  const onFilterBtn = e => {
-    let filteredValue = {};
-    filteredValue = { [e.target.name]: e.target.value.trim() };
-    setFilterData(filterData => ({ ...filterData, ...filteredValue }));
-  };
-
-  useEffect(() => {
-    dispatch(getLocationsByFilter(filterData));
-  }, [filterData, dispatch]);
+  const handleSearch = debounce(async ({ target }) => {
+    if (target.value.trim() === '') {
+      searchParams.delete(target.name);
+      setSearchParams(searchParams);
+      return;
+    }
+    if (errors[target.name]) return;
+    setSearchParams({ [target.name]: target.value, ...searchParams });
+  }, DELAY);
 
   return (
     <StyledDiv>
-      <Wrap>
-        <Label htmlFor="">
-          <Svg width="30" height="30">
-            <use href={`${sprite}#icon-search-Icon`} />
-          </Svg>
-        </Label>
-        <Input
-          name="name"
-          type="text"
-          placeholder="Location name"
-          label="name"
-          onChange={onFilterBtn}
-        />
-      </Wrap>
-      <Wrap>
-        <Label htmlFor="">
-          <Svg width="30" height="30">
-            <use href={`${sprite}#icon-search-Icon`} />
-          </Svg>
-        </Label>
-        <Input
-          name="type"
-          type="text"
-          placeholder="Location type"
-          label="type"
-          onChange={onFilterBtn}
-        />
-      </Wrap>
-      <Wrap>
-        <Label htmlFor="">
-          <Svg width="30" height="30">
-            <use href={`${sprite}#icon-search-Icon`} />
-          </Svg>
-        </Label>
-        <Input
-          name="dimension"
-          type="text"
-          placeholder="Location dimension"
-          label="dimension"
-          onChange={onFilterBtn}
-        />
-      </Wrap>
+      {inputs.map(({ id, inputName, placeholder }) => (
+        <li key={id}>
+          <SearchInput
+            id={id}
+            inputName={inputName}
+            register={register}
+            errors={errors}
+            onChange={handleSearch}
+            placeholder={placeholder}
+          />
+        </li>
+      ))}
     </StyledDiv>
   );
 };

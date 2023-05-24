@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectLocationsInfo,
-  selectLocationsItems,
-} from 'redux/locations/selectors';
-import { getLocations } from 'redux/locations/thunks';
+import { useDispatch } from 'react-redux';
+import { getLocationsByFilter } from 'redux/locations/thunks';
 import { LocationCard } from '../LocationCard/LocationCard';
 import { Pagination } from 'shared/components/Pagination';
 import { StyledH2, StyledUl } from './LocationsList.styled';
+import { useSearchParams } from 'react-router-dom';
+import { useLocations } from 'hooks/useLocations';
+import { getDefaultValues } from 'shared/utils/getDefaultValues';
+
+export const PARAMS_ARR = ['name', 'type', 'dimension'];
 
 export const LocationsList = () => {
+  const [searchParams] = useSearchParams();
+  const { info, locations } = useLocations();
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const locations = useSelector(selectLocationsItems);
-  const locationsInfo = useSelector(selectLocationsInfo);
 
   const showResidentsBtn = true;
 
   useEffect(() => {
-    dispatch(getLocations(page));
-  }, [dispatch, page]);
+    dispatch(
+      getLocationsByFilter({
+        page,
+        ...getDefaultValues(PARAMS_ARR, searchParams),
+      })
+    );
+  }, [dispatch, page, searchParams]);
 
   return (
     <>
@@ -36,10 +42,10 @@ export const LocationsList = () => {
             </li>
           ))}
       </StyledUl>
-      {locationsInfo && (
+      {info && (
         <Pagination
           page={page}
-          totalPages={locationsInfo.pages}
+          totalPages={info.pages}
           onPageChange={setPage}
         />
       )}
