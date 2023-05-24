@@ -29,7 +29,6 @@ export const FilterLocation = () => {
       return;
     }
     if (errors[target.name]) return;
-    console.log(getSearchValues(inputs, searchParams));
     setSearchParams({
       ...getCleanValues(getSearchValues(inputs, searchParams)),
       [target.name]: target.value,
