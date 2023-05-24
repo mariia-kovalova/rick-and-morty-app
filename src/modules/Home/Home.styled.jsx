@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import homeLeft from '../../shared/images/homeLeftBW.jpg';
-import homeRight from '../../shared/images/homeRightBW.jpg';
 import portalGif from '../../shared/images/portalGif.gif';
+import teleport from '../../shared/images/teleport.png';
 
 export const HiddenTittle = styled.h1`
   position: absolute;
@@ -19,23 +18,11 @@ export const HiddenTittle = styled.h1`
 
 export const StyledDiv = styled.div`
   position: relative;
-
   display: flex;
+  flex-direction: column;
+  gap: 30px;
   align-items: center;
   justify-content: center;
-
-  & .container-left {
-    background-image: url(${homeLeft});
-    opacity: 0.8;
-    height: 804px;
-    width: 640px;
-  }
-  & .container-right {
-    background-image: url(${homeRight});
-    opacity: 0.7;
-    height: 804px;
-    width: 640px;
-  }
 
   @-webkit-keyframes rotor {
     from {
@@ -75,7 +62,7 @@ export const StyledDiv = styled.div`
     height: 320px;
     display: inline-block;
 
-    position: absolute;
+    /* position: absolute; */
 
     .clicker {
       text-transform: uppercase;
@@ -83,7 +70,8 @@ export const StyledDiv = styled.div`
       width: 300px;
       height: 300px; /* 20px smaller b/c of margin below */
       margin: 10px;
-      background: url(${portalGif});
+      background: url(${teleport}), url(${portalGif});
+
       background-size: contain;
       border-radius: 50%;
 
@@ -94,6 +82,11 @@ export const StyledDiv = styled.div`
       /* centers the text: adjust to desired size */
       padding: 22px 10px;
       text-align: center;
+      color: white;
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: 3px;
+      text-shadow: #000000 1px 0 10px;
 
       /* shadow */
       -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
@@ -122,14 +115,27 @@ export const StyledDiv = styled.div`
       z-index: 1;
       position: absolute;
     }
-    .clicker:hover + .circle,
-    .clicker:active + .circle {
+    .clicker:hover + .circle {
       -webkit-animation: rotor 1.5s linear 0s infinite normal;
       -mox-animation: rotor 1.5s linear 0s infinite normal;
       -o-animation: rotor 1.5s linear 0s infinite normal;
       animation: rotor 1.5s linear 0s infinite normal;
     }
+
+    .clicker:active + .circle {
+      -webkit-animation: rotor 2.5s linear 0s infinite normal;
+      -mox-animation: rotor 1.5s linear 0s infinite normal;
+      -o-animation: rotor 1.5s linear 0s infinite normal;
+      animation: rotor 0.5s linear 0s infinite normal;
+    }
   }
 `;
 
-export const SectionHome = styled.section``;
+export const RandomContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+`;
