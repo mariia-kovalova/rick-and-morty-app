@@ -3,9 +3,9 @@ import { LocationCard } from 'modules/Locations/components/LocationCard/Location
 import { ResidentList } from 'modules/Locations/components/Residents/ResidentList';
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router';
-import { selectCharactersItems } from 'redux/characters/selectors';
+
 import { getCharactersByIds } from 'redux/characters/thunks';
 import { getLocationById } from 'redux/location/thunks';
 import { GoBackLink } from 'shared/components/GoBackLink/GoBackLink';
