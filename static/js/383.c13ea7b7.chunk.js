@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrick_and_morty_app=self.webpackChunkrick_and_morty_app||[]).push([[383],{5383:function(n,e,r){r.r(e),r.d(e,{default:function(){return c}});var i=r(6907),s=r(3329),t=function(){return(0,s.jsx)("div",{children:"Episodes"})},c=function(){return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(i.ql,{children:(0,s.jsx)("title",{children:"Episodes"})}),(0,s.jsx)("div",{children:"EpisodesPage"}),(0,s.jsx)(t,{})]})}}}]);
-//# sourceMappingURL=383.c13ea7b7.chunk.js.map
