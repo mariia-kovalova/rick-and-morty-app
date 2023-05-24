@@ -4,9 +4,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'react-router-dom';
 import { schema } from './schema';
-import { getDefaultValues } from 'shared/utils/getDefaultValues';
 import { SearchInput } from 'shared/components/SearchInput';
 import { StyledDiv } from './FilterLocation.styled';
+import { getDefaultValues } from 'shared/utils/getDefaultValues';
 
 const inputs = [
   { id: nanoid(), inputName: 'name', placeholder: 'Filter by name...' },

@@ -5,7 +5,6 @@ export const Wrap = styled.div`
   gap: 20px;
   justify-content: center;
   margin: 0 auto;
-  max-width: 500px;
 `;
 export const Selected = styled.select`
   background-color: #fff;
