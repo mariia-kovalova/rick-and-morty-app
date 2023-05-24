@@ -1,6 +1,4 @@
-import { useEpisodes } from 'hooks/useEpisodes';
 import { Wrap, Selected, Option } from './SearchEpisodes.styled';
-import { nanoid } from '@reduxjs/toolkit';
 import { useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,25 +6,7 @@ import { schema } from './schema';
 import debounce from 'lodash.debounce';
 import { SearchInput } from 'shared/components/SearchInput';
 import { getDefaultValues } from 'shared/utils/getDefaultValues';
-
-const searchInput = {
-  id: nanoid(),
-  inputName: 'name',
-};
-
-const selectInput = {
-  id: nanoid(),
-  inputName: 'episode',
-  options: [
-    { option: 'All', value: '' },
-    { option: 'Season 1', value: 'S01' },
-    { option: 'Season 2', value: 'S02' },
-    { option: 'Season 3', value: 'S03' },
-    { option: 'Season 4', value: 'S04' },
-    { option: 'Season 5', value: 'S05' },
-  ],
-};
-const inputs = [searchInput.inputName, selectInput.inputName];
+import { inputs, searchInput, selectInput } from './inputs';
 
 const DELAY = 500;
 
