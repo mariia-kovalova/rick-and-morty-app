@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import homeLeft from '../../shared/images/homeLeftBW.jpg';
-import homeRight from '../../shared/images/homeRightBW.jpg';
 import portalGif from '../../shared/images/portalGif.gif';
 
 export const HiddenTittle = styled.h1`
@@ -19,23 +17,11 @@ export const HiddenTittle = styled.h1`
 
 export const StyledDiv = styled.div`
   position: relative;
-
   display: flex;
+  flex-direction: column;
+  gap: 30px;
   align-items: center;
   justify-content: center;
-
-  & .container-left {
-    background-image: url(${homeLeft});
-    opacity: 0.8;
-    height: 804px;
-    width: 640px;
-  }
-  & .container-right {
-    background-image: url(${homeRight});
-    opacity: 0.7;
-    height: 804px;
-    width: 640px;
-  }
 
   @-webkit-keyframes rotor {
     from {
@@ -132,4 +118,11 @@ export const StyledDiv = styled.div`
   }
 `;
 
-export const SectionHome = styled.section``;
+export const RandomContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+`;
