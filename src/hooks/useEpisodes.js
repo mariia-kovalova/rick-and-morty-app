@@ -12,11 +12,16 @@ const selectEpisodesWithIsFav = createSelector(
   [selectEpisodesItems, selectFavEpisodesIds],
   (episodesData, ids) => {
     if (!Array.isArray(episodesData)) {
-      return [{ ...episodesData, isFavourite: ids.includes(episodesData.id) }];
+      return [
+        {
+          ...episodesData,
+          isFavourite: ids ? ids.includes(episodesData?.id) : false,
+        },
+      ];
     }
     return episodesData.map(episode => ({
       ...episode,
-      isFavourite: ids.includes(episode.id),
+      isFavourite: ids ? ids.includes(episode?.id) : false,
     }));
   }
 );

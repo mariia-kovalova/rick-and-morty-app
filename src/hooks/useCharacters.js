@@ -13,12 +13,15 @@ const selectCharactersWithIsFav = createSelector(
   (charactersData, ids) => {
     if (!Array.isArray(charactersData)) {
       return [
-        { ...charactersData, isFavourite: ids.includes(charactersData.id) },
+        {
+          ...charactersData,
+          isFavourite: ids ? ids.includes(charactersData?.id) : false,
+        },
       ];
     }
     return charactersData.map(character => ({
       ...character,
-      isFavourite: ids.includes(character.id),
+      isFavourite: ids ? ids.includes(character?.id) : false,
     }));
   }
 );

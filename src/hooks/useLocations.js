@@ -12,7 +12,10 @@ const selectLocationsWithIsFav = createSelector(
   (locationsData, ids) => {
     if (!Array.isArray(locationsData)) {
       return [
-        { ...locationsData, isFavourite: ids.includes(locationsData.id) },
+        {
+          ...locationsData,
+          isFavourite: ids ? ids.includes(locationsData?.id) : false,
+        },
       ];
     }
     return locationsData.map(location => ({
