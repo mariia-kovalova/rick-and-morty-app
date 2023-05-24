@@ -8,6 +8,7 @@ export const ROUTES = {
   episodes: 'episodes',
   episode: 'episodes/:episodeId',
   library: 'library',
+  favourite: 'library/:listName',
   all: '*',
 };
 
@@ -21,5 +22,6 @@ export const {
   episodes,
   episode,
   library,
+  favourite,
   all,
 } = ROUTES;

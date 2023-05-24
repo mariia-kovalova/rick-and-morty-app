@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Library } from 'modules/Library';
+import { Outlet } from 'react-router';
 
 const LibraryPage = () => {
   return (
@@ -7,8 +8,8 @@ const LibraryPage = () => {
       <Helmet>
         <title>Library</title>
       </Helmet>
-      <div>LibraryPage</div>
       <Library />
+      <Outlet />
     </>
   );
 };

@@ -1,19 +1,6 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
-import { alive, dead, unknown } from 'shared/constants/characterStatus';
-
-const getStatus = ({ theme, marker }) => {
-  switch (marker) {
-    case alive:
-      return theme.alive;
-    case dead:
-      return theme.dead;
-    case unknown:
-      return theme.unknown;
-    default:
-      return theme.unknown;
-  }
-};
+import { getStatus } from 'shared/utils/getStatus';
 
 const beam = keyframes`
   0% {

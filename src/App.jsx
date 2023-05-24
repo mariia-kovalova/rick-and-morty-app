@@ -9,6 +9,7 @@ import {
   episodes,
   episode,
   library,
+  favourite,
   all,
 } from 'shared/constants/routes';
 import { Layout } from 'modules/Layout';
@@ -23,6 +24,7 @@ const LocationPage = lazy(() => import('pages/LocationPage/LocationPage'));
 const EpisodesPage = lazy(() => import('pages/EpisodesPage/EpisodesPage'));
 const EpisodePage = lazy(() => import('pages/EpisodePage/EpisodePage'));
 const LibraryPage = lazy(() => import('pages/LibraryPage/LibraryPage'));
+const FavouritePage = lazy(() => import('pages/FavouritePage/FavouritePage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
@@ -37,6 +39,7 @@ export const App = () => {
         <Route path={episodes} element={<EpisodesPage />} />
         <Route path={episode} element={<EpisodePage />} />
         <Route path={library} element={<LibraryPage />} />
+        <Route path={favourite} element={<FavouritePage />} />
         <Route path={all} element={<NotFoundPage />} />
       </Route>
     </Routes>

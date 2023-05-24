@@ -1,20 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { alive, dead, unknown } from 'shared/constants/characterStatus';
 import { desktop, mobile, tablet } from 'shared/constants/deviceSizes';
-
-const getStatus = ({ theme, marker }) => {
-  switch (marker) {
-    case alive:
-      return theme.alive;
-    case dead:
-      return theme.dead;
-    case unknown:
-      return theme.unknown;
-    default:
-      return theme.unknown;
-  }
-};
+import { getStatus } from 'shared/utils/getStatus';
 
 export const StyledDiv = styled.div`
   position: relative;

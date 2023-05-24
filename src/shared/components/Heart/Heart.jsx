@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Tooltip } from '../ToolTip';
 import { IconBtn, Svg } from './Heart.styled';
-import sprite from 'shared/icons/sprite.svg';
 import { addToLibrary, removeFromLibrary } from 'redux/library/slice';
-import { useState } from 'react';
+import sprite from 'shared/icons/sprite.svg';
 
 export const Heart = ({ id, isFavourite, libraryListName }) => {
   const [isFav, setIsFav] = useState(isFavourite);
