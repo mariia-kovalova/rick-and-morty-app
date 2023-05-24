@@ -7,7 +7,7 @@ import { Pagination } from 'shared/components/Pagination';
 import { ResultsNotFound } from 'shared/components/ResultsNotFound';
 import { EpisodeCard } from '../EpisodeCard/EpisodeCard';
 import { useSearchParams } from 'react-router-dom';
-import { getDefaultValues } from 'shared/utils/getDefaultValues';
+import { getSearchValues } from 'shared/utils/getSearchValues';
 import { Item, List } from './EpisodeCardList.styled';
 
 export const PARAMS_ARR = ['name', 'episode'];
@@ -19,10 +19,14 @@ export const EpisodeCardList = () => {
   const dispatchFunc = useDispatch();
 
   useEffect(() => {
+    setPage(1);
+  }, [searchParams]);
+
+  useEffect(() => {
     dispatchFunc(
       getEpisodesByFilter({
         page,
-        ...getDefaultValues(PARAMS_ARR, searchParams),
+        ...getSearchValues(PARAMS_ARR, searchParams),
       })
     );
   }, [dispatchFunc, page, searchParams]);

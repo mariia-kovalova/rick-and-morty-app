@@ -11,6 +11,9 @@ import { AvancedFilters, Svg, Wrap } from './CharactersFilter.styled';
 import { CharacterFiltersForm } from '../CharacterFiltersForm/CharacterFiltersForm';
 import sprite from 'shared/icons/sprite.svg';
 import { Tooltip } from 'shared/components/ToolTip';
+import { getSearchValues } from 'shared/utils/getSearchValues';
+import { inputs } from '../CharacterFiltersForm/inputs';
+import { getCleanValues } from 'shared/utils/getCleanValues';
 
 const searchInput = {
   id: nanoid(),
@@ -31,14 +34,17 @@ export const CharactersFilter = () => {
     mode: 'onChange',
   });
 
-  const handleSearch = debounce(async name => {
-    if (name.trim() === '') {
-      searchParams.delete(searchInput.inputName);
+  const handleSearch = debounce(async ({ target }) => {
+    if (target.value.trim() === '') {
+      searchParams.delete(target.name);
       setSearchParams(searchParams);
       return;
     }
-    if (errors[searchInput.inputName]) return;
-    setSearchParams({ name, ...searchParams });
+    if (errors[target.name]) return;
+    setSearchParams({
+      ...getCleanValues(getSearchValues(inputs, searchParams)),
+      [target.name]: target.value,
+    });
   }, DELAY);
 
   const handleToggleModal = () => setShowModal(!showModal);
@@ -51,7 +57,7 @@ export const CharactersFilter = () => {
           inputName={searchInput.inputName}
           register={register}
           errors={errors}
-          onChange={e => handleSearch(e.target.value)}
+          onChange={handleSearch}
           placeholder="Filter by name..."
         />
         <AvancedFilters type="button" onClick={handleToggleModal}>

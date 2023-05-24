@@ -1,4 +1,4 @@
-export const getDefaultValues = (fieldsArr, searchParams) =>
+export const getSearchValues = (fieldsArr, searchParams) =>
   fieldsArr.reduce(
     (acc, inputName) => ({
       ...acc,

@@ -19,9 +19,14 @@ export const StyledLink = styled(Link)`
 
 export const Wrap = styled(BasicWrapper)`
   position: relative;
+  height: 159px;
 
   background-color: ${({ theme }) => theme.bgPrimary};
   border: 3px solid ${({ theme }) => theme.paginationAccent};
+
+  @media screen and (min-width: ${tablet}) {
+    height: 247px;
+  }
 
   & ul > li:not(:first-of-type) {
     @media screen and (max-width: ${tablet}) {
@@ -65,7 +70,11 @@ export const Wrap = styled(BasicWrapper)`
 export const Img = styled.img`
   margin-left: auto;
 
-  border-radius: 0 8px 8px 0;
+  border-radius: 4px;
+
+  @media screen and (min-width: ${tablet}) {
+    border-radius: 0 4px 4px 0;
+  }
 `;
 
 export const StyledNumber = styled(Number)`

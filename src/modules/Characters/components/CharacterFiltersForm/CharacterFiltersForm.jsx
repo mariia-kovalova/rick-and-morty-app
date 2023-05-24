@@ -2,8 +2,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
-import { getDefaultValues } from 'shared/utils/getDefaultValues';
-import { fieldsArr, radioFieldsArr } from './inputs';
+import { getSearchValues } from 'shared/utils/getSearchValues';
+import { inputs, radioFieldsArr } from './inputs';
 import { RadioBtnField } from '../RadioBtnField/RadioBtnField';
 import { getCleanValues } from 'shared/utils/getCleanValues';
 import {
@@ -25,12 +25,14 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
     handleSubmit,
     formState: { isDirty, isSubmitting },
   } = useForm({
-    defaultValues: getDefaultValues(fieldsArr, searchParams),
+    defaultValues: getSearchValues(inputs, searchParams),
     resolver: yupResolver(schema),
   });
 
   const onSubmit = values => {
-    setSearchParams(getCleanValues(values));
+    setSearchParams(
+      getCleanValues({ ...getSearchValues(inputs, searchParams), ...values })
+    );
     onCloseModal();
   };
 
@@ -60,7 +62,7 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
             <Btn
               className="reset"
               type="button"
-              onClick={() => reset(getValuesForReset(fieldsArr))}
+              onClick={() => reset(getValuesForReset(inputs))}
             >
               Reset filters
             </Btn>

@@ -1,12 +1,27 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
 import { Number } from 'shared/styles/components/Number.styled';
 import { getHeartColor } from 'shared/utils/getHeartColor';
 
+const shine = keyframes`
+   0% {
+    background-position: -5px;
+  }
+  40%, 100% {
+    background-position: 208px;
+  }
+`;
+
 export const Wrap = styled.div`
   position: relative;
+  z-index: 1;
 
   transition: transform 250ms ${({ theme }) => theme.cubic};
+
+  @media screen and (min-width: ${tablet}) {
+    height: 253px;
+  }
 
   & ul {
     bottom: -175%;
@@ -38,6 +53,35 @@ export const Wrap = styled.div`
       left: -30%;
       width: 585px;
       height: 55px;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    width: 237px;
+    height: 133px;
+
+    background-color: rgba(81, 107, 107, 0.801);
+    border: 1px solid ${({ theme }) => theme.paginationAccent};
+    border-radius: 4px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 70%
+      )
+      rgba(255, 255, 255, 0.384);
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: ${shine} 2s ${({ theme }) => theme.cubic} infinite;
+
+    @media screen and (min-width: ${tablet}) {
+      width: 450px;
+      height: 253px;
     }
   }
 `;

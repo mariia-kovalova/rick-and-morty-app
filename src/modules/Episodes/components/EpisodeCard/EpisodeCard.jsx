@@ -28,7 +28,7 @@ export const EpisodeCard = ({ episode }) => {
           src={image}
           alt={`episode ${name}`}
           width="430"
-          height="214"
+          height="242"
           loading="lazy"
         />
         <EpisodeCardInfo episode={episode} />

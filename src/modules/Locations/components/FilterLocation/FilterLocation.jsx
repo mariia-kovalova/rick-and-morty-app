@@ -1,4 +1,3 @@
-import { nanoid } from '@reduxjs/toolkit';
 import debounce from 'lodash.debounce';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -6,13 +5,9 @@ import { useSearchParams } from 'react-router-dom';
 import { schema } from './schema';
 import { SearchInput } from 'shared/components/SearchInput';
 import { StyledDiv } from './FilterLocation.styled';
-import { getDefaultValues } from 'shared/utils/getDefaultValues';
-
-const inputs = [
-  { id: nanoid(), inputName: 'name', placeholder: 'Filter by name...' },
-  { id: nanoid(), inputName: 'type', placeholder: 'Filter by type...' },
-  { id: nanoid(), inputName: 'dimesion', placeholder: 'Filter by dimesion...' },
-];
+import { getSearchValues } from 'shared/utils/getSearchValues';
+import { getCleanValues } from 'shared/utils/getCleanValues';
+import { inputs, filedsArr } from './inputs';
 
 const DELAY = 500;
 
@@ -22,7 +17,7 @@ export const FilterLocation = () => {
     register,
     formState: { errors },
   } = useForm({
-    defaultValues: getDefaultValues(inputs, searchParams),
+    defaultValues: getSearchValues(inputs, searchParams),
     resolver: yupResolver(schema),
     mode: 'onChange',
   });
@@ -34,12 +29,16 @@ export const FilterLocation = () => {
       return;
     }
     if (errors[target.name]) return;
-    setSearchParams({ [target.name]: target.value, ...searchParams });
+    console.log(getSearchValues(inputs, searchParams));
+    setSearchParams({
+      ...getCleanValues(getSearchValues(inputs, searchParams)),
+      [target.name]: target.value,
+    });
   }, DELAY);
 
   return (
     <StyledDiv>
-      {inputs.map(({ id, inputName, placeholder }) => (
+      {filedsArr.map(({ id, inputName, placeholder }) => (
         <li key={id}>
           <SearchInput
             id={id}

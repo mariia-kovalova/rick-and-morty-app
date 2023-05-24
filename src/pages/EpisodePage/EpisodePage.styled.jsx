@@ -24,7 +24,7 @@ export const EpisodeWrap = styled(CardWrap)`
   align-items: end;
   gap: 30px;
 
-  padding-bottom: 180px;
+  padding-bottom: 220px;
 
   @media screen and (min-width: ${desktop}) {
     flex-direction: row;
@@ -52,7 +52,7 @@ export const EpisodeWrap = styled(CardWrap)`
   }
 
   & ul:first-of-type {
-    bottom: -134%;
+    bottom: -191%;
     left: 0;
 
     @media screen and (min-width: ${tablet}) {
@@ -66,7 +66,15 @@ export const StyledH2 = styled.h2`
   margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 600;
   color: ${({ theme }) => theme.characterCardTextAccent};
+
+  @media screen and (min-width: ${tablet}) {
+    font-size: 30px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    font-size: 40px;
+  }
 `;

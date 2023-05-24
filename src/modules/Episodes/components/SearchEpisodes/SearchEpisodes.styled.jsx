@@ -1,20 +1,31 @@
 import styled from '@emotion/styled/macro';
+import { tablet } from 'shared/constants/deviceSizes';
 
 export const Wrap = styled.div`
   display: flex;
-  gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
   margin: 0 auto;
 `;
+
 export const Selected = styled.select`
-  background-color: #fff;
+  width: 210px;
+
   outline: none;
   border: 2px solid ${({ theme }) => theme.paginationAccent};
   border-radius: 8px;
+  background-color: #fff;
   color: #212121;
-  padding: 14px 10px 14px 0px;
-  width: 260px;
+  padding: 14px 10px 14px 10px;
+  text-align: center;
+
+  @media screen and (min-width: ${tablet}) {
+    width: 260px;
+  }
 `;
+
 export const Option = styled.option`
   font-style: normal;
   font-weight: 400;

@@ -82,4 +82,4 @@ export const radioFieldsArr = [
   { tittle: 'status', arr: radioFieldsStatusArr },
   { tittle: 'gender', arr: radioFieldsGenderArr },
 ];
-export const fieldsArr = ['status', 'gender'];
+export const inputs = ['name', 'status', 'gender'];

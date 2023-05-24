@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useCharacters } from 'hooks/useCharacters';
 import { useDispatch } from 'react-redux';
 import { getCharactersByFilter } from 'redux/characters/thunks';
-import { getDefaultValues } from 'shared/utils/getDefaultValues';
+import { getSearchValues } from 'shared/utils/getSearchValues';
 import { Pagination } from 'shared/components/Pagination';
 import { Loader } from 'shared/components/Loader';
 import { CardsList } from 'shared/components/CardsList';
@@ -19,10 +19,14 @@ export const CharactersList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setPage(1);
+  }, [searchParams]);
+
+  useEffect(() => {
     dispatch(
       getCharactersByFilter({
         page,
-        ...getDefaultValues(PARAMS_ARR, searchParams),
+        ...getSearchValues(PARAMS_ARR, searchParams),
       })
     );
   }, [dispatch, page, searchParams]);

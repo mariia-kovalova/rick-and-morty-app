@@ -5,8 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
 import debounce from 'lodash.debounce';
 import { SearchInput } from 'shared/components/SearchInput';
-import { getDefaultValues } from 'shared/utils/getDefaultValues';
+import { getSearchValues } from 'shared/utils/getSearchValues';
 import { inputs, searchInput, selectInput } from './inputs';
+import { getCleanValues } from 'shared/utils/getCleanValues';
 
 const DELAY = 500;
 
@@ -16,7 +17,7 @@ export const SearchEpisodes = () => {
     register,
     formState: { errors },
   } = useForm({
-    defaultValues: getDefaultValues(inputs, searchParams),
+    defaultValues: getSearchValues(inputs, searchParams),
     resolver: yupResolver(schema),
     mode: 'onChange',
   });
@@ -28,7 +29,10 @@ export const SearchEpisodes = () => {
       return;
     }
     if (errors[target.name]) return;
-    setSearchParams({ [target.name]: target.value, ...searchParams });
+    setSearchParams({
+      ...getCleanValues(getSearchValues(inputs, searchParams)),
+      [target.name]: target.value,
+    });
   }, DELAY);
 
   return (

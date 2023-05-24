@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import sprite from 'shared/icons/sprite.svg';
 import { IconArrowButton, LabelButton, List, Svg } from './Pagination.styled';
 import { getPaginationLabels } from 'shared/utils/getPaginationLabels';
+import { scrollUp } from 'shared/utils/scrollUp';
 
 export const Pagination = ({ page, totalPages, onPageChange }) => {
   const [labels, setLabels] = useState([]);
@@ -10,6 +11,7 @@ export const Pagination = ({ page, totalPages, onPageChange }) => {
   const handlePageSelectClick = selectedPage => {
     if (selectedPage === page) return;
     onPageChange(selectedPage);
+    scrollUp(300);
   };
 
   useEffect(() => {
