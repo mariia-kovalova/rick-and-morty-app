@@ -10,8 +10,11 @@ import { selectFavEpisodesIds } from 'redux/library/selectors';
 
 const selectEpisodesWithIsFav = createSelector(
   [selectEpisodesItems, selectFavEpisodesIds],
-  (episodes, ids) => {
-    return episodes.map(episode => ({
+  (episodesData, ids) => {
+    if (!Array.isArray(episodesData)) {
+      return [{ ...episodesData, isFavourite: ids.includes(episodesData.id) }];
+    }
+    return episodesData.map(episode => ({
       ...episode,
       isFavourite: ids.includes(episode.id),
     }));

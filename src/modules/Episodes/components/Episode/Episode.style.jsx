@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { tablet } from 'shared/constants/deviceSizes';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 import { Number } from 'shared/styles/components/Number.styled';
 import { getHeartColor } from 'shared/utils/getHeartColor';
 
@@ -39,6 +39,23 @@ export const Wrap = styled.div`
       width: 585px;
       height: 55px;
     }
+  }
+`;
+
+export const LoaderWrap = styled.div`
+  position: absolute;
+
+  top: 53px;
+  left: 40px;
+
+  @media screen and (min-width: ${tablet}) {
+    top: 75px;
+    left: 258px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    top: 0;
+    left: 123px;
   }
 `;
 

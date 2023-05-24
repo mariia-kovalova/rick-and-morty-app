@@ -9,8 +9,13 @@ import {
 
 const selectLocationsWithIsFav = createSelector(
   [selectLocationsItems, selectFavLocationsIds],
-  (locations, ids) => {
-    return locations.map(location => ({
+  (locationsData, ids) => {
+    if (!Array.isArray(locationsData)) {
+      return [
+        { ...locationsData, isFavourite: ids.includes(locationsData.id) },
+      ];
+    }
+    return locationsData.map(location => ({
       ...location,
       isFavourite: ids.includes(location.id),
     }));

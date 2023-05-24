@@ -10,8 +10,13 @@ import { selectFavCharactersIds } from 'redux/library/selectors';
 
 const selectCharactersWithIsFav = createSelector(
   [selectCharactersItems, selectFavCharactersIds],
-  (characters, ids) => {
-    return characters.map(character => ({
+  (charactersData, ids) => {
+    if (!Array.isArray(charactersData)) {
+      return [
+        { ...charactersData, isFavourite: ids.includes(charactersData.id) },
+      ];
+    }
+    return charactersData.map(character => ({
       ...character,
       isFavourite: ids.includes(character.id),
     }));

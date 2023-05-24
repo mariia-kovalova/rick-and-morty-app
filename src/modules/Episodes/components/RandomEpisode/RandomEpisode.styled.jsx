@@ -22,11 +22,15 @@ export const EpisodeWrap = styled(CardWrap)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: end;
   gap: 196px;
 
+  height: 458px;
+
   @media screen and (min-width: ${tablet}) {
+    align-items: end;
     gap: 30px;
+
+    height: 440px;
   }
 
   @media screen and (min-width: ${desktop}) {
@@ -34,6 +38,8 @@ export const EpisodeWrap = styled(CardWrap)`
     justify-content: end;
     align-items: center;
     gap: 100px;
+
+    height: 380px;
   }
 
   &::before {
@@ -48,6 +54,8 @@ export const EpisodeWrap = styled(CardWrap)`
 `;
 
 export const StyledLink = styled(Link)`
+  display: block;
+  height: 100%;
   color: inherit;
 `;
 

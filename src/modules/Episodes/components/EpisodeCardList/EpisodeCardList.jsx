@@ -2,7 +2,6 @@ import { useEpisodes } from 'hooks/useEpisodes';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getEpisodesByFilter } from 'redux/episodes/thunks';
-import { CardsList } from 'shared/components/CardsList';
 import { Loader } from 'shared/components/Loader';
 import { Pagination } from 'shared/components/Pagination';
 import { ResultsNotFound } from 'shared/components/ResultsNotFound';

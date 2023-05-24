@@ -15,12 +15,17 @@ import { CharacterCard } from 'modules/Characters/components/CharacterCard';
 import { Episode } from 'modules/Episodes/components/Episode/Episode';
 import { images } from 'modules/Episodes/api.img/api.img';
 import { getRandomIndex } from 'shared/utils/getRandomIndex';
-import { EpisodeDecor, EpisodeWrap } from './EpisodePage.styled';
+import { EpisodeDecor, EpisodeWrap, StyledH2 } from './EpisodePage.styled';
+import { getCharactersByIds } from 'redux/characters/thunks';
+import { useCharacters } from 'hooks/useCharacters';
+
+const NUMBER_OF_CHARS_TO_SKIP = 42;
 
 const EpisodePage = () => {
   const randomId = useMemo(() => getRandomIndex(images.length), []);
   const image = images[randomId];
   const { episode, isLoading, error } = useOneEpisode();
+  const { characters } = useCharacters();
   const { episodeId } = useParams();
   const location = useLocation();
   const path = location.state?.from ?? home;
@@ -31,6 +36,13 @@ const EpisodePage = () => {
     scrollUp(0);
     dispatch(getEpisodeById(episodeId));
   }, [dispatch, episodeId]);
+
+  useEffect(() => {
+    const charactersID = episode.characters.map(character =>
+      character.slice(NUMBER_OF_CHARS_TO_SKIP)
+    );
+    dispatch(getCharactersByIds(charactersID));
+  }, [dispatch, episode.characters]);
 
   const shouldShowEpisode = episode !== null && !error;
   const shouldShowError = !isLoading && error;
@@ -63,7 +75,8 @@ const EpisodePage = () => {
       </Section>
       <Section>
         <Container>
-          <CardsList items={[]} element={<CharacterCard />} />
+          <StyledH2>Characters from the episode</StyledH2>
+          <CardsList items={characters} element={CharacterCard} />
         </Container>
       </Section>
     </>

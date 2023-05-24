@@ -1,3 +1,9 @@
+import { Overlay, StyledLoader } from './Loader.styled';
+
 export const Loader = () => {
-  return <div>Loader</div>;
+  return (
+    <Overlay>
+      <StyledLoader>Loader</StyledLoader>
+    </Overlay>
+  );
 };
