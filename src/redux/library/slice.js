@@ -23,11 +23,9 @@ export const slice = createSlice({
   name: 'library',
   initialState,
   reducers: {
-    addToLibrary(state, { payload }) {
-      state.lib[payload.libraryListName] = [
-        ...state.lib[payload.libraryListName],
-        payload.id,
-      ];
+    addToLibrary(state, { payload: { id, libraryListName } }) {
+      if (!state.lib[libraryListName].includes(id))
+        state.lib[libraryListName] = [...state.lib[libraryListName], id];
     },
     removeFromLibrary(state, { payload }) {
       const index = state.lib[payload.libraryListName].findIndex(

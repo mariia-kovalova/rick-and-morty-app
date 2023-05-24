@@ -18,6 +18,8 @@ import {
   Randomizer,
   StyledLink,
 } from './RandomEpisode.styled';
+import { addToLibrary } from 'redux/library/slice';
+import { randomepisodes } from 'shared/constants/libaryListName';
 
 const FIRST_EPISODE_ID = 1;
 
@@ -31,6 +33,7 @@ export const RandomEpisode = () => {
 
   useEffect(() => {
     dispatchFunc(getEpisodeById(id));
+    dispatchFunc(addToLibrary({ libraryListName: randomepisodes, id }));
   }, [dispatchFunc, id]);
 
   const handleRandomEpisode = () => {

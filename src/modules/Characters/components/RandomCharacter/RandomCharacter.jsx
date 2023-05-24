@@ -11,6 +11,8 @@ import { Randomazier, StyledLink, Wrap } from './RandomCharacter.styled';
 import { RickForRandomizer } from 'shared/components/RickForRandomizer';
 import { desktop } from 'shared/constants/deviceSizes';
 import { Character } from 'modules/Characters/components/Character/Character';
+import { addToLibrary } from 'redux/library/slice';
+import { randomcharacters } from 'shared/constants/libaryListName';
 
 const FIRST_CHARACTER_ID = 1;
 
@@ -34,6 +36,7 @@ export const RandomCharacter = () => {
 
   useEffect(() => {
     dispatch(getCharacterById(id));
+    dispatch(addToLibrary({ libraryListName: randomcharacters, id }));
   }, [dispatch, id]);
 
   const handleGetRandomCharacter = () => {

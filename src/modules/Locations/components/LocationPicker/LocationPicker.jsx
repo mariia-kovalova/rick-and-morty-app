@@ -19,12 +19,18 @@ import { CardLoader } from 'shared/components/CardLoader/CardLoader';
 import { useOneLocation } from 'hooks/useOneLocation';
 import { Link, useLocation } from 'react-router-dom';
 import { locations } from 'shared/constants/routes';
+import { addToLibrary } from 'redux/library/slice';
+import { randomlocations } from 'shared/constants/libaryListName';
+
+const FIRST_LOCATION_ID = 1;
 
 export const LocationPicker = () => {
-  const [locationID, setLocationID] = useState(1);
   const [backgroundNum, setBackgroundNum] = useState(1);
   const dispatch = useDispatch();
   const { location, isLoading, error } = useOneLocation();
+  const [locationID, setLocationID] = useState(
+    location?.id ?? FIRST_LOCATION_ID
+  );
   const locationPath = useLocation();
 
   // Random button click
@@ -39,6 +45,9 @@ export const LocationPicker = () => {
 
   useEffect(() => {
     dispatch(getLocationById(locationID));
+    dispatch(
+      addToLibrary({ libraryListName: randomlocations, id: locationID })
+    );
   }, [dispatch, locationID]);
 
   const shouldShowLocation = location !== null && !isLoading && !error;
