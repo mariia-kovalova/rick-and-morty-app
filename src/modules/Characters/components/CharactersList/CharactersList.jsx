@@ -9,8 +9,9 @@ import { Loader } from 'shared/components/Loader';
 import { CardsList } from 'shared/components/CardsList';
 import { ResultsNotFound } from 'shared/components/ResultsNotFound';
 import { CharacterCard } from '../CharacterCard';
+import { gender, name, status } from 'shared/constants/charFilterTypes';
 
-export const PARAMS_ARR = ['name', 'status', 'gender'];
+export const PARAMS_ARR = [name, status, gender];
 
 export const CharactersList = () => {
   const [searchParams] = useSearchParams();

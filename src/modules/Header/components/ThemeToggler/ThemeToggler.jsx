@@ -5,6 +5,7 @@ import { dark, light } from 'shared/constants/theme';
 import { ThemeIcon, ToggleButton } from './ThemeToggler.styled';
 import sprite from 'shared/icons/sprite.svg';
 import { Tooltip } from 'shared/components/ToolTip';
+import { down } from 'shared/constants/tootipPosition';
 
 export const ThemeToggler = () => {
   const mode = useSelector(selectThemeMode);
@@ -19,7 +20,7 @@ export const ThemeToggler = () => {
       <Tooltip
         text="change theme mode"
         ariaLabel="theme toggler"
-        position="down"
+        position={down}
       >
         <ToggleButton onClick={handleThemeChange}>
           <ThemeIcon>

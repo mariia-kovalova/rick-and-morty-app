@@ -11,6 +11,7 @@ import {
   episodesType,
   locationsType,
 } from 'shared/constants/dataTypes';
+import { down } from 'shared/constants/tootipPosition';
 
 export const RandomCounter = () => {
   const [showModal, setShowModal] = useState(false);
@@ -71,7 +72,7 @@ export const RandomCounter = () => {
       <Tooltip
         text="see statistics"
         ariaLabel="open statistics"
-        position="down"
+        position={down}
       >
         <Button onClick={handleToggleModal}>
           <Icon>

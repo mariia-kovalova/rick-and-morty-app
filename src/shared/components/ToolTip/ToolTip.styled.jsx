@@ -1,4 +1,5 @@
 import styled from '@emotion/styled/macro';
+import { up } from 'shared/constants/tootipPosition';
 
 export const Trigger = styled.div`
   position: relative;
@@ -10,7 +11,7 @@ export const Trigger = styled.div`
 
 export const Text = styled.div`
   position: absolute;
-  top: ${({ position }) => (position === 'up' ? '-45px' : '30px')};
+  top: ${({ position }) => (position === up ? '-45px' : '40px')};
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -39,7 +40,7 @@ export const Text = styled.div`
     height: 0;
     border-style: solid;
     border-width: ${({ position }) =>
-      position === 'up' ? '6px 6px 0 6px' : '0'};
+      position === up ? '6px 6px 0 6px' : '0'};
     border-color: #333 transparent transparent transparent;
     top: 100%;
     left: 50%;

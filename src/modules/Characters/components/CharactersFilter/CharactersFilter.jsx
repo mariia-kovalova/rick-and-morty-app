@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import { useForm } from 'react-hook-form';
@@ -7,13 +7,20 @@ import { schema } from './schema';
 import debounce from 'lodash.debounce';
 import { Modal } from 'shared/components/Modal';
 import { SearchInput } from 'shared/components/SearchInput';
-import { AvancedFilters, Svg, Wrap } from './CharactersFilter.styled';
+import {
+  AvancedFilters,
+  InfoCircleStyled,
+  Svg,
+  Wrap,
+} from './CharactersFilter.styled';
 import { CharacterFiltersForm } from '../CharacterFiltersForm/CharacterFiltersForm';
 import sprite from 'shared/icons/sprite.svg';
 import { Tooltip } from 'shared/components/ToolTip';
 import { getSearchValues } from 'shared/utils/getSearchValues';
-import { inputs } from '../CharacterFiltersForm/inputs';
+import { filtersArr, inputs } from '../CharacterFiltersForm/inputs';
 import { getCleanValues } from 'shared/utils/getCleanValues';
+import { down } from 'shared/constants/tootipPosition';
+import { getApliedFiltersCount } from 'shared/utils/getApliedFiltersCount';
 
 const searchInput = {
   id: nanoid(),
@@ -23,6 +30,7 @@ const searchInput = {
 const DELAY = 500;
 
 export const CharactersFilter = () => {
+  const [count, setCount] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const {
@@ -33,6 +41,11 @@ export const CharactersFilter = () => {
     resolver: yupResolver(schema),
     mode: 'onChange',
   });
+
+  useEffect(() => {
+    const filtersCount = getApliedFiltersCount(filtersArr, searchParams);
+    setCount(filtersCount);
+  }, [searchParams]);
 
   const handleSearch = debounce(async ({ target }) => {
     if (target.value.trim() === '') {
@@ -60,13 +73,18 @@ export const CharactersFilter = () => {
           onChange={handleSearch}
           placeholder="Filter by name..."
         />
-        <AvancedFilters type="button" onClick={handleToggleModal}>
-          <Tooltip text="advanced filters" ariaLabel="advanced filters">
+        <Tooltip
+          text="advanced filters"
+          ariaLabel="advanced filters"
+          position={down}
+        >
+          <AvancedFilters type="button" onClick={handleToggleModal}>
             <Svg width="30" height="30">
               <use href={`${sprite}#icon-filter-solid`} />
             </Svg>
-          </Tooltip>
-        </AvancedFilters>
+            <InfoCircleStyled isHidden={count === 0}>{count}</InfoCircleStyled>
+          </AvancedFilters>
+        </Tooltip>
       </Wrap>
       {showModal && (
         <Modal onCloseModal={handleToggleModal}>

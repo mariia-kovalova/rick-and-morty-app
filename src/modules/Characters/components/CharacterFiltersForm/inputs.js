@@ -6,6 +6,7 @@ import {
   genderless,
   genderunknown,
 } from 'shared/constants/characterGender';
+import { gender, name, status } from 'shared/constants/charFilterTypes';
 
 const statusAllId = nanoid();
 const statusAliveId = nanoid();
@@ -21,25 +22,25 @@ const genderUnknownId = nanoid();
 const radioFieldsStatusArr = [
   {
     id: statusAllId,
-    inputName: 'status',
+    inputName: status,
     label: 'all',
     value: '',
   },
   {
     id: statusAliveId,
-    inputName: 'status',
+    inputName: status,
     label: alive,
     value: alive,
   },
   {
     id: statusDeadId,
-    inputName: 'status',
+    inputName: status,
     label: dead,
     value: dead,
   },
   {
     id: statusUnknownId,
-    inputName: 'status',
+    inputName: status,
     label: unknown,
     value: unknown,
   },
@@ -48,38 +49,41 @@ const radioFieldsStatusArr = [
 const radioFieldsGenderArr = [
   {
     id: genderAllId,
-    inputName: 'gender',
+    inputName: gender,
     label: 'all',
     value: '',
   },
   {
     id: genderMaleId,
-    inputName: 'gender',
+    inputName: gender,
     label: male,
     value: male,
   },
   {
     id: genderFemaleId,
-    inputName: 'gender',
+    inputName: gender,
     label: female,
     value: female,
   },
   {
     id: genderLessId,
-    inputName: 'gender',
+    inputName: gender,
     label: genderless,
     value: genderless,
   },
   {
     id: genderUnknownId,
-    inputName: 'gender',
+    inputName: gender,
     label: genderunknown,
     value: genderunknown,
   },
 ];
 
 export const radioFieldsArr = [
-  { tittle: 'status', arr: radioFieldsStatusArr },
-  { tittle: 'gender', arr: radioFieldsGenderArr },
+  { tittle: status, arr: radioFieldsStatusArr },
+  { tittle: gender, arr: radioFieldsGenderArr },
 ];
-export const inputs = ['name', 'status', 'gender'];
+
+export const inputs = [name, status, gender];
+
+export const filtersArr = [status, gender];
