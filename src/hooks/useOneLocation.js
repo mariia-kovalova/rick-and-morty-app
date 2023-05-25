@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
-import { selectFavEpisodesIds } from 'redux/library/selectors';
+import { selectFavLocationsIds } from 'redux/library/selectors';
 import {
   selectLocation,
   selectLocationError,
@@ -9,7 +9,7 @@ import {
 import { addIsFavouriteToItem } from 'shared/utils/addIsFavourite';
 
 const selectLocationWithIsFav = createSelector(
-  [selectLocation, selectFavEpisodesIds],
+  [selectLocation, selectFavLocationsIds],
   addIsFavouriteToItem
 );
 

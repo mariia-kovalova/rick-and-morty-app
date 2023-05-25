@@ -74,13 +74,13 @@ export const Btn = styled(BaseButton)`
   }
 
   &.reset {
-    color: ${({ theme }) => theme.paginationAccent};
+    color: ${({ theme }) => theme.crossThemeAccent};
     background-color: transparent;
-    border: 2px solid ${({ theme }) => theme.paginationAccent};
+    border: 2px solid ${({ theme }) => theme.crossThemeAccent};
 
     &:hover {
       color: ${({ theme }) => theme.characterCardTextAccent};
-      border-color: ${({ theme }) => theme.paginationAccent};
+      border-color: ${({ theme }) => theme.crossThemeAccent};
     }
   }
 
@@ -91,7 +91,7 @@ export const Btn = styled(BaseButton)`
 
     &:hover {
       color: ${({ theme }) => theme.characterCardTextAccent};
-      border-color: ${({ theme }) => theme.paginationAccent};
+      border-color: ${({ theme }) => theme.crossThemeAccent};
     }
   }
 `;

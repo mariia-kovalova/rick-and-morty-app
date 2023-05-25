@@ -60,7 +60,7 @@ export const LabelButton = styled.button`
 
     border-radius: 50%;
     background-color: ${({ theme, currentPage }) =>
-      currentPage ? theme.paginationAccent : theme.bgPrimary};
+      currentPage ? theme.crossThemeAccent : theme.bgPrimary};
     transition: backgrond-color 250ms ${({ theme }) => theme.cubic};
   }
 
@@ -79,7 +79,7 @@ export const Svg = styled.svg`
   padding: 1px;
 
   fill: transparent;
-  stroke: ${({ theme }) => theme.paginationAccent};
+  stroke: ${({ theme }) => theme.crossThemeAccent};
   transition: stroke 100ms ${({ theme }) => theme.cubic};
 
   ${IconArrowButton}:disabled & {

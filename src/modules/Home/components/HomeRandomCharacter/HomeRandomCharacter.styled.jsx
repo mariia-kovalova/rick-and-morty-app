@@ -29,7 +29,7 @@ export const CharacterCardWrap = styled.div`
   height: 400px;
 
   background: ${({ theme }) => theme.bgCharacterCard};
-  border: 3px solid ${({ theme }) => theme.paginationAccent};
+  border: 3px solid ${({ theme }) => theme.crossThemeAccent};
   border-radius: 4px;
 `;
 
@@ -81,7 +81,7 @@ export const CardDecoration = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
   }
@@ -97,7 +97,7 @@ export const CardDecoration = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
   }

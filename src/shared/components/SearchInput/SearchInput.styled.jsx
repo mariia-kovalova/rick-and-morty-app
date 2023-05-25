@@ -5,7 +5,7 @@ export const Label = styled.label`
   position: relative;
   background-color: #fff;
   outline: none;
-  border: 2px solid ${({ theme }) => theme.paginationAccent};
+  border: 2px solid ${({ theme }) => theme.crossThemeAccent};
   border-right: none;
   border-radius: 8px 0 0 8px;
   color: #212121;
@@ -23,7 +23,7 @@ export const Svg = styled.svg`
   transform: translate(-50%, -50%);
   border-radius: 50%;
 
-  fill: ${({ theme }) => theme.paginationAccent};
+  fill: ${({ theme }) => theme.crossThemeAccent};
   transition: transform 250ms ${({ theme }) => theme.cubic};
 
   &:hover,
@@ -44,7 +44,7 @@ export const Wrap = styled.div`
 export const Input = styled.input`
   background-color: #fff;
   outline: none;
-  border: 2px solid ${({ theme }) => theme.paginationAccent};
+  border: 2px solid ${({ theme }) => theme.crossThemeAccent};
   border-left: none;
   border-radius: 0 8px 8px 0;
   color: #212121;

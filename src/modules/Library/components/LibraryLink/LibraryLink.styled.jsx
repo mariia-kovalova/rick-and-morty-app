@@ -2,8 +2,8 @@ import styled from '@emotion/styled/macro';
 import { NavLink } from 'react-router-dom';
 
 export const Svg = styled.svg`
-  stroke: ${({ theme }) => theme.paginationAccent};
-  fill: ${({ theme }) => theme.paginationAccent};
+  stroke: ${({ theme }) => theme.crossThemeAccent};
+  fill: ${({ theme }) => theme.crossThemeAccent};
   transition: trasform 250ms ${({ theme }) => theme.cubic};
 `;
 
@@ -20,10 +20,10 @@ export const StyledLink = styled(NavLink)`
   line-height: 1.5;
   letter-spacing: 0.15px;
   text-decoration: none;
-  color: ${({ theme }) => theme.paginationAccent};
+  color: ${({ theme }) => theme.crossThemeAccent};
 
   background-color: ${({ theme }) => theme.bgPrimary};
-  border: 1px solid ${({ theme }) => theme.paginationAccent};
+  border: 1px solid ${({ theme }) => theme.crossThemeAccent};
   border-radius: 5px;
   transition: clip-path 250ms ${({ theme }) => theme.cubic},
     color 250ms ${({ theme }) => theme.cubic};
@@ -41,7 +41,7 @@ export const StyledLink = styled(NavLink)`
 
   &.active {
     color: ${({ theme }) => theme.bgPrimary};
-    background-color: ${({ theme }) => theme.paginationAccent};
+    background-color: ${({ theme }) => theme.crossThemeAccent};
 
     & ${Svg} {
       stroke: ${({ theme }) => theme.bgPrimary};
@@ -50,8 +50,8 @@ export const StyledLink = styled(NavLink)`
 
     &:hover {
       color: ${({ theme }) => theme.bgPrimary};
-      background-color: ${({ theme }) => theme.paginationAccent};
-      border-color: ${({ theme }) => theme.paginationAccent};
+      background-color: ${({ theme }) => theme.crossThemeAccent};
+      border-color: ${({ theme }) => theme.crossThemeAccent};
 
       & ${Svg} {
         stroke: ${({ theme }) => theme.bgPrimary};

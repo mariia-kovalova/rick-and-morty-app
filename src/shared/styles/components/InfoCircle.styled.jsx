@@ -4,7 +4,7 @@ export const InfoCircle = styled.div`
   width: fit-content;
   min-width: 10px;
   height: 16px;
-  padding: 3px;
+  padding: 5px;
 
   display: flex;
   justify-content: center;
@@ -14,5 +14,5 @@ export const InfoCircle = styled.div`
   font-weight: 700;
   border-radius: 8px;
   color: ${({ theme }) => theme.bgPrimary};
-  background-color: ${({ theme }) => theme.accent};
+  background-color: ${({ theme }) => theme.crossThemeAccent};
 `;

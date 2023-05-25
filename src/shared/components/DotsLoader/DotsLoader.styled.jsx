@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const flashing = ({ theme }) => keyframes`
   0% {
-    background-color: ${theme.paginationAccent};
+    background-color: ${theme.crossThemeAccent};
   }
   50%, 100% {
     background-color: rgba(152, 128, 255, 0.2);
@@ -15,8 +15,8 @@ export const ThreeDots = styled.div`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.paginationAccent};
-  color: ${({ theme }) => theme.paginationAccent};
+  background-color: ${({ theme }) => theme.crossThemeAccent};
+  color: ${({ theme }) => theme.crossThemeAccent};
   animation: ${flashing} 1s infinite alternate;
   animation-delay: 0.5s;
 
@@ -30,8 +30,8 @@ export const ThreeDots = styled.div`
     width: 14px;
     height: 14px;
 
-    background-color: ${({ theme }) => theme.paginationAccent};
-    color: ${({ theme }) => theme.paginationAccent};
+    background-color: ${({ theme }) => theme.crossThemeAccent};
+    color: ${({ theme }) => theme.crossThemeAccent};
     border-radius: 50%;
     animation: ${flashing} 1s infinite alternate;
   }

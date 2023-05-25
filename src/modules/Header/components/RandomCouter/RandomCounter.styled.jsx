@@ -12,14 +12,16 @@ export const Button = styled.button`
 `;
 
 export const Icon = styled.svg`
-  fill: ${({ theme }) => theme.accent};
+  fill: ${({ theme }) => theme.crossThemeAccent};
   height: 24px;
   width: 24px;
 
-  transition: transform 250ms ${({ theme }) => theme.cubic};
+  transition: transform 250ms ${({ theme }) => theme.cubic},
+    fill 250ms ${({ theme }) => theme.cubic};
 
   ${Button}:hover &,
   ${Button}:focus & {
+    fill: ${({ theme }) => theme.characterCardTextAccent};
     transform: scale(1.05);
   }
 
@@ -34,11 +36,13 @@ export const InfoCircleStyled = styled(InfoCircle)`
   top: -12px;
   left: 22px;
 
-  transition: transform 250ms ${({ theme }) => theme.cubic};
+  transition: background-color 250ms ${({ theme }) => theme.cubic},
+    transform 250ms ${({ theme }) => theme.cubic};
 
   ${Button}:hover &,
   ${Button}:focus & {
     transform: scale(1.05);
+    background-color: ${({ theme }) => theme.characterCardTextAccent};
   }
 
   @media (min-width: ${desktop}) {

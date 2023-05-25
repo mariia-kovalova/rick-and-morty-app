@@ -104,11 +104,13 @@ export const InfoList = styled.ul`
   width: fit-content;
 
   border-radius: 4px;
-  background-color: #333;
-  color: ${({ theme }) => theme.textPrimary};
+  background-color: ${({ theme }) => theme.bgPrimary};
+  color: ${({ theme }) => theme.characterCardTextAccent};
   white-space: nowrap;
   opacity: 0;
   transition: opacity 250ms ${({ theme }) => theme.cubic};
+  box-shadow: 0px 4px 16px ${({ theme }) => theme.boxShadow};
+  border: 2px solid ${({ theme }) => theme.borderModal};
 
   ${Wrap}:hover & {
     opacity: 1;

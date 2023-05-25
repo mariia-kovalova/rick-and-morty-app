@@ -2,18 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { getLocationById } from 'redux/location/thunks';
 import { useDispatch } from 'react-redux';
 
+import { LocationInfo } from '../LocationInfo/LocationInfo';
 import {
   LocationCard,
   LocationCardDetails,
   StyledDiv,
   StyledH2,
-  StyledH3,
-  Detail,
   LocationChoose,
   Paragraph,
 } from './LocationPicker.styled';
 import { getRandomLocation } from 'shared/utils/getRandomLocation';
-import sprite from '../../../../shared/icons/sprite.svg';
 import { RandomButton } from 'shared/components/RandomButton';
 import { CardLoader } from 'shared/components/CardLoader/CardLoader';
 import { useOneLocation } from 'hooks/useOneLocation';
@@ -21,6 +19,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { locations } from 'shared/constants/routes';
 import { addToLibrary } from 'redux/library/slice';
 import { randomlocations } from 'shared/constants/libaryListName';
+import sprite from 'shared/icons/sprite.svg';
 
 const FIRST_LOCATION_ID = 1;
 
@@ -63,18 +62,7 @@ export const LocationPicker = () => {
               to={`/${locations}/${location.id}`}
               state={{ from: locationPath }}
             >
-              <StyledH3>{location.name}</StyledH3>
-              <Detail>
-                Dimension:
-                <span> {location.dimension}</span>
-              </Detail>
-              <Detail>
-                Type:<span> {location.type}</span>
-              </Detail>
-              <Detail>
-                Number of residents:
-                <span> {location.residents.length}</span>
-              </Detail>
+              <LocationInfo location={location} />
             </Link>
           </LocationCardDetails>
         )}

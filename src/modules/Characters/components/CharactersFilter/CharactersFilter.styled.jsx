@@ -13,7 +13,7 @@ export const AvancedFilters = styled.button`
   position: relative;
   width: 60px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.paginationAccent};
+  background-color: ${({ theme }) => theme.crossThemeAccent};
   transition: transform 250ms ${({ theme }) => theme.cubic},
     color 250ms ${({ theme }) => theme.cubic};
 

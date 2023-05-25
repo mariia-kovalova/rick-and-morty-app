@@ -25,6 +25,7 @@ export const EpisodeWrap = styled(CardWrap)`
   gap: 30px;
 
   padding-bottom: 220px;
+  height: 380px;
 
   @media screen and (min-width: ${desktop}) {
     flex-direction: row;
@@ -52,12 +53,16 @@ export const EpisodeWrap = styled(CardWrap)`
   }
 
   & ul:first-of-type {
-    bottom: -191%;
-    left: 0;
+    &.episodes-page {
+      bottom: -191%;
+      left: 0;
 
-    @media screen and (min-width: ${tablet}) {
-      bottom: -8%;
-      left: -30%;
+      height: fit-content;
+
+      @media screen and (min-width: ${tablet}) {
+        bottom: -8%;
+        left: -30%;
+      }
     }
   }
 `;

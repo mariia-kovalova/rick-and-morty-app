@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import image from 'shared/images/locationCard.jpg';
+import { useDispatch } from 'react-redux';
+import { favlocations } from 'shared/constants/libaryListName';
+import { Heart } from 'shared/components/Heart';
 import {
   Description,
+  HeartWrap,
   Img,
   ImgWrap,
   Infobox,
@@ -10,15 +15,10 @@ import {
   StyledDiv,
   Wrap,
 } from './LocationCard.styled';
-import { locations } from 'shared/constants/routes';
-import image from '../../../../shared/images/locationCard.jpg';
-import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router';
 
 export const LocationCard = ({ location, resident, showResidentsBtn }) => {
   const [residentImage, setResidentImage] = useState(image);
   const dispatch = useDispatch();
-  const locationPath = useLocation();
 
   useEffect(() => {
     if (resident) {
@@ -53,17 +53,19 @@ export const LocationCard = ({ location, resident, showResidentsBtn }) => {
           </Name>
         </Infobox>
         {showResidentsBtn && (
-          <ResidentsButton
-            to={`/${locations}/${location.id}`}
-            state={{ from: locationPath }}
-          >
-            Residents
-          </ResidentsButton>
+          <ResidentsButton type="button">Residents</ResidentsButton>
         )}
       </Description>
       <Wrap>
         <Number>#{location.id}</Number>
       </Wrap>
+      <HeartWrap isFavourite={location.isFavourite}>
+        <Heart
+          id={location.id}
+          isFavourite={location.isFavourite}
+          libraryListName={favlocations}
+        />
+      </HeartWrap>
     </StyledDiv>
   );
 };

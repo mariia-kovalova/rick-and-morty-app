@@ -13,7 +13,7 @@ export const Selected = styled.select`
   width: 210px;
 
   outline: none;
-  border: 2px solid ${({ theme }) => theme.paginationAccent};
+  border: 2px solid ${({ theme }) => theme.crossThemeAccent};
   border-radius: 8px;
   background-color: #fff;
   color: #212121;

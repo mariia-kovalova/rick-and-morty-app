@@ -22,7 +22,7 @@ export const Wrap = styled(BasicWrapper)`
   height: 159px;
 
   background-color: ${({ theme }) => theme.bgPrimary};
-  border: 3px solid ${({ theme }) => theme.paginationAccent};
+  border: 3px solid ${({ theme }) => theme.crossThemeAccent};
 
   @media screen and (min-width: ${tablet}) {
     height: 247px;

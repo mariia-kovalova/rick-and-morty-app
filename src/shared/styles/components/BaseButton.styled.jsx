@@ -23,7 +23,7 @@ export const BaseButton = styled.button`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: ${({ theme }) => theme.bgPrimary};
-  background-color: ${({ theme }) => theme.paginationAccent};
+  background-color: ${({ theme }) => theme.crossThemeAccent};
   border-radius: 4px;
   transition: transform 250ms ${({ theme }) => theme.cubic},
     clip-path 250ms ${({ theme }) => theme.cubic},

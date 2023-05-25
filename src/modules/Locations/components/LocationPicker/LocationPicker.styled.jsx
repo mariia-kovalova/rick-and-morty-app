@@ -36,7 +36,7 @@ export const StyledDiv = styled.div`
     width: 1000px;
   }
 
-  border: 3px solid ${({ theme }) => theme.paginationAccent};
+  border: 3px solid ${({ theme }) => theme.crossThemeAccent};
 
   background: ${({ theme }) => theme.bgCharacterCard};
 `;
@@ -81,7 +81,7 @@ export const LocationCard = styled.div`
       height: 40px;
 
       background-color: ${({ theme }) => theme.bgPrimary};
-      border-right: 3px solid ${({ theme }) => theme.paginationAccent};
+      border-right: 3px solid ${({ theme }) => theme.crossThemeAccent};
     }
   }
 
@@ -96,7 +96,7 @@ export const LocationCard = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 6px 6px 0;
     background-color: transparent;
   }
@@ -150,50 +150,6 @@ export const LocationCardDetails = styled.div`
   }
 `;
 
-export const StyledH3 = styled.h3`
-  position: relative;
-  top: -15px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-
-  width: 400px;
-  height: 70px;
-
-  text-align: center;
-  font-size: 22px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.textPrimary};
-
-  background-color: #a3a3a3;
-  border-radius: 5px;
-
-  @media screen and (min-width: ${mobile}) {
-    width: 250px;
-  }
-`;
-
-export const Detail = styled.p`
-  padding: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.textPrimary};
-
-  & span {
-    display: inline;
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 1;
-    letter-spacing: 0.25px;
-    color: ${({ theme }) => theme.characterCardTextAccent};
-  }
-`;
-
 export const LocationChoose = styled.div`
   flex: 1;
 
@@ -215,7 +171,7 @@ export const LocationChoose = styled.div`
     height: 40px;
 
     background-color: ${({ theme }) => theme.bgPrimary};
-    border-right: 3px solid ${({ theme }) => theme.paginationAccent};
+    border-right: 3px solid ${({ theme }) => theme.crossThemeAccent};
   }
 
   &::before {
@@ -228,7 +184,7 @@ export const LocationChoose = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 6px 6px 0;
     background-color: transparent;
   }

@@ -66,7 +66,7 @@ export const Wrap = styled.div`
     height: 133px;
 
     background-color: rgba(81, 107, 107, 0.801);
-    border: 1px solid ${({ theme }) => theme.paginationAccent};
+    border: 1px solid ${({ theme }) => theme.crossThemeAccent};
     border-radius: 4px;
     background: linear-gradient(
         90deg,

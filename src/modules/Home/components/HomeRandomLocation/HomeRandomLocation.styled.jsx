@@ -15,7 +15,7 @@ export const StyledDiv = styled.div`
   width: 280px;
   height: 400px;
 
-  border: 3px solid ${({ theme }) => theme.paginationAccent};
+  border: 3px solid ${({ theme }) => theme.crossThemeAccent};
 
   background: ${({ theme }) => theme.bgCharacterCard};
 
@@ -32,7 +32,7 @@ export const StyledDiv = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
   }
@@ -48,7 +48,7 @@ export const StyledDiv = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
   }

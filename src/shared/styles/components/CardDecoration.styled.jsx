@@ -22,7 +22,7 @@ export const CardDecoration = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
 
@@ -42,7 +42,7 @@ export const CardDecoration = styled.div`
     display: inline-block;
     padding: 40px;
 
-    border: solid ${({ theme }) => theme.paginationAccent};
+    border: solid ${({ theme }) => theme.crossThemeAccent};
     border-width: 0 20px 20px 0;
     background-color: transparent;
 
@@ -56,7 +56,7 @@ export const CardWrap = styled.div`
   padding: 60px 20px 20px 20px;
 
   background: ${({ theme }) => theme.bgCharacterCard};
-  border: 3px solid ${({ theme }) => theme.paginationAccent};
+  border: 3px solid ${({ theme }) => theme.crossThemeAccent};
   border-radius: 4px;
 
   @media screen and (min-width: ${tablet}) {
@@ -74,7 +74,7 @@ export const CardWrap = styled.div`
     height: 40px;
 
     background-color: ${({ theme }) => theme.bgPrimary};
-    border-right: 3px solid ${({ theme }) => theme.paginationAccent};
+    border-right: 3px solid ${({ theme }) => theme.crossThemeAccent};
   }
 
   &::after {
@@ -88,6 +88,6 @@ export const CardWrap = styled.div`
     height: 40px;
 
     background-color: ${({ theme }) => theme.bgPrimary};
-    border-right: 3px solid ${({ theme }) => theme.paginationAccent};
+    border-right: 3px solid ${({ theme }) => theme.crossThemeAccent};
   }
 `;

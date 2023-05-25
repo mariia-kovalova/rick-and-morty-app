@@ -1,14 +1,11 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 import { desktop, mobile, tablet } from 'shared/constants/deviceSizes';
+import { getHeartColor } from 'shared/utils/getHeartColor';
 import { getStatus } from 'shared/utils/getStatus';
 
 export const StyledDiv = styled.div`
   position: relative;
 
-  display: block;
-
-  color: inherit;
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
@@ -171,7 +168,7 @@ export const Number = styled.div`
   letter-spacing: 0.15px;
 `;
 
-export const ResidentsButton = styled(Link)`
+export const ResidentsButton = styled.button`
   position: absolute;
 
   display: flex;
@@ -185,7 +182,7 @@ export const ResidentsButton = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.bgPrimary};
 
-  background-color: ${({ theme }) => theme.paginationAccent};
+  background-color: ${({ theme }) => theme.crossThemeAccent};
 
   border-radius: 5px;
   transition: clip-path 250ms ${({ theme }) => theme.cubic},
@@ -243,5 +240,19 @@ export const ResidentsButton = styled(Link)`
     left: 85%;
     transform: translate(-50%, -50%);
     height: 70px;
+  }
+`;
+
+export const HeartWrap = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 30px;
+  height: 30px;
+
+  & svg {
+    stroke: ${getHeartColor};
+    fill: ${getHeartColor};
   }
 `;

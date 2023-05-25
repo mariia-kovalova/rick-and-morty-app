@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const StyledH2 = styled.h2`
   position: absolute;
@@ -21,4 +22,8 @@ export const StyledUl = styled.ul`
 
   margin-bottom: 30px;
   margin-top: 40px;
+`;
+
+export const StyledLink = styled(Link)`
+  color: inherit;
 `;

@@ -3,17 +3,19 @@ import { useDispatch } from 'react-redux';
 import { getLocationsByFilter } from 'redux/locations/thunks';
 import { LocationCard } from '../LocationCard/LocationCard';
 import { Pagination } from 'shared/components/Pagination';
-import { StyledH2, StyledUl } from './LocationsList.styled';
-import { useSearchParams } from 'react-router-dom';
+import { StyledH2, StyledLink, StyledUl } from './LocationsList.styled';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { useLocations } from 'hooks/useLocations';
 import { Loader } from 'shared/components/Loader';
 import { ResultsNotFound } from 'shared/components/ResultsNotFound';
 import { getSearchValues } from 'shared/utils/getSearchValues';
+import { locations as locationsRoute } from 'shared/constants/routes';
 
 export const PARAMS_ARR = ['name', 'type', 'dimension'];
 
 export const LocationsList = () => {
   const [searchParams] = useSearchParams();
+  const locationPath = useLocation();
   const { info, locations, error, isLoading } = useLocations();
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
@@ -47,11 +49,16 @@ export const LocationsList = () => {
         <StyledUl>
           {locations.map(location => (
             <li key={location.id}>
-              <LocationCard
-                location={location}
-                resident={location.residents[0]}
-                showResidentsBtn={showResidentsBtn}
-              />
+              <StyledLink
+                to={`/${locationsRoute}/${location.id}`}
+                state={{ from: locationPath }}
+              >
+                <LocationCard
+                  location={location}
+                  resident={location.residents[0]}
+                  showResidentsBtn={showResidentsBtn}
+                />
+              </StyledLink>
             </li>
           ))}
         </StyledUl>

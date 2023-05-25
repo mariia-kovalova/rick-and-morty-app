@@ -22,7 +22,7 @@ export const lightTheme = {
 
   bgcHoverFocus: 'rgba(0, 0, 0, 0.1)',
   iconFillStrokeHover: '#f2f9fe',
-  paginationAccent: '#7dd3e8',
+  crossThemeAccent: '#7dd3e8',
   characterCardTextAccent: '#3ea7c2',
   characterCardTexHover: '#ffffff',
 
@@ -65,7 +65,7 @@ export const darkTheme = {
 
   bgcHoverFocus: '#a2b3b0',
   iconFillStrokeHover: '#f2f9fe',
-  paginationAccent: '#31d6b8',
+  crossThemeAccent: '#31d6b8',
   characterCardTextAccent: '#d7fcf6',
   characterCardTexHover: '#f8fe76',
 

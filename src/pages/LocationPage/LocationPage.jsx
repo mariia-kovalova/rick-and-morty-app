@@ -12,6 +12,7 @@ import { home } from 'shared/constants/routes';
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
 import { nameNormalize } from 'shared/utils/nameNormalize';
+import { scrollUp } from 'shared/utils/scrollUp';
 
 const NUMBER_OF_LETTER_TO_SKIP = 42;
 
@@ -25,6 +26,7 @@ const LocationPage = () => {
   const path = locationPath.state?.from ?? home;
 
   useEffect(() => {
+    scrollUp(0);
     dispatch(getLocationById(params.locationId));
   }, [dispatch, params]);
 
