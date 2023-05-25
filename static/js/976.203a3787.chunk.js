@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrick_and_morty_app=self.webpackChunkrick_and_morty_app||[]).push([[976],{976:function(a,e,n){n.r(e);var r=n(7689),o=n(3329);e.default=function(){var a=(0,r.UO)();console.log(a);var e=(0,r.TH)();return console.log(e.pathname),(0,o.jsx)("div",{children:"FavouritePage"})}}}]);
-//# sourceMappingURL=976.203a3787.chunk.js.map
