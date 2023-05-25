@@ -1,14 +1,14 @@
 import { useEpisodes } from 'hooks/useEpisodes';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { getEpisodesByFilter } from 'redux/episodes/thunks';
+import { getSearchValues } from 'shared/utils/getSearchValues';
+import { Item, List } from './EpisodeCardList.styled';
+import { EpisodeCard } from '../EpisodeCard/EpisodeCard';
 import { Loader } from 'shared/components/Loader';
 import { Pagination } from 'shared/components/Pagination';
 import { ResultsNotFound } from 'shared/components/ResultsNotFound';
-import { EpisodeCard } from '../EpisodeCard/EpisodeCard';
-import { useSearchParams } from 'react-router-dom';
-import { getSearchValues } from 'shared/utils/getSearchValues';
-import { Item, List } from './EpisodeCardList.styled';
 
 export const PARAMS_ARR = ['name', 'episode'];
 
