@@ -3,10 +3,13 @@ import { Loader } from 'shared/components/Loader';
 import { Item, List } from './EpisodeCardList.styled';
 import { EpisodeCard } from 'modules/Episodes/components/EpisodeCard/EpisodeCard';
 import { StyledH2 } from 'modules/Library/Library.styled';
+import { useLibrary } from 'hooks/useLibrary';
 
 export const EpisodeCardList = () => {
+  const { favEpisodesIds } = useLibrary();
   const { episodes, error, isLoading } = useEpisodes();
-  const shouldRenderList = episodes.length > 0 && !error;
+
+  const shouldRenderList = favEpisodesIds.length > 0 && !error;
   const shouldShowError = !isLoading && error;
 
   return (

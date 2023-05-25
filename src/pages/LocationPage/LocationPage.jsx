@@ -14,6 +14,8 @@ import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
 import { nameNormalize } from 'shared/utils/nameNormalize';
 
+const NUMBER_OF_LETTER_TO_SKIP = 42;
+
 const LocationPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
@@ -28,7 +30,9 @@ const LocationPage = () => {
   }, [dispatch, params]);
 
   useEffect(() => {
-    const residentsID = location.residents.map(resident => resident.slice(42));
+    const residentsID = location.residents.map(resident =>
+      resident.slice(NUMBER_OF_LETTER_TO_SKIP)
+    );
 
     dispatch(getCharactersByIds(residentsID));
   }, [dispatch, location]);

@@ -5,13 +5,16 @@ import {
 } from './CharacterBlock.styled';
 import { useOneCharacter } from 'hooks/useOneCharacter';
 import { Character } from 'modules/Characters/components/Character/Character';
-import { home } from 'shared/constants/routes';
+import { locations } from 'shared/constants/routes';
 import { CardLoader } from 'shared/components/CardLoader/CardLoader';
 import { CharacterInfoList } from '../CharacterInfoList/CharacterInfoList';
+
+const NUMBER_OF_LETTER_TO_SKIP = 41;
 
 export const CharacterBlock = () => {
   const { character, isLoading } = useOneCharacter();
   const { name, status, species, gender, origin, location } = character;
+  const locationId = location.url.slice(NUMBER_OF_LETTER_TO_SKIP);
 
   const info = [
     { label: 'full name', data: status },
@@ -22,8 +25,11 @@ export const CharacterBlock = () => {
   ];
 
   const links = [
-    { label: 'location', data: location.name, path: home },
-    // link to location page
+    {
+      label: 'location',
+      data: location.name,
+      path: `/${locations}/${locationId}`,
+    },
   ];
 
   return (

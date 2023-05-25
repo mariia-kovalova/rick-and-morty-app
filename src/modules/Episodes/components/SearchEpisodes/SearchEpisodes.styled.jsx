@@ -20,10 +20,6 @@ export const Selected = styled.select`
   color: #212121;
   padding: 14px 10px 14px 10px;
   text-align: center;
-
-  @media screen and (min-width: ${tablet}) {
-    width: 260px;
-  }
 `;
 
 export const Option = styled.option`

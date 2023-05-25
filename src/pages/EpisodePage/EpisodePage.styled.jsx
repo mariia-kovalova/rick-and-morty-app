@@ -73,8 +73,4 @@ export const StyledH2 = styled.h2`
   @media screen and (min-width: ${tablet}) {
     font-size: 30px;
   }
-
-  @media screen and (min-width: ${desktop}) {
-    font-size: 40px;
-  }
 `;

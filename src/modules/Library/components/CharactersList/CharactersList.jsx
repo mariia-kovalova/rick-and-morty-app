@@ -1,12 +1,15 @@
 import { useCharacters } from 'hooks/useCharacters';
+import { useLibrary } from 'hooks/useLibrary';
 import { CharacterCard } from 'modules/Characters/components/CharacterCard';
 import { StyledH2 } from 'modules/Library/Library.styled';
 import { CardsList } from 'shared/components/CardsList';
 import { Loader } from 'shared/components/Loader';
 
 export const CharactersList = () => {
+  const { favCharactersIds } = useLibrary();
   const { characters, isLoading, error } = useCharacters();
-  const shouldRenderList = characters.length > 0 && !error;
+
+  const shouldRenderList = favCharactersIds.length > 0 && !error;
   const shouldShowError = !isLoading && error;
 
   return (

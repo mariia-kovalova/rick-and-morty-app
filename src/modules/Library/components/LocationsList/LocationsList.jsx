@@ -3,12 +3,14 @@ import { StyledH2 } from 'modules/Library/Library.styled';
 import { Loader } from 'shared/components/Loader';
 import { StyledUl } from './LocationsList.styled';
 import { LocationCard } from 'modules/Locations/components/LocationCard/LocationCard';
+import { useLibrary } from 'hooks/useLibrary';
 
 export const LocationsList = () => {
+  const { favLocationsIds } = useLibrary();
   const { locations, error, isLoading } = useLocations();
-  const showResidentsBtn = true;
 
-  const shouldRenderList = locations.length > 0 && !error;
+  const showResidentsBtn = true;
+  const shouldRenderList = favLocationsIds.length > 0 && !error;
   const shouldShowError = !isLoading && error;
 
   return (
