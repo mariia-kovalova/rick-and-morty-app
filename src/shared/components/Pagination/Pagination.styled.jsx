@@ -1,20 +1,28 @@
 import styled from '@emotion/styled/macro';
+import { tablet } from 'shared/constants/deviceSizes';
 
 export const List = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
+
+  @media screen and (min-width: ${tablet}) {
+    gap: 16px;
+  }
 `;
 
 export const IconArrowButton = styled.button`
   position: relative;
-
-  padding: 16px;
+  padding: 12px;
 
   border-radius: 50%;
   background-color: ${({ theme }) => theme.bgPrimary};
   transition: backgrond-color 250ms ${({ theme }) => theme.cubic};
+
+  @media screen and (min-width: ${tablet}) {
+    padding: 16px;
+  }
 
   &:hover,
   &:focus {
