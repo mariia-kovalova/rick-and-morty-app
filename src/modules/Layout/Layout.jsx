@@ -1,12 +1,25 @@
 import { Footer } from 'modules/Footer';
 import { Header } from 'modules/Header';
-import { Suspense } from 'react';
-import { Outlet } from 'react-router';
+import { Suspense, useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router';
 import { Wrap, Main } from './Layout.styled';
+import { images } from './images';
+
+const DEFAULT_IMAGE_URL = 'homepageimageurl'; // та що для homepage
 
 export const Layout = () => {
+  const location = useLocation();
+  const [bgurl, setBgurl] = useState(DEFAULT_IMAGE_URL);
+
+  useEffect(() => {
+    const imageArr = images.filter(({ pathname }) =>
+      location.pathname.includes(pathname)
+    );
+    setBgurl(imageArr[0]?.url ?? DEFAULT_IMAGE_URL);
+  }, [location]);
+
   return (
-    <Wrap>
+    <Wrap url={bgurl}>
       <Header />
       <Main>
         <Suspense fallback={null}>

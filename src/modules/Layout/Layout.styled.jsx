@@ -6,6 +6,7 @@ const headerAndFooterHeightOnTablet = '172px';
 const headerAndFooterHeightOnDesktop = '172px';
 
 export const Wrap = styled.div`
+  background-image: ${({ url }) => url};
   background-color: ${({ theme }) => theme.bgPrimary};
   color: ${({ theme }) => theme.textPrimary};
 `;
