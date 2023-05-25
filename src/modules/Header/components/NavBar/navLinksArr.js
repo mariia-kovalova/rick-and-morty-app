@@ -1,3 +1,4 @@
+import { favcharacters } from 'shared/constants/libaryListName';
 import {
   characters,
   episodes,
@@ -19,7 +20,7 @@ export const navLinksArr = [
     name: 'Episodes',
   },
   {
-    path: library,
+    path: `${library}/${favcharacters}`,
     name: 'Library',
   },
 ];
