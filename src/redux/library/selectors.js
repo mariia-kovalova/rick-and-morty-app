@@ -9,7 +9,7 @@ import {
 
 export const selectFavCharactersIds = state => state.library.lib[favcharacters];
 export const selectFavEpisodesIds = state => state.library.lib[favepisodes];
-export const selectFavLocationsIds = state => state[favlocations];
+export const selectFavLocationsIds = state => state.library.lib[favlocations];
 export const selectRandomCharactersIds = state =>
   state.library.lib[randomcharacters];
 export const selectRandomEpisodesIds = state =>

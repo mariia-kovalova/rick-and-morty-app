@@ -1,7 +1,13 @@
-import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import styled from '@emotion/styled/macro';
+import { NavLink } from 'react-router-dom';
 
-export const StyledLink = styled(Link)`
+export const Svg = styled.svg`
+  stroke: ${({ theme }) => theme.paginationAccent};
+  fill: ${({ theme }) => theme.paginationAccent};
+  transition: trasform 250ms ${({ theme }) => theme.cubic};
+`;
+
+export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +42,22 @@ export const StyledLink = styled(Link)`
   &.active {
     color: ${({ theme }) => theme.bgPrimary};
     background-color: ${({ theme }) => theme.paginationAccent};
+
+    & ${Svg} {
+      stroke: ${({ theme }) => theme.bgPrimary};
+      fill: ${({ theme }) => theme.bgPrimary};
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.bgPrimary};
+      background-color: ${({ theme }) => theme.paginationAccent};
+      border-color: ${({ theme }) => theme.paginationAccent};
+
+      & ${Svg} {
+        stroke: ${({ theme }) => theme.bgPrimary};
+        fill: ${({ theme }) => theme.bgPrimary};
+      }
+    }
   }
 
   &:disabled {
@@ -53,23 +75,13 @@ export const StyledLink = styled(Link)`
       0% 70%,
       0% 0%
     );
-    color: ${({ theme }) => theme.secondary};
-    background-color: ${({ theme }) => theme.secondary};
-  }
-`;
+    color: ${({ theme }) => theme.characterCardTextAccent};
+    background-color: ${({ theme }) => theme.bgPrimary};
+    border-color: ${({ theme }) => theme.characterCardTextAccent};
 
-export const Svg = styled.svg`
-  stroke: ${({ theme }) => theme.paginationAccent};
-  fill: ${({ theme }) => theme.paginationAccent};
-  transition: trasform 250ms ${({ theme }) => theme.cubic};
-
-  a.avtive {
-    stroke: ${({ theme }) => theme.bgPrimary};
-    fill: ${({ theme }) => theme.bgPrimary};
-  }
-
-  a:hover & {
-    stroke: ${({ theme }) => theme.secondary};
-    fill: ${({ theme }) => theme.secondary};
+    & ${Svg} {
+      stroke: ${({ theme }) => theme.characterCardTextAccent};
+      fill: ${({ theme }) => theme.characterCardTextAccent};
+    }
   }
 `;

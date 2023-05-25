@@ -38,8 +38,9 @@ export const App = () => {
         <Route path={location} element={<LocationPage />} />
         <Route path={episodes} element={<EpisodesPage />} />
         <Route path={episode} element={<EpisodePage />} />
-        <Route path={library} element={<LibraryPage />} />
-        <Route path={favourite} element={<FavouritePage />} />
+        <Route path={library} element={<LibraryPage />}>
+          <Route path={favourite} element={<FavouritePage />} />
+        </Route>
         <Route path={all} element={<NotFoundPage />} />
       </Route>
     </Routes>

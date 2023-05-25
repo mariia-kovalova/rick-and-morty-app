@@ -1,10 +1,10 @@
 export const LIBRARY_LIST_NAMES = {
-  favcharacters: 'favCharactersIds',
-  favepisodes: 'favEpisodesIds',
-  favlocations: 'favLocationsIds',
-  randomcharacters: 'randomCharactersIds',
-  randomepisodes: 'randomLocationsIds',
-  randomlocations: ' randomLocationsIds',
+  favcharacters: 'favCharacters',
+  favepisodes: 'favEpisodes',
+  favlocations: 'favLocations',
+  randomcharacters: 'randomCharacters',
+  randomepisodes: 'randomLocations',
+  randomlocations: ' randomLocations',
 };
 
 export const {

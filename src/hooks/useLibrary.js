@@ -12,7 +12,6 @@ export const useLibrary = () => {
   const favCharactersIds = useSelector(selectFavCharactersIds);
   const favEpisodesIds = useSelector(selectFavEpisodesIds);
   const favLocationsIds = useSelector(selectFavLocationsIds);
-
   const randomCharactersIds = useSelector(selectRandomCharactersIds);
   const randomEpisodesIds = useSelector(selectRandomEpisodesIds);
   const randomLocationsIds = useSelector(selectRandomLocationsIds);

@@ -8,7 +8,7 @@ export const ROUTES = {
   episodes: 'episodes',
   episode: 'episodes/:episodeId',
   library: 'library',
-  favourite: 'library/:listName',
+  favourite: ':listName',
   all: '*',
 };
 
