@@ -3,6 +3,7 @@ import { NavBar } from './components/NavBar/NavBar';
 import { ThemeToggler } from './components/ThemeToggler/ThemeToggler';
 import { Container } from 'shared/styles/components/Container.styled';
 import { StyledDiv } from './Header.styled';
+import { RandomCounter } from './components/RandomCouter/RandomCounter';
 
 export const Header = () => {
   return (
@@ -12,6 +13,7 @@ export const Header = () => {
           <div className="container-left">
             <Logo />
             <ThemeToggler />
+            <RandomCounter />
           </div>
           <div className="container-right">
             <NavBar />

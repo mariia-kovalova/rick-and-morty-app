@@ -5,7 +5,6 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router';
-
 import { getCharactersByIds } from 'redux/characters/thunks';
 import { getLocationById } from 'redux/location/thunks';
 import { GoBackLink } from 'shared/components/GoBackLink/GoBackLink';

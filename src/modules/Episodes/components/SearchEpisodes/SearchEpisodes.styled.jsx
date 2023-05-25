@@ -1,5 +1,4 @@
 import styled from '@emotion/styled/macro';
-import { tablet } from 'shared/constants/deviceSizes';
 
 export const Wrap = styled.div`
   display: flex;

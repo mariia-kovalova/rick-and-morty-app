@@ -1,4 +1,4 @@
-import { message, regex } from 'shared/constants/serchInput';
+import { message, regex } from 'shared/constants/searchInput';
 import * as Yup from 'yup';
 
 export const schema = Yup.object({

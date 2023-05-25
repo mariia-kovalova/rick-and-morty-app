@@ -6,7 +6,7 @@ import {
   genderless,
   genderunknown,
 } from 'shared/constants/characterGender';
-import { message, regex } from 'shared/constants/serchInput';
+import { message, regex } from 'shared/constants/searchInput';
 
 export const schema = Yup.object({
   name: Yup.string().matches(regex, {

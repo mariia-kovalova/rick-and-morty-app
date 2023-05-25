@@ -1,17 +1,6 @@
-import { library } from 'shared/constants/routes';
+import { links } from './links';
 import { LibaryLink } from '../LibraryLink/LibaryLink';
 import { List, NavBar } from './LibraryNav.styled';
-import {
-  favcharacters,
-  favepisodes,
-  favlocations,
-} from 'shared/constants/libaryListName';
-
-const links = [
-  { path: `/${library}/${favcharacters}`, text: 'characters' },
-  { path: `/${library}/${favepisodes}`, text: 'episodes' },
-  { path: `/${library}/${favlocations}`, text: 'locations' },
-];
 
 export const LibraryNav = () => {
   return (
