@@ -11,7 +11,7 @@ export const Statistics = ({ data, statistics }) => {
       <PieChart data={data} statistics={statistics} />
       <List>
         {data.map(({ label, count }) => (
-          <Item key={label}>
+          <Item key={label} label={label}>
             <p>Number of random {label}:</p>
             <p>{count}</p>
           </Item>
