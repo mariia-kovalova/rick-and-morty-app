@@ -13,6 +13,7 @@ import { desktop } from 'shared/constants/deviceSizes';
 import { Character } from 'modules/Characters/components/Character/Character';
 import { addToLibrary } from 'redux/library/slice';
 import { randomcharacters } from 'shared/constants/libaryListName';
+import audioTeleport from 'shared/audio/teleport-sound-5.mp3'
 
 const FIRST_CHARACTER_ID = 1;
 
@@ -40,6 +41,8 @@ export const RandomCharacter = () => {
   }, [dispatch, id]);
 
   const handleGetRandomCharacter = () => {
+    const audio = new Audio(audioTeleport);
+    audio.play();
     const randomId = getRandomId({ max: info.count });
     setId(randomId);
   };

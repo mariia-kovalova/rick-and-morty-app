@@ -19,6 +19,7 @@ import {
 import { useOneLocation } from 'hooks/useOneLocation';
 import { getCharacterById } from 'redux/character/thunks';
 import { getLocationById } from 'redux/location/thunks';
+import randomSound from 'shared/audio/teleport-sound-1.mp3'
 
 const FIRST_CHARACTER_ID = 1;
 const FIRST_LOCATION_ID = 1;
@@ -40,6 +41,8 @@ export const Home = () => {
 
   // Random button click
   const handleRandomBtn = () => {
+    const audio = new Audio(randomSound);
+    audio.play();
     const rndLocationID = getRandomLocation();
     setLocationID(rndLocationID);
 
