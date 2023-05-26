@@ -4,8 +4,9 @@ import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import { Wrap, Main } from './Layout.styled';
 import { images } from './images';
+import color_50percent from 'shared/images/color_50percent.png';
 
-const DEFAULT_IMAGE_URL = 'homepageimageurl'; // та що для homepage
+const DEFAULT_IMAGE_URL = color_50percent; // та що для homepage
 
 export const Layout = () => {
   const location = useLocation();
