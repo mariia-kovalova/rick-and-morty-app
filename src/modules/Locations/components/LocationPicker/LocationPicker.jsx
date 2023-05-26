@@ -21,6 +21,7 @@ import { locations } from 'shared/constants/routes';
 import { addToLibrary } from 'redux/library/slice';
 import { randomlocations } from 'shared/constants/libaryListName';
 import sprite from 'shared/icons/sprite.svg';
+import randomSound from 'shared/audio/teleport-sound-2.mp3'
 
 const FIRST_LOCATION_ID = 1;
 
@@ -35,6 +36,9 @@ export const LocationPicker = () => {
 
   // Random button click
   const handleRandomBtn = () => {
+    const audio = new Audio(randomSound);
+    audio.play();
+
     const rndLocationID = getRandomLocation();
     setLocationID(rndLocationID);
 

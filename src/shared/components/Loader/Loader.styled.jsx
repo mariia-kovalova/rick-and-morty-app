@@ -19,3 +19,5 @@ export const Overlay = styled.div`
 export const StyledLoader = styled.p`
   font-size: 40px;
 `;
+
+
