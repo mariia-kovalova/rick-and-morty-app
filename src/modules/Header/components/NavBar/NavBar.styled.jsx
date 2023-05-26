@@ -53,7 +53,7 @@ export const StyledUl = styled.ul`
         right: 0px;
         top: 0px;
         content: '';
-        background: ${({ theme }) => theme.primary};
+        background: ${({ theme }) => theme.secondary};
         opacity: 0.3;
         transition: all 0.3s;
       }
