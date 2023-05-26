@@ -15,8 +15,8 @@ export const CardDecoration = styled.div`
   &::before {
     content: '';
     position: absolute;
-    top: -1%;
-    right: -1.5%;
+    top: -4px;
+    right: -4px;
     transform: rotate(-90deg);
 
     display: inline-block;
@@ -27,15 +27,15 @@ export const CardDecoration = styled.div`
     background-color: transparent;
 
     @media screen and (min-width: ${tablet}) {
-      right: -0.5%;
+      right: -4px;
     }
   }
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -1%;
-    left: -1.5%;
+    bottom: -4px;
+    left: -4px;
     transform: rotate(90deg);
     z-index: -1;
 
@@ -47,7 +47,7 @@ export const CardDecoration = styled.div`
     background-color: transparent;
 
     @media screen and (min-width: ${tablet}) {
-      left: -0.5%;
+      left: -4px;
     }
   }
 `;

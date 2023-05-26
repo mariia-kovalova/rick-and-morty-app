@@ -4,25 +4,19 @@ import { desktop, mobile, tablet } from 'shared/constants/deviceSizes';
 import locationPageChooseLocationBG_1 from '../../../../shared/images/locationPageChooseLocationBG_1.png';
 import locationPageChooseLocationBG_2 from '../../../../shared/images/locationPageChooseLocationBG_2.png';
 import locationPageChooseLocationBG_3 from '../../../../shared/images/locationPageChooseLocationBG_3.png';
+import {
+  CardDecoration,
+  CardWrap,
+} from 'shared/styles/components/CardDecoration.styled';
 
-export const StyledDiv = styled.div`
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin: 20px auto 0;
-
+export const LocationsDecor = styled(CardDecoration)`
   @media screen and (min-width: ${mobile}) {
-    flex-direction: column-reverse;
-    width: 255px;
+    width: 100%;
     height: 605px;
   }
 
   @media screen and (min-width: ${tablet}) {
-    flex-direction: row;
-    width: 700px;
+    width: 707px;
     height: 350px;
   }
 
@@ -30,16 +24,42 @@ export const StyledDiv = styled.div`
     height: 330px;
     width: 1000px;
   }
+`;
 
-  border: 3px solid ${({ theme }) => theme.crossThemeAccent};
+export const StyledDiv = styled(CardWrap)`
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+
+  margin: 20px auto 0;
+
+  &.random-location {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
 
   background: ${({ theme }) => theme.bgCharacterCard};
+  clip-path: polygon(10% 0, 100% 0, 100% 95.4%, 90% 100%, 0 100%, 0 4.6%);
+
+  @media screen and (min-width: ${tablet}) {
+    flex-direction: row;
+    clip-path: polygon(4% 0, 100% 0, 100% 92.3%, 96.3% 100%, 0 100%, 0 8%);
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    clip-path: polygon(2.8% 0, 100% 0, 100% 91.4%, 97.2% 100%, 0 100%, 0 8.5%);
+  }
 `;
 
 export const LocationCard = styled.div`
   position: relative;
 
   flex: 1;
+  width: 100%;
   height: 100%;
 
   border-right: solid 3px ${({ theme }) => theme.accentTransparent};
@@ -60,40 +80,6 @@ export const LocationCard = styled.div`
     background-image: url(${locationPageChooseLocationBG_3});
     background-size: cover;
     background-repeat: no-repeat;
-  }
-
-  &::before {
-    display: none;
-
-    @media screen and (min-width: ${tablet}) {
-      display: block;
-      content: '';
-      position: absolute;
-      top: -21px;
-      left: -20.6px;
-      transform: rotate(45deg);
-
-      width: 40px;
-      height: 40px;
-
-      background-color: ${({ theme }) => theme.bgPrimary};
-      border-right: 3px solid ${({ theme }) => theme.crossThemeAccent};
-    }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -7px;
-    left: -7px;
-    transform: rotate(90deg);
-
-    display: inline-block;
-    padding: 40px;
-
-    border: solid ${({ theme }) => theme.crossThemeAccent};
-    border-width: 0 6px 6px 0;
-    background-color: transparent;
   }
 `;
 
@@ -146,67 +132,26 @@ export const LocationCardDetails = styled.div`
 `;
 
 export const LocationChoose = styled.div`
-  flex: 1;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 
-  height: 100%;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -21px;
-    right: -20.6px;
-    transform: rotate(-135deg);
-
-    width: 40px;
-    height: 40px;
-
-    background-color: ${({ theme }) => theme.bgPrimary};
-    border-right: 3px solid ${({ theme }) => theme.crossThemeAccent};
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -7px;
-    right: -7px;
-    transform: rotate(-90deg);
-
-    display: inline-block;
-    padding: 40px;
-
-    border: solid ${({ theme }) => theme.crossThemeAccent};
-    border-width: 0 6px 6px 0;
-    background-color: transparent;
-  }
-`;
-
-export const StyledButton = styled.button`
-  height: 70px;
-
-  font-size: 20px;
-
-  border-radius: 5px;
-
-  @media screen and (min-width: ${mobile}) {
-    width: 200px;
-
-    margin-bottom: 10px;
-    margin-top: 10px;
+  @media screen and (max-width: ${tablet}) {
+    flex-basis: 230px;
   }
 
   @media screen and (min-width: ${tablet}) {
-    margin-bottom: 0;
-    margin-top: 0;
-    width: 250px;
+    flex: 1;
+    gap: 20px;
   }
 `;
 
 export const Paragraph = styled.p`
   text-align: center;
-  font-size: 24px;
+  font-size: 16px;
+
+  @media screen and (min-width: ${tablet}) {
+    font-size: 24px;
+  }
 `;

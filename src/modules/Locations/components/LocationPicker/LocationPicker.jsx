@@ -10,6 +10,7 @@ import {
   StyledH2,
   LocationChoose,
   Paragraph,
+  LocationsDecor,
 } from './LocationPicker.styled';
 import { getRandomLocation } from 'shared/utils/getRandomLocation';
 import { RandomButton } from 'shared/components/RandomButton';
@@ -52,36 +53,39 @@ export const LocationPicker = () => {
   const shouldShowLocation = location !== null && !isLoading && !error;
 
   return (
-    <StyledDiv>
-      <LocationCard className={`location-card${backgroundNum}`}>
-        <StyledH2>Location Data</StyledH2>
-        {isLoading && <CardLoader />}
-        {shouldShowLocation && (
-          <LocationCardDetails>
-            <Link
-              to={`/${locations}/${location.id}`}
-              state={{ from: locationPath }}
-            >
-              <LocationInfo location={location} />
-            </Link>
-          </LocationCardDetails>
-        )}
-      </LocationCard>
-      <LocationChoose className="location-choose">
-        <svg width="100" height="100">
-          <use href={`${sprite}#icons8-rick-sanchez`} />
-        </svg>
-        <Paragraph>Yeah, just go to the random location ...whatever</Paragraph>
-
-        <RandomButton
-          className="locationBtn"
-          type="button"
-          onClick={handleRandomBtn}
-          isLoading={isLoading}
-        >
-          Random location
-        </RandomButton>
-      </LocationChoose>
-    </StyledDiv>
+    <LocationsDecor>
+      <StyledDiv className="random-location">
+        <LocationCard className={`location-card${backgroundNum}`}>
+          <StyledH2>Location Data</StyledH2>
+          {isLoading && <CardLoader />}
+          {shouldShowLocation && (
+            <LocationCardDetails>
+              <Link
+                to={`/${locations}/${location.id}`}
+                state={{ from: locationPath }}
+              >
+                <LocationInfo location={location} />
+              </Link>
+            </LocationCardDetails>
+          )}
+        </LocationCard>
+        <LocationChoose className="location-choose">
+          <svg width="100" height="100">
+            <use href={`${sprite}#icons8-rick-sanchez`} />
+          </svg>
+          <Paragraph>
+            Yeah, just go to the random location ...whatever
+          </Paragraph>
+          <RandomButton
+            className="locationBtn"
+            type="button"
+            onClick={handleRandomBtn}
+            isLoading={isLoading}
+          >
+            Random location
+          </RandomButton>
+        </LocationChoose>
+      </StyledDiv>
+    </LocationsDecor>
   );
 };
