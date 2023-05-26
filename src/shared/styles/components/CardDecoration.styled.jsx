@@ -66,7 +66,7 @@ export const CardWrap = styled.div`
     width: 704px;
     height: 416px;
     padding: 60px 50px 30px 50px;
-    clip-path: polygon(4% 0, 100% 0, 100% 93%, 96% 100%, 0 100%, 0 7%);
+    clip-path: polygon(3.8% 0, 100% 0, 100% 93.5%, 96.2% 100%, 0 100%, 0 6.5%);
   }
 
   &::before {
