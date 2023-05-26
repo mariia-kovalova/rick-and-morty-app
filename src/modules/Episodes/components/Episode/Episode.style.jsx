@@ -19,20 +19,6 @@ export const Wrap = styled.div`
 
   transition: transform 250ms ${({ theme }) => theme.cubic};
 
-  @media screen and (min-width: ${tablet}) {
-    height: 253px;
-  }
-
-  & ul {
-    bottom: -175%;
-    left: 0;
-
-    @media screen and (min-width: ${tablet}) {
-      bottom: -8%;
-      left: -30%;
-    }
-  }
-
   a:hover &,
   a:focus & {
     transform: scale(1.1);

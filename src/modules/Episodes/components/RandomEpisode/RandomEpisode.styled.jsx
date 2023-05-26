@@ -1,55 +1,38 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
-import {
-  CardDecoration,
-  CardWrap,
-} from 'shared/styles/components/CardDecoration.styled';
+import { CardWrap } from 'shared/styles/components/CardDecoration.styled';
 
-export const RandomEpisodeDecor = styled(CardDecoration)`
-  margin: 0 auto;
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
   @media screen and (min-width: ${desktop}) {
-    width: 1100px;
-  }
-
-  &::before {
-    z-index: -1;
+    flex-direction: row;
+    justify-content: space-around;
   }
 `;
 
 export const EpisodeWrap = styled(CardWrap)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 196px;
-
-  height: 458px;
+  justify-content: flex-start;
+  align-items: end;
 
   @media screen and (min-width: ${tablet}) {
-    align-items: end;
-    gap: 30px;
-
-    height: 440px;
-  }
-
-  @media screen and (min-width: ${desktop}) {
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
-    gap: 100px;
-
-    height: 380px;
+    justify-content: center;
   }
 
   &::before {
-    top: -18px;
-    left: -18.6px;
+    top: -5px;
+    left: 13px;
   }
 
   &::after {
-    bottom: -18px;
-    right: -18.6px;
+    bottom: -5px;
+    right: 13px;
   }
 `;
 
@@ -57,6 +40,17 @@ export const StyledLink = styled(Link)`
   display: block;
   height: 100%;
   color: inherit;
+
+  & ul.random-episode {
+    position: absolute;
+    top: 148px;
+    left: 4px;
+
+    @media screen and (min-width: ${tablet}) {
+      top: 70px;
+      left: -134px;
+    }
+  }
 `;
 
 export const Randomizer = styled.div`

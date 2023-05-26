@@ -54,23 +54,30 @@ export const CardDecoration = styled.div`
 
 export const CardWrap = styled.div`
   padding: 60px 20px 20px 20px;
+  width: 280px;
+  height: 400px;
 
   background: ${({ theme }) => theme.bgCharacterCard};
   border: 3px solid ${({ theme }) => theme.crossThemeAccent};
   border-radius: 4px;
+  clip-path: polygon(10% 0, 100% 0, 100% 93%, 90% 100%, 0 100%, 0 7%);
 
   @media screen and (min-width: ${tablet}) {
+    width: 704px;
+    height: 416px;
     padding: 60px 50px 30px 50px;
+    clip-path: polygon(4% 0, 100% 0, 100% 93%, 96% 100%, 0 100%, 0 7%);
   }
 
   &::before {
     content: '';
     position: absolute;
-    top: -21px;
-    left: -20.6px;
+    top: -7px;
+    left: 10px;
     transform: rotate(45deg);
+    z-index: 2;
 
-    width: 40px;
+    width: 2px;
     height: 40px;
 
     background-color: ${({ theme }) => theme.bgPrimary};
@@ -80,11 +87,12 @@ export const CardWrap = styled.div`
   &::after {
     content: '';
     position: absolute;
-    bottom: -21px;
-    right: -20.6px;
+    bottom: -7px;
+    right: 10px;
     transform: rotate(-135deg);
+    z-index: 2;
 
-    width: 40px;
+    width: 2px;
     height: 40px;
 
     background-color: ${({ theme }) => theme.bgPrimary};

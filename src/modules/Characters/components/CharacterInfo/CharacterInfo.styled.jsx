@@ -48,12 +48,12 @@ export const HeartWrap = styled.div`
   left: 3%;
   z-index: 1;
 
-  width: 30px;
-  height: 30px;
+  width: fit-content;
+  height: fit-content;
 
   @media screen and (min-width: ${tablet}) {
     top: -10%;
-    left: 220%;
+    left: 213%;
   }
 
   & svg {

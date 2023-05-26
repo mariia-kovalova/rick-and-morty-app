@@ -1,6 +1,6 @@
 import styled from '@emotion/styled/macro';
 import { FlexUl, TextInfo } from 'modules/Episodes/Episodes.styled';
-import { desktop, tablet } from 'shared/constants/deviceSizes';
+import { tablet } from 'shared/constants/deviceSizes';
 
 export const CradInfoText = styled(TextInfo)`
   width: 230px;
@@ -42,22 +42,8 @@ export const CradInfoText = styled(TextInfo)`
 `;
 
 export const FlexInfo = styled(FlexUl)`
-  position: absolute;
-  top: 83px;
-  left: 9px;
-
   align-items: start;
   gap: 10px;
-
-  @media screen and (min-width: ${tablet}) {
-    top: 36px;
-    left: 79px;
-  }
-
-  @media screen and (min-width: ${desktop}) {
-    top: 20px;
-    left: 46px;
-  }
 
   & > li:first-of-type ${CradInfoText} {
     width: 230px;

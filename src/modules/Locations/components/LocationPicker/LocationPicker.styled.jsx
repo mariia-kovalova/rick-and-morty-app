@@ -12,12 +12,7 @@ export const StyledDiv = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-
-  /* height: 330px;
-  width: 1000px; */
+  margin: 20px auto 0;
 
   @media screen and (min-width: ${mobile}) {
     flex-direction: column-reverse;
@@ -66,6 +61,7 @@ export const LocationCard = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
+
   &::before {
     display: none;
 
@@ -91,7 +87,6 @@ export const LocationCard = styled.div`
     bottom: -7px;
     left: -7px;
     transform: rotate(90deg);
-    /* z-index: -1; */
 
     display: inline-block;
     padding: 40px;

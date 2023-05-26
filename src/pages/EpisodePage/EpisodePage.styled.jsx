@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { desktop, tablet } from 'shared/constants/deviceSizes';
+import { tablet } from 'shared/constants/deviceSizes';
 import {
   CardDecoration,
   CardWrap,
@@ -7,41 +7,26 @@ import {
 
 export const EpisodeDecor = styled(CardDecoration)`
   margin: 0 auto;
-
-  @media screen and (min-width: ${desktop}) {
-    width: 704px;
-  }
-
-  &::before {
-    z-index: -1;
-  }
 `;
 
 export const EpisodeWrap = styled(CardWrap)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: end;
-  gap: 30px;
 
-  padding-bottom: 220px;
-  height: 380px;
-
-  @media screen and (min-width: ${desktop}) {
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
-    gap: 100px;
+  @media screen and (min-width: ${tablet}) {
+    justify-content: center;
   }
 
   &::before {
-    top: -18px;
-    left: -18.6px;
+    top: -5px;
+    left: 13px;
   }
 
   &::after {
-    bottom: -18px;
-    right: -18.6px;
+    bottom: -5px;
+    right: 13px;
   }
 
   & + div::before {
@@ -52,17 +37,14 @@ export const EpisodeWrap = styled(CardWrap)`
     }
   }
 
-  & ul:first-of-type {
-    &.episodes-page {
-      bottom: -191%;
-      left: 0;
+  & ul.episodes-page {
+    position: absolute;
+    top: 107%;
+    left: 0;
 
-      height: fit-content;
-
-      @media screen and (min-width: ${tablet}) {
-        bottom: -8%;
-        left: -30%;
-      }
+    @media screen and (min-width: ${tablet}) {
+      top: 27%;
+      left: -30%;
     }
   }
 `;

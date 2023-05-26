@@ -23,11 +23,11 @@ export const StyledLink = styled(Link)`
 
 export const HeartWrap = styled.div`
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 3px;
+  left: 0;
 
-  width: 30px;
-  height: 30px;
+  width: fit-content;
+  height: fit-content;
 `;
 
 export const Img = styled.img`

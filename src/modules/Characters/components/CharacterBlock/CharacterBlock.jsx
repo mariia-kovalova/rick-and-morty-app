@@ -13,12 +13,11 @@ const NUMBER_OF_LETTER_TO_SKIP = 41;
 
 export const CharacterBlock = () => {
   const { character, isLoading } = useOneCharacter();
-  const { name, status, species, gender, origin, location } = character;
+  const { name, species, gender, origin, location } = character;
   const locationId = location.url.slice(NUMBER_OF_LETTER_TO_SKIP);
 
   const info = [
-    { label: 'full name', data: status },
-    { label: 'satus', data: name },
+    { label: 'full name', data: name },
     { label: 'species', data: species },
     { label: 'gender', data: gender },
     { label: 'origin', data: origin.name },

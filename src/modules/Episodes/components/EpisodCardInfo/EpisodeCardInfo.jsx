@@ -15,7 +15,7 @@ export const EpisodeCardInfo = ({ episode }) => {
     episodeCode,
   ];
   return (
-    <FlexInfo>
+    <FlexInfo className="random-episode episode-card episodes-page">
       {info.map(data => (
         <li key={data}>
           <CradInfoText>{data}</CradInfoText>

@@ -28,7 +28,18 @@ export const Wrap = styled(BasicWrapper)`
     height: 247px;
   }
 
-  & ul > li:not(:first-of-type) {
+  & ul.episode-card {
+    position: absolute;
+    top: 107px;
+    left: 41px;
+
+    @media screen and (min-width: ${tablet}) {
+      top: 23px;
+      left: 66px;
+    }
+  }
+
+  & ul.episode-card > li:not(:first-of-type) {
     @media screen and (max-width: ${tablet}) {
       position: absolute;
       width: 1px;
@@ -41,13 +52,6 @@ export const Wrap = styled(BasicWrapper)`
       clip-path: inset(100%);
       clip: rect(0 0 0 0);
       overflow: hidden;
-    }
-  }
-
-  & ul {
-    @media screen and (max-width: ${tablet}) {
-      top: 107px;
-      left: 41px;
     }
   }
 

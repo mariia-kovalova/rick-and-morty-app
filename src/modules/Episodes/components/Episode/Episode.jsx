@@ -33,7 +33,7 @@ export const Episode = ({ image }) => {
               libraryListName={favepisodes}
             />
           </HeartWrap>
-          <EpisodeCardInfo className="episodes-page" episode={episode} />
+          <EpisodeCardInfo episode={episode} />
           <Img src={image} alt={name} width="450" height="200" />
         </Wrap>
       )}

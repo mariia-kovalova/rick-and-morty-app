@@ -14,12 +14,13 @@ import { RickForRandomizer } from 'shared/components/RickForRandomizer';
 import { desktop } from 'shared/constants/deviceSizes';
 import {
   EpisodeWrap,
-  RandomEpisodeDecor,
   Randomizer,
   StyledLink,
+  Wrap,
 } from './RandomEpisode.styled';
 import { addToLibrary } from 'redux/library/slice';
 import { randomepisodes } from 'shared/constants/libaryListName';
+import { CardDecoration } from 'shared/styles/components/CardDecoration.styled';
 
 const FIRST_EPISODE_ID = 1;
 
@@ -46,18 +47,20 @@ export const RandomEpisode = () => {
   const shouldShowEpisode = episode !== null && !error;
 
   return (
-    <RandomEpisodeDecor>
-      <EpisodeWrap>
-        <StyledLink to={`/${episodes}/${id}`} state={{ from: location }}>
-          {shouldShowEpisode && <Episode image={image} />}
-        </StyledLink>
-        <Randomizer>
-          <RickForRandomizer showOnDeviceWidth={desktop} />
-          <RandomButton onClick={handleRandomEpisode} isLoading={isLoading}>
-            Random Episode
-          </RandomButton>
-        </Randomizer>
-      </EpisodeWrap>
-    </RandomEpisodeDecor>
+    <Wrap>
+      <CardDecoration>
+        <EpisodeWrap>
+          <StyledLink to={`/${episodes}/${id}`} state={{ from: location }}>
+            {shouldShowEpisode && <Episode image={image} />}
+          </StyledLink>
+        </EpisodeWrap>
+      </CardDecoration>
+      <Randomizer>
+        <RickForRandomizer showOnDeviceWidth={desktop} />
+        <RandomButton onClick={handleRandomEpisode} isLoading={isLoading}>
+          Random Episode
+        </RandomButton>
+      </Randomizer>
+    </Wrap>
   );
 };
