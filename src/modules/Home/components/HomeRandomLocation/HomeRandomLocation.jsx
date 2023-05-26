@@ -1,30 +1,22 @@
 import { useOneLocation } from 'hooks/useOneLocation';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getLocationById } from 'redux/location/thunks';
+import React from 'react';
 import {
   Detail,
   LocationCard,
   LocationCardDetails,
   StyledDiv,
   StyledH3,
+  StyledLink,
 } from './HomeRandomLocation.styled';
 import { CardLoader } from 'shared/components/CardLoader';
-import { Link } from 'react-router-dom';
 import { locations } from 'shared/constants/routes';
 
-export const HomeRandomLocation = ({ locationID, backgroundNum }) => {
-  const dispatch = useDispatch();
+export const HomeRandomLocation = ({ backgroundNum }) => {
   const { location, isLoading, error } = useOneLocation();
-
-  useEffect(() => {
-    dispatch(getLocationById(locationID));
-  }, [dispatch, locationID]);
-
   const shouldShowLocation = location !== null && !isLoading && !error;
 
   return (
-    <Link to={`/${locations}/${location.id}`}>
+    <StyledLink to={`/${locations}/${location?.id}`}>
       <StyledDiv>
         <LocationCard className={`location-card${backgroundNum}`}>
           {isLoading && <CardLoader />}
@@ -46,6 +38,6 @@ export const HomeRandomLocation = ({ locationID, backgroundNum }) => {
           )}
         </LocationCard>
       </StyledDiv>
-    </Link>
+    </StyledLink>
   );
 };

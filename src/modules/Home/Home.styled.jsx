@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import portalGif from '../../shared/images/portalGif.gif';
 import teleport from '../../shared/images/teleport.png';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 
 export const HiddenTittle = styled.h1`
   position: absolute;
@@ -58,17 +59,20 @@ export const StyledDiv = styled.div`
   }
 
   .button-wrap {
-    width: 320px;
-    height: 320px;
+    width: 220px;
+    height: 220px;
     display: inline-block;
 
-    /* position: absolute; */
+    @media screen and (min-width: ${desktop}) {
+      width: 320px;
+      height: 320px;
+    }
 
     .clicker {
       text-transform: uppercase;
       /* Inner circle */
-      width: 300px;
-      height: 300px; /* 20px smaller b/c of margin below */
+      width: 200px;
+      height: 200px; /* 20px smaller b/c of margin below */
       margin: 10px;
       background: url(${teleport}), url(${portalGif});
 
@@ -93,11 +97,16 @@ export const StyledDiv = styled.div`
       -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
       -o-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
       box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+
+      @media screen and (min-width: ${desktop}) {
+        width: 300px;
+        height: 300px;
+      }
     }
     .circle {
       /** outer circle **/
-      width: 320px;
-      height: 320px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
 
       /** image = wedge **/
@@ -113,7 +122,12 @@ export const StyledDiv = styled.div`
 
       /*** outer circle position: under */
       z-index: 1;
-      position: absolute;
+      /* position: absolute; */
+
+      @media screen and (min-width: ${desktop}) {
+        width: 320px;
+        height: 320px;
+      }
     }
     .clicker:hover + .circle {
       -webkit-animation: rotor 1.5s linear 0s infinite normal;
@@ -133,9 +147,14 @@ export const StyledDiv = styled.div`
 
 export const RandomContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 10px;
 
   width: 100%;
+
+  @media screen and (min-width: ${tablet}) {
+    flex-direction: row;
+  }
 `;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { randomStories } from 'shared/data/randomStories';
 import { useOneLocation } from 'hooks/useOneLocation';
 import { useOneCharacter } from 'hooks/useOneCharacter';
+import { StyledDiv } from './Stories.styled';
 
 export const Stories = ({ storyTextID }) => {
   const { location } = useOneLocation();
@@ -22,5 +23,9 @@ export const Stories = ({ storyTextID }) => {
     .replaceAll('[location name]', storyLocation)
     .replaceAll('[character name]', storyCharacter);
 
-  return <div>{randomStories1}</div>;
+  return (
+    <StyledDiv className="typewriter">
+      <p className="type">{randomStories1}</p>
+    </StyledDiv>
+  );
 };

@@ -11,11 +11,23 @@ import { useOneCharacter } from 'hooks/useOneCharacter';
 import { Section } from 'shared/styles/components/Section.styled';
 import { getCharacters } from 'redux/characters/thunks';
 import { useDispatch } from 'react-redux';
+import { addToLibrary } from 'redux/library/slice';
+import {
+  randomcharacters,
+  randomlocations,
+} from 'shared/constants/libaryListName';
+import { useOneLocation } from 'hooks/useOneLocation';
+import { getCharacterById } from 'redux/character/thunks';
+import { getLocationById } from 'redux/location/thunks';
 
 const FIRST_CHARACTER_ID = 1;
+const FIRST_LOCATION_ID = 1;
 
 export const Home = () => {
-  const [locationID, setLocationID] = useState(1);
+  const { location } = useOneLocation();
+  const [locationID, setLocationID] = useState(
+    location?.id ?? FIRST_LOCATION_ID
+  );
   const { character } = useOneCharacter();
   const [characterID, setCharacterID] = useState(
     character?.id ?? FIRST_CHARACTER_ID
@@ -40,11 +52,23 @@ export const Home = () => {
     //   for card background
     const rndbackgroundNum = Math.floor(Math.random() * 3) + 1;
     setBackgroundNum(rndbackgroundNum);
+
+    dispatch(
+      addToLibrary({ libraryListName: randomlocations, id: locationID })
+    );
+    dispatch(
+      addToLibrary({ libraryListName: randomcharacters, id: characterID })
+    );
   };
 
   useEffect(() => {
     dispatch(getCharacters());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getCharacterById(characterID));
+    dispatch(getLocationById(locationID));
+  }, [dispatch, characterID, locationID]);
 
   return (
     <Section>
@@ -63,10 +87,7 @@ export const Home = () => {
               </button>
               <div className="circle"></div>
             </div>
-            <HomeRandomLocation
-              locationID={locationID}
-              backgroundNum={backgroundNum}
-            />
+            <HomeRandomLocation backgroundNum={backgroundNum} />
           </RandomContainer>
 
           <Stories storyTextID={storyTextID} />
