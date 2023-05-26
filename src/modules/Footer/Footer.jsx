@@ -2,6 +2,7 @@ import { Logo } from 'shared/components/Logo';
 import { Container } from 'shared/styles/components/Container.styled';
 import { StyledDiv, StyledFooter } from './Footer.styled';
 import sprite from '../../shared/icons/sprite.svg';
+import { LogoPS } from 'shared/components/LogoPS/LogoPS';
 
 export const Footer = () => {
   return (
@@ -13,7 +14,11 @@ export const Footer = () => {
           </div>
 
           <div className="container-madeBy">
-            <p>-- Made by PixelSquad --</p>
+            <div className="container-madeBy__logo">
+              <p>Made by </p>
+              <LogoPS />
+            </div>
+
             <a href="https://github.com/mariia-kovalova/rick-and-morty-app">
               [ Github ]
             </a>
