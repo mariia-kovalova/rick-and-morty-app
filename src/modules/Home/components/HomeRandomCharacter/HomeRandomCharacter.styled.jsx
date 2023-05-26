@@ -1,12 +1,19 @@
 import styled from '@emotion/styled/macro';
 import { Link } from 'react-router-dom';
+import { desktop } from 'shared/constants/deviceSizes';
 
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 280px;
-  height: 400px;
+  transform: scale(0.75);
+
+  @media screen and (min-width: ${desktop}) {
+    width: 280px;
+    height: 400px;
+
+    transform: scale(1);
+  }
 `;
 
 export const StyledLink = styled(Link)`

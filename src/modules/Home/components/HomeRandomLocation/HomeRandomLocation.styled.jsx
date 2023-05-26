@@ -2,6 +2,19 @@ import styled from '@emotion/styled';
 import locationPageChooseLocationBG_1 from '../../../../shared/images/locationPageChooseLocationBG_1.png';
 import locationPageChooseLocationBG_2 from '../../../../shared/images/locationPageChooseLocationBG_2.png';
 import locationPageChooseLocationBG_3 from '../../../../shared/images/locationPageChooseLocationBG_3.png';
+import { Link } from 'react-router-dom';
+import { desktop } from 'shared/constants/deviceSizes';
+
+export const StyledLink = styled(Link)`
+  transform: scale(0.75);
+
+  @media screen and (min-width: ${desktop}) {
+    width: 280px;
+    height: 400px;
+
+    transform: scale(1);
+  }
+`;
 
 export const StyledDiv = styled.div`
   position: relative;

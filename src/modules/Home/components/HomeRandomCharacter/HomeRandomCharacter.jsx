@@ -1,8 +1,6 @@
 import { useOneCharacter } from 'hooks/useOneCharacter';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { useLocation } from 'react-router';
-import { getCharacterById } from 'redux/character/thunks';
 import {
   CardDecoration,
   CharacterCardWrap,
@@ -21,13 +19,6 @@ import { characterNameNormalize } from 'shared/utils/nameNormalize';
 export const HomeRandomCharacter = ({ characterID }) => {
   const location = useLocation();
   const { character, error, isLoading } = useOneCharacter();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCharacterById(characterID));
-  }, [dispatch, characterID]);
-
   const shouldShowCharacter = character !== null && !error;
 
   return (

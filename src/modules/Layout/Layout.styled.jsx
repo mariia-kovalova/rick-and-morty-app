@@ -6,11 +6,14 @@ const headerAndFooterHeightOnTablet = '172px';
 const headerAndFooterHeightOnDesktop = '172px';
 
 export const Wrap = styled.div`
-  background-image: ${({ url }) => url};
   background-color: ${({ theme }) => theme.bgPrimary};
+  background-image: url(${({ url }) => url});
+  background-size: 100%;
+  /* background-repeat: repeat; */
+  background-attachment: fixed;
   color: ${({ theme }) => theme.textPrimary};
 `;
-
+console.log(Wrap);
 export const Main = styled.div`
   min-height: calc(100vh - ${headerAndFooterHeightOnMobile});
 
