@@ -188,3 +188,8 @@ export const RandomContainer = styled.div`
     flex-direction: row;
   }
 `;
+
+export const About = styled.button`
+  color: ${({ theme }) => theme.disabled};
+  background-color: transparent;
+`;

@@ -1,5 +1,6 @@
 import { Container } from 'shared/styles/components/Container.styled';
 import {
+  About,
   HiddenTittle,
   RandomContainer,
   StyledDiv,
@@ -25,9 +26,13 @@ import { useOneLocation } from 'hooks/useOneLocation';
 import { getCharacterById } from 'redux/character/thunks';
 import { getLocationById } from 'redux/location/thunks';
 import randomSound from 'shared/audio/teleport-sound-1.mp3';
+import { Tooltip } from 'shared/components/ToolTip';
+import { Modal } from 'shared/components/Modal';
+import { GameRules } from './components/GameRules/GameRules';
 
 const FIRST_CHARACTER_ID = 1;
 const FIRST_LOCATION_ID = 1;
+const ABOUT = 'find out more about the website';
 
 export const Home = () => {
   const { location } = useOneLocation();
@@ -40,6 +45,7 @@ export const Home = () => {
   );
   const [storyTextID, setStoryTextID] = useState(0);
   const [backgroundNum, setBackgroundNum] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   const { info } = useCharacters();
   const dispatch = useDispatch();
@@ -68,6 +74,8 @@ export const Home = () => {
     );
   };
 
+  const handleToggleModal = () => setShowModal(!showModal);
+
   useEffect(() => {
     dispatch(getCharacters());
   }, [dispatch]);
@@ -82,6 +90,10 @@ export const Home = () => {
       <HiddenTittle>Rick and Morty Teleport</HiddenTittle>
       <Container>
         <StyledDiv className="container">
+          <Tooltip text={ABOUT}>
+            <About onClick={handleToggleModal}>About project</About>
+          </Tooltip>
+
           <RandomContainer>
             <HomeRandomCharacter characterID={characterID} />
             <TeleportElement className="button-wrap">
@@ -98,6 +110,12 @@ export const Home = () => {
           </RandomContainer>
 
           <Stories storyTextID={storyTextID} />
+
+          {showModal && (
+            <Modal onCloseModal={handleToggleModal}>
+              <GameRules />
+            </Modal>
+          )}
         </StyledDiv>
       </Container>
     </Section>
