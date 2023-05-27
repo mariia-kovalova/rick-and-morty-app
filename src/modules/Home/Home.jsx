@@ -1,5 +1,10 @@
 import { Container } from 'shared/styles/components/Container.styled';
-import { HiddenTittle, RandomContainer, StyledDiv } from './Home.styled';
+import {
+  HiddenTittle,
+  RandomContainer,
+  StyledDiv,
+  TeleportElement,
+} from './Home.styled';
 import { Stories } from './components/Stories/Stories';
 import { HomeRandomLocation } from './components/HomeRandomLocation/HomeRandomLocation';
 import { useEffect, useState } from 'react';
@@ -19,7 +24,7 @@ import {
 import { useOneLocation } from 'hooks/useOneLocation';
 import { getCharacterById } from 'redux/character/thunks';
 import { getLocationById } from 'redux/location/thunks';
-import randomSound from 'shared/audio/teleport-sound-1.mp3'
+import randomSound from 'shared/audio/teleport-sound-1.mp3';
 
 const FIRST_CHARACTER_ID = 1;
 const FIRST_LOCATION_ID = 1;
@@ -41,8 +46,8 @@ export const Home = () => {
 
   // Random button click
   const handleRandomBtn = () => {
-    const audio = new Audio(randomSound);
-    audio.play();
+    // const audio = new Audio(randomSound);
+    // audio.play();
     const rndLocationID = getRandomLocation();
     setLocationID(rndLocationID);
 
@@ -50,7 +55,6 @@ export const Home = () => {
     setCharacterID(randomId);
 
     const textID = getRandomId({ max: 25 });
-    console.log(textID);
     setStoryTextID(textID);
     //   for card background
     const rndbackgroundNum = Math.floor(Math.random() * 3) + 1;
@@ -80,7 +84,7 @@ export const Home = () => {
         <StyledDiv className="container">
           <RandomContainer>
             <HomeRandomCharacter characterID={characterID} />
-            <div className="button-wrap">
+            <TeleportElement className="button-wrap">
               <button
                 type="button"
                 className="clicker"
@@ -89,7 +93,7 @@ export const Home = () => {
                 ☀
               </button>
               <div className="circle"></div>
-            </div>
+            </TeleportElement>
             <HomeRandomLocation backgroundNum={backgroundNum} />
           </RandomContainer>
 
