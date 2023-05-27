@@ -4,6 +4,22 @@ import locationPageChooseLocationBG_2 from '../../../../shared/images/locationPa
 import locationPageChooseLocationBG_3 from '../../../../shared/images/locationPageChooseLocationBG_3.png';
 import { Link } from 'react-router-dom';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
+import { keyframes } from '@emotion/react';
+
+const flipScale = keyframes`
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+            transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(1.1) rotateX(-180deg);
+            transform: scale(1.1) rotateX(-180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-360deg);
+            transform: scale(1) rotateX(-360deg);
+  }
+`;
 
 export const StyledLink = styled(Link)`
   width: 140px;
@@ -17,6 +33,10 @@ export const StyledLink = styled(Link)`
   @media screen and (min-width: ${desktop}) {
     width: 280px;
     height: 400px;
+  }
+
+  &.show {
+    animation: ${flipScale} 0.5s linear both;
   }
 `;
 

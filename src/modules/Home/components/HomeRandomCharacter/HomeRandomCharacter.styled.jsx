@@ -1,6 +1,22 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled/macro';
 import { Link } from 'react-router-dom';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
+
+const flipScale = keyframes`
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+            transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(1.1) rotateX(-180deg);
+            transform: scale(1.1) rotateX(-180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-360deg);
+            transform: scale(1) rotateX(-360deg);
+  }
+`;
 
 export const Wrap = styled.div`
   display: flex;
@@ -30,6 +46,10 @@ export const StyledLink = styled(Link)`
   &:hover,
   &:focus {
     transform: scale(1.05);
+  }
+
+  &.show {
+    animation: ${flipScale} 0.5s linear both;
   }
 `;
 
