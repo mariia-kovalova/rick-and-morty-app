@@ -13,11 +13,14 @@ export const Stories = ({ storyTextID }) => {
   const [showDiv, setShowDiv] = useState(false);
 
   useEffect(() => {
-    setStoryLocation(location.name);
-    if (character.name === 'Rick Sanchez' || character.name === 'Morty Smith') {
+    setStoryLocation(location?.name);
+    if (
+      character?.name === 'Rick Sanchez' ||
+      character?.name === 'Morty Smith'
+    ) {
       setStoryCharacter('Stranger');
     } else {
-      setStoryCharacter(character.name);
+      setStoryCharacter(character?.name);
     }
 
     const story = randomStories[storyTextID]
