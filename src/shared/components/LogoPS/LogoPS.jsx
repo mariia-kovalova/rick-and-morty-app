@@ -9,7 +9,7 @@ export const LogoPS = () => {
       target="_blank"
       rel="noreferrer noopener"
     >
-      <img src={`${logoPS}`} alt="team logo" width="160px" />
+      <img src={`${logoPS}`} alt="team logo" />
     </StyledA>
   );
 };

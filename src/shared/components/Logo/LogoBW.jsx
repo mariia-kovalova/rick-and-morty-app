@@ -5,7 +5,7 @@ import { StyledLink } from './LogoBW.styled';
 export const LogoBW = () => {
   return (
     <StyledLink to={home}>
-      <img src={`${RaM_logo_BW}`} alt="logo" width="70px" />
+      <img src={`${RaM_logo_BW}`} alt="logo" />
     </StyledLink>
   );
 };
