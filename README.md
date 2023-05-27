@@ -2,8 +2,6 @@
 
 # Rick and Morty App
 
----
-
 [Rick and Morty App](https://mariia-kovalova.github.io/rick-and-morty-app/) is a
 web application where you can find information about characters, locations and
 episodes form [Rick and Morty](https://www.netflix.com/ua/title/80014749) series
@@ -56,8 +54,6 @@ See the live page here -
 
 The application was developed by = PixelSquad = team.
 
----
-
 ![](.gitbook/assets/logoPS.png)
 
 Mariia Kovalova -
@@ -70,8 +66,6 @@ Anton Vakulych -
 [Frontend Developer](https://www.linkedin.com/in/%D0%B0%D0%BD%D1%82%D0%BE%D0%BD-%D0%B2%D0%B0%D0%BA%D1%83%D0%BB%D0%B8%D1%87-119b99225/)
 
 # Stack, technologies and libraries
-
----
 
 1. React
 2. Axios
