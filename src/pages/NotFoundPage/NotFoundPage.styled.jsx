@@ -1,66 +1,74 @@
 import styled from '@emotion/styled';
+import { tablet, desktop } from 'shared/constants/deviceSizes';
 
 export const PageContainer = styled.div`
-  height: 70vh;
   text-align: center;
-  &.page-msg {
-    color: #294E96;
-  font-size: 40px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
 `;
 export const Overlay = styled.div`
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 40px 0;
 `;
 export const TextNum = styled.p`
-  
-  font-size: 280px;
+  margin: 0;
+  font-size: 80px;
   display: inline-block;
-  font-family: 'Anton', sans-serif;
   font-family: 'Combo', cursive;
+
   &.first-for {
     position: relative;
-    left: 80px;
-    color: #7F4E1A;
+    left: 25px;
+    color: ${({ theme }) => theme.notFoundPageNum};
   }
   &.second-for {
     position: relative;
-    right: 80px;
-    color: #B6E6FB;
+    right: 25px;
+    color: ${({ theme }) => theme.crossThemeAccent};
+  }
+  @media screen and (min-width: ${tablet}) {
+    font-size: 280px;
+  }
+  @media screen and (min-width: ${desktop}) {
+    font-size: 280px;
+    &.first-for {
+      left: 80px;
+    }
   }
 `;
+
 export const ImgSize = styled.img`
   height: 50%;
   width: 400px;
 `;
 export const H2 = styled.h2`
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
-  color: #294E96;
-  font-size: 80px;
-  font-family: 'Anton', sans-serif;
+  color: ${({ theme }) => theme.crossThemeAccent};
+  font-size: 35px;
   font-family: 'Combo', cursive;
-  span{
-    color: #1ABED6;
+  span {
+    color: #1abed6;
+  }
+  @media screen and (min-width: ${tablet}) {
+    font-size: 70px;
+  }
+  @media screen and (min-width: ${desktop}) {
+    font-size: 80px;
   }
 `;
 export const ButtonBack = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  font-family: 'Anton', sans-serif;
   font-family: 'Combo', cursive;
-  
-  img{
-    height: 100px;
 
-    color: #1ABED6;
-  }
 `;
-
-
-

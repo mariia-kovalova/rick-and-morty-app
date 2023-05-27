@@ -8,6 +8,7 @@ import {
   H2,
 } from './NotFoundPage.styled';
 import imgErrorC1 from '../../shared/images/404-c1.png';
+import { GoBackLink } from 'shared/components/GoBackLink';
 
 const NotFoundPage = () => {
   return (
@@ -18,7 +19,7 @@ const NotFoundPage = () => {
 
       <Container>
         <PageContainer>
-          <H2>Page  <span> Not </span> Found </H2>
+          <H2>Page Not Found </H2>
           <Overlay>
             <TextNum className="first-for">4</TextNum>
             <span>
@@ -27,6 +28,8 @@ const NotFoundPage = () => {
             </span>
             <TextNum className="second-for">4</TextNum>
           </Overlay>
+          <div><GoBackLink/></div>
+          
         </PageContainer>
       </Container>
     </>
