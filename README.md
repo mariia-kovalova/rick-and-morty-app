@@ -57,7 +57,7 @@ The application was developed by = PixelSquad = team.
 ![](.gitbook/assets/logoPS.png)
 
 Mariia Kovalova -
-[Frontend Developer](https://www.linkedin.com/in/mariia-kova-lova/)
+[Frontend Developer](https://www.linkedin.com/in/mariia-kova-lova/) / Team Lead
 
 Svitlana Honchar -
 [Frontend Developer](https://www.linkedin.com/in/svitlana-honchar/)
