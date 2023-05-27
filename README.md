@@ -52,7 +52,9 @@ See the live page here -
 3. Get an alternative story about Rick and Morty's adventures using data
    generarted with the help of teleport.
 
-# The application was developed by = PixelSquad = team.
+# = PixelSquad = team
+
+The application was developed by = PixelSquad = team.
 
 ---
 
