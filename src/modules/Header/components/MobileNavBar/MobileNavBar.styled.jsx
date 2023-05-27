@@ -88,8 +88,8 @@ export const StyledUl = styled.ul`
 
 export const Button = styled.button`
   position: absolute;
-  top: 26px;
-  right: 26px;
+  top: 35px;
+  right: 35px;
   z-index: 2001;
 
   width: fit-content;
