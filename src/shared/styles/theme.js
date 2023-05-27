@@ -38,6 +38,8 @@ export const lightTheme = {
   bgcHeartTransparent: 'rgba(255, 255, 255, 0.9)',
   borderModal: '#f2f9fe',
 
+  logoBg: 'rgba(159, 202, 212, 0.641)',
+
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };
 
@@ -80,6 +82,8 @@ export const darkTheme = {
 
   bgcHeartTransparent: '#ffffff',
   borderModal: '#31d6b8',
+
+  logoBg: 'rgba(252, 252, 252, 0.1)',
 
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };
