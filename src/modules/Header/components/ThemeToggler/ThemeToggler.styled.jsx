@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import { desktop } from 'shared/constants/deviceSizes';
+import { tablet } from 'shared/constants/deviceSizes';
 
 export const ThemeIcon = styled.svg`
   fill: ${({ theme }) => theme.crossThemeAccent};
-  height: 24px;
-  width: 24px;
+  height: 28px;
+  width: 28px;
 
   transition: transform 250ms ${({ theme }) => theme.cubic},
     fill 250ms ${({ theme }) => theme.cubic};
@@ -15,9 +15,9 @@ export const ThemeIcon = styled.svg`
     transform: scale(1.1);
   }
 
-  @media (min-width: ${desktop}) {
-    height: 32px;
-    width: 32px;
+  @media (min-width: ${tablet}) {
+    height: 36px;
+    width: 36px;
   }
 `;
 
