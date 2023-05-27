@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { randomStories } from 'shared/data/randomStories';
 import { useOneLocation } from 'hooks/useOneLocation';
 import { useOneCharacter } from 'hooks/useOneCharacter';
