@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { randomStories } from 'shared/data/randomStories';
 import { useOneLocation } from 'hooks/useOneLocation';
 import { useOneCharacter } from 'hooks/useOneCharacter';
@@ -13,11 +13,14 @@ export const Stories = ({ storyTextID }) => {
   const [showDiv, setShowDiv] = useState(false);
 
   useEffect(() => {
-    setStoryLocation(location.name);
-    if (character.name === 'Rick Sanchez' || character.name === 'Morty Smith') {
+    setStoryLocation(location?.name);
+    if (
+      character?.name === 'Rick Sanchez' ||
+      character?.name === 'Morty Smith'
+    ) {
       setStoryCharacter('Stranger');
     } else {
-      setStoryCharacter(character.name);
+      setStoryCharacter(character?.name);
     }
 
     const story = randomStories[storyTextID]

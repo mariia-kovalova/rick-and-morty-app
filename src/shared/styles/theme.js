@@ -40,6 +40,8 @@ export const lightTheme = {
 
   logoBg: 'rgba(159, 202, 212, 0.641)',
 
+  notFoundPageNum:'#7F4E1A',
+
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };
 
@@ -85,5 +87,7 @@ export const darkTheme = {
 
   logoBg: 'rgba(252, 252, 252, 0.1)',
 
+  notFoundPageNum:'#FBFE6E',
+  
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };

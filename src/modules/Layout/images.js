@@ -7,7 +7,6 @@ import {
 import blue_50percent from 'shared/images/blue_50percent.png';
 import green_50percent from 'shared/images/green_50percent.png';
 import red_50percent from 'shared/images/red_50percent.png';
-// import purple_50percent from 'shared/images/purple_50percent.png';
 import bw_50percent from 'shared/images/bw_50percent.png';
 
 export const images = [

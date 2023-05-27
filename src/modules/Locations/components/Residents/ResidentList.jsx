@@ -1,5 +1,4 @@
 import { CharacterCard } from 'modules/Characters/components/CharacterCard';
-import React from 'react';
 import { CardsList } from 'shared/components/CardsList';
 import { StyledH2 } from './ResidentList.styled';
 import { useCharacters } from 'hooks/useCharacters';
