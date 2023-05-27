@@ -10,7 +10,7 @@ export const StyledUl = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-around;
-
+  gap: 7px;
   font-size: 18px;
   font-weight: 500;
 
