@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
 
-const headerAndFooterHeightOnMobile = '172px';
-const headerAndFooterHeightOnTablet = '172px';
+const headerAndFooterHeightOnMobile = '311px';
+const headerAndFooterHeightOnTablet = '220px';
 const headerAndFooterHeightOnDesktop = '233px';
 
 export const Wrap = styled.div`
