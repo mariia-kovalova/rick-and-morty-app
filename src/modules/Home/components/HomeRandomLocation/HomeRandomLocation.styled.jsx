@@ -209,7 +209,7 @@ export const StyledH3 = styled.h3`
 export const Detail = styled.p`
   padding: 4px;
 
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   color: ${({ theme }) => theme.textPrimary};
 
@@ -226,7 +226,7 @@ export const Detail = styled.p`
   & span {
     display: inline;
     font-weight: 900;
-    font-size: 10px;
+    font-size: 9px;
     line-height: 1;
     letter-spacing: 0.25px;
     color: ${({ theme }) => theme.characterCardTextAccent};
