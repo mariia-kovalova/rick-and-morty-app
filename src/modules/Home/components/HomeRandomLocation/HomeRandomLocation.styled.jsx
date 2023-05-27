@@ -3,16 +3,40 @@ import locationPageChooseLocationBG_1 from '../../../../shared/images/locationPa
 import locationPageChooseLocationBG_2 from '../../../../shared/images/locationPageChooseLocationBG_2.png';
 import locationPageChooseLocationBG_3 from '../../../../shared/images/locationPageChooseLocationBG_3.png';
 import { Link } from 'react-router-dom';
-import { desktop } from 'shared/constants/deviceSizes';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
+import { keyframes } from '@emotion/react';
+
+const flipScale = keyframes`
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+            transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(1.1) rotateX(-180deg);
+            transform: scale(1.1) rotateX(-180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-360deg);
+            transform: scale(1) rotateX(-360deg);
+  }
+`;
 
 export const StyledLink = styled(Link)`
-  transform: scale(0.75);
+  width: 140px;
+  height: 200px;
+
+  @media screen and (min-width: ${tablet}) {
+    width: 206px;
+    height: 296px;
+  }
 
   @media screen and (min-width: ${desktop}) {
     width: 280px;
     height: 400px;
+  }
 
-    transform: scale(1);
+  &.show {
+    animation: ${flipScale} 0.5s linear both;
   }
 `;
 
@@ -25,10 +49,21 @@ export const StyledDiv = styled.div`
 
   z-index: 1;
 
-  width: 280px;
-  height: 400px;
+  width: 140px;
+  height: 200px;
+
+  @media screen and (min-width: ${tablet}) {
+    width: 206px;
+    height: 296px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    width: 280px;
+    height: 400px;
+  }
 
   border: 3px solid ${({ theme }) => theme.crossThemeAccent};
+  border-radius: 4px;
 
   background: ${({ theme }) => theme.bgCharacterCard};
 
@@ -37,8 +72,8 @@ export const StyledDiv = styled.div`
   &::before {
     content: '';
     position: absolute;
-    top: -2%;
-    right: -2.5%;
+    top: -5px;
+    right: -5px;
     transform: rotate(-90deg);
     /* z-index: -1; */
 
@@ -53,8 +88,8 @@ export const StyledDiv = styled.div`
   &::after {
     content: '';
     position: absolute;
-    bottom: -2%;
-    left: -2.5%;
+    bottom: -5px;
+    left: -5px;
     transform: rotate(90deg);
     z-index: -1;
 
@@ -78,7 +113,7 @@ export const LocationCard = styled.div`
   flex: 1;
   height: 100%;
 
-  border-right: solid 3px ${({ theme }) => theme.accentTransparent};
+  /* border-right: solid 3px ${({ theme }) => theme.accentTransparent}; */
 
   &.location-card1 {
     background-image: url(${locationPageChooseLocationBG_1});
@@ -124,14 +159,25 @@ export const LocationCardDetails = styled.div`
   transition: transform 300ms ${({ theme }) => theme.cubic},
     background-color 300ms ${({ theme }) => theme.cubic};
 
-  width: 250px;
-  height: 250px;
+  width: 120px;
+  height: 150px;
+
   border-radius: 5px;
+
+  @media screen and (min-width: ${tablet}) {
+    width: 195px;
+    height: 250px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    width: 250px;
+    height: 250px;
+  }
 `;
 
 export const StyledH3 = styled.h3`
   position: relative;
-  margin-top: 50px;
+  margin-top: 23px;
 
   display: flex;
   align-items: center;
@@ -142,26 +188,55 @@ export const StyledH3 = styled.h3`
   padding: 10px;
 
   text-align: center;
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 600;
   color: ${({ theme }) => theme.textPrimary};
 
   background-color: #a3a3a3;
   border-radius: 5px;
+
+  @media screen and (min-width: ${tablet}) {
+    margin-top: 30px;
+    font-size: 22px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    margin-top: 50px;
+    font-size: 22px;
+  }
 `;
 
 export const Detail = styled.p`
-  padding: 10px;
-  font-size: 18px;
+  padding: 4px;
+
+  font-size: 10px;
   font-weight: 600;
   color: ${({ theme }) => theme.textPrimary};
+
+  @media screen and (min-width: ${tablet}) {
+    padding: 10px;
+
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    font-size: 18px;
+  }
 
   & span {
     display: inline;
     font-weight: 900;
-    font-size: 20px;
+    font-size: 10px;
     line-height: 1;
     letter-spacing: 0.25px;
     color: ${({ theme }) => theme.characterCardTextAccent};
+
+    @media screen and (min-width: ${tablet}) {
+      font-size: 20px;
+    }
+
+    @media screen and (min-width: ${desktop}) {
+      font-size: 20px;
+    }
   }
 `;

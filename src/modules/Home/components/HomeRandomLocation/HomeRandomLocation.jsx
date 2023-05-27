@@ -1,5 +1,5 @@
 import { useOneLocation } from 'hooks/useOneLocation';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Detail,
   LocationCard,
@@ -13,10 +13,25 @@ import { locations } from 'shared/constants/routes';
 
 export const HomeRandomLocation = ({ backgroundNum }) => {
   const { location, isLoading, error } = useOneLocation();
+  const [show, setShow] = useState(false);
+
   const shouldShowLocation = location !== null && !isLoading && !error;
 
+  useEffect(() => {
+    setShow(true);
+
+    const timeout = setTimeout(() => {
+      setShow(false);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, [location, isLoading, error]);
+
   return (
-    <StyledLink to={`/${locations}/${location?.id}`}>
+    <StyledLink
+      to={`/${locations}/${location?.id}`}
+      className={show ? 'show' : ''}
+    >
       <StyledDiv>
         <LocationCard className={`location-card${backgroundNum}`}>
           {isLoading && <CardLoader />}
