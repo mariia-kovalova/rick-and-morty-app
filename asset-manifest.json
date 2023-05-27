@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rick-and-morty-app/static/css/main.13bcf4d4.css",
-    "main.js": "/rick-and-morty-app/static/js/main.c09b0dc2.js",
+    "main.js": "/rick-and-morty-app/static/js/main.202f19e1.js",
     "static/js/526.251aa6ba.chunk.js": "/rick-and-morty-app/static/js/526.251aa6ba.chunk.js",
     "static/js/410.f46bb9eb.chunk.js": "/rick-and-morty-app/static/js/410.f46bb9eb.chunk.js",
     "static/js/685.ce7f63a3.chunk.js": "/rick-and-morty-app/static/js/685.ce7f63a3.chunk.js",
@@ -64,7 +64,7 @@
     "static/media/montserrat-vietnamese-400-normal.woff2": "/rick-and-morty-app/static/media/montserrat-vietnamese-400-normal.8f3f4c99eb0eeb5990f1.woff2",
     "index.html": "/rick-and-morty-app/index.html",
     "main.13bcf4d4.css.map": "/rick-and-morty-app/static/css/main.13bcf4d4.css.map",
-    "main.c09b0dc2.js.map": "/rick-and-morty-app/static/js/main.c09b0dc2.js.map",
+    "main.202f19e1.js.map": "/rick-and-morty-app/static/js/main.202f19e1.js.map",
     "526.251aa6ba.chunk.js.map": "/rick-and-morty-app/static/js/526.251aa6ba.chunk.js.map",
     "410.f46bb9eb.chunk.js.map": "/rick-and-morty-app/static/js/410.f46bb9eb.chunk.js.map",
     "685.ce7f63a3.chunk.js.map": "/rick-and-morty-app/static/js/685.ce7f63a3.chunk.js.map",
@@ -84,6 +84,6 @@
   },
   "entrypoints": [
     "static/css/main.13bcf4d4.css",
-    "static/js/main.c09b0dc2.js"
+    "static/js/main.202f19e1.js"
   ]
 }
