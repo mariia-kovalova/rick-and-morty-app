@@ -1,18 +1,38 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled/macro';
 import { Link } from 'react-router-dom';
-import { desktop } from 'shared/constants/deviceSizes';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
+
+const flipScale = keyframes`
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+            transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(1.1) rotateX(-180deg);
+            transform: scale(1.1) rotateX(-180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-360deg);
+            transform: scale(1) rotateX(-360deg);
+  }
+`;
 
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: scale(0.75);
+  width: 140px;
+  height: 200px;
+
+  @media screen and (min-width: ${tablet}) {
+    width: 206px;
+    height: 296px;
+  }
 
   @media screen and (min-width: ${desktop}) {
     width: 280px;
     height: 400px;
-
-    transform: scale(1);
   }
 `;
 
@@ -27,24 +47,52 @@ export const StyledLink = styled(Link)`
   &:focus {
     transform: scale(1.05);
   }
+
+  &.show {
+    animation: ${flipScale} 0.5s linear both;
+  }
 `;
 
 export const CharacterCardWrap = styled.div`
-  padding: 60px 20px 20px 20px;
+  padding: 20px 5px 5px 5px;
 
-  width: 280px;
-  height: 400px;
+  width: 140px;
+  height: 200px;
 
   background: ${({ theme }) => theme.bgCharacterCard};
   border: 3px solid ${({ theme }) => theme.crossThemeAccent};
   border-radius: 4px;
+
+  @media screen and (min-width: ${tablet}) {
+    padding: 30px 10px 10px 10px;
+    width: 206px;
+    height: 296px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    padding: 60px 20px 20px 20px;
+
+    width: 280px;
+    height: 400px;
+  }
 `;
 
 export const Img = styled.img`
+  width: 117px;
+  height: 117px;
   position: relative;
   z-index: 2;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
   border-radius: 6px;
+
+  @media screen and (min-width: ${tablet}) {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 export const MainInfo = styled.div`
@@ -60,13 +108,20 @@ export const NameWrap = styled.div`
 export const Name = styled.span`
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 12px;
   line-height: 1.5;
   letter-spacing: 0.15px;
   transition: color 250ms ${({ theme }) => theme.cubic};
 
   ${StyledLink}:hover & {
     color: ${({ theme }) => theme.characterCardTexHover};
+  }
+
+  @media screen and (min-width: ${tablet}) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: ${desktop}) {
+    font-size: 20px;
   }
 `;
 

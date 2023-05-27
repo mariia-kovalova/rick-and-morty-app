@@ -9,6 +9,8 @@ export const Stories = ({ storyTextID }) => {
   const { character } = useOneCharacter();
   const [storyCharacter, setStoryCharacter] = useState('Stranger');
   const [storyLocation, setStoryLocation] = useState('Weird Planet');
+  const [randomStory, setRandomStory] = useState("Let's get started");
+  const [showDiv, setShowDiv] = useState(false);
 
   useEffect(() => {
     setStoryLocation(location.name);
@@ -17,15 +19,28 @@ export const Stories = ({ storyTextID }) => {
     } else {
       setStoryCharacter(character.name);
     }
-  }, [location, character]);
 
-  const randomStories1 = randomStories[storyTextID]
-    .replaceAll('[location name]', storyLocation)
-    .replaceAll('[character name]', storyCharacter);
+    const story = randomStories[storyTextID]
+      .replaceAll('[location name]', storyLocation)
+      .replaceAll('[character name]', storyCharacter);
+
+    setRandomStory(story);
+    setShowDiv(true);
+
+    const timeout = setTimeout(() => {
+      setShowDiv(false);
+    }, 1000); // Adjust the duration to match your CSS transition duration
+
+    return () => clearTimeout(timeout);
+  }, [location, character, storyCharacter, storyLocation, storyTextID]);
 
   return (
-    <StyledDiv className="typewriter">
-      <p className="type">{randomStories1}</p>
+    <StyledDiv
+      className={`${showDiv ? 'show' : ''} ${
+        storyTextID === 0 ? 'startText' : ''
+      }`}
+    >
+      <span>{randomStory}</span>
     </StyledDiv>
   );
 };

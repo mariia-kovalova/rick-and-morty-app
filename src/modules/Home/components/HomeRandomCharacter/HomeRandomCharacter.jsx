@@ -1,5 +1,5 @@
 import { useOneCharacter } from 'hooks/useOneCharacter';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import {
   CardDecoration,
@@ -17,15 +17,28 @@ import { CharacterStatus } from 'modules/Characters/components/CharacterStatus/C
 import { characterNameNormalize } from 'shared/utils/nameNormalize';
 
 export const HomeRandomCharacter = ({ characterID }) => {
+  const [show, setShow] = useState(false);
+
   const location = useLocation();
   const { character, error, isLoading } = useOneCharacter();
   const shouldShowCharacter = character !== null && !error;
+
+  useEffect(() => {
+    setShow(true);
+
+    const timeout = setTimeout(() => {
+      setShow(false);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, [character, isLoading, error]);
 
   return (
     <Wrap>
       <StyledLink
         to={`/${characters}/${characterID}`}
         state={{ from: location }}
+        className={show ? 'show' : ''}
       >
         {shouldShowCharacter && (
           <CardDecoration>

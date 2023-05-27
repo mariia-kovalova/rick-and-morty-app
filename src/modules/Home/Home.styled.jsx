@@ -20,10 +20,14 @@ export const HiddenTittle = styled.h1`
 export const StyledDiv = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 30px;
   align-items: center;
   justify-content: center;
+
+  @media screen and (min-width: ${tablet}) {
+    flex-direction: column;
+  }
 
   @-webkit-keyframes rotor {
     from {
@@ -57,11 +61,18 @@ export const StyledDiv = styled.div`
       transform: rotate(360deg);
     }
   }
+`;
 
-  .button-wrap {
-    width: 220px;
-    height: 220px;
+export const TeleportElement = styled.div`
+  &.button-wrap {
+    width: 150px;
+    height: 150px;
     display: inline-block;
+
+    @media screen and (min-width: ${tablet}) {
+      width: 220px;
+      height: 220px;
+    }
 
     @media screen and (min-width: ${desktop}) {
       width: 320px;
@@ -71,8 +82,8 @@ export const StyledDiv = styled.div`
     .clicker {
       text-transform: uppercase;
       /* Inner circle */
-      width: 200px;
-      height: 200px; /* 20px smaller b/c of margin below */
+      width: 130px;
+      height: 130px; /* 20px smaller b/c of margin below */
       margin: 10px;
       background: url(${teleport}), url(${portalGif});
 
@@ -98,6 +109,11 @@ export const StyledDiv = styled.div`
       -o-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
       box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
 
+      @media screen and (min-width: ${tablet}) {
+        width: 200px;
+        height: 200px;
+      }
+
       @media screen and (min-width: ${desktop}) {
         width: 300px;
         height: 300px;
@@ -105,8 +121,8 @@ export const StyledDiv = styled.div`
     }
     .circle {
       /** outer circle **/
-      width: 220px;
-      height: 220px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
 
       /** image = wedge **/
@@ -123,7 +139,10 @@ export const StyledDiv = styled.div`
       /*** outer circle position: under */
       z-index: 1;
       /* position: absolute; */
-
+      @media screen and (min-width: ${tablet}) {
+        width: 220px;
+        height: 220px;
+      }
       @media screen and (min-width: ${desktop}) {
         width: 320px;
         height: 320px;
@@ -143,18 +162,34 @@ export const StyledDiv = styled.div`
       animation: rotor 0.5s linear 0s infinite normal;
     }
   }
+
+  position: absolute;
+  top: -5px;
+  @media screen and (min-width: ${tablet}) {
+    position: static;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+  }
 `;
 
 export const RandomContainer = styled.div`
+  position: relative;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: space-evenly;
   gap: 10px;
-
+  padding-top: 160px;
   width: 100%;
 
   @media screen and (min-width: ${tablet}) {
+    padding-top: 0;
     flex-direction: row;
   }
+`;
+
+export const About = styled.button`
+  color: ${({ theme }) => theme.disabled};
+  background-color: transparent;
 `;
