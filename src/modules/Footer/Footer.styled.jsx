@@ -18,7 +18,7 @@ export const StyledDiv = styled.div`
 
   @media screen and (min-width: ${tablet}) {
     flex-direction: row;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   @media screen and (min-width: ${desktop}) {
