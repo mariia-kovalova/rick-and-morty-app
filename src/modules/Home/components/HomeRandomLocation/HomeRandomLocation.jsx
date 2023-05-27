@@ -10,6 +10,7 @@ import {
 } from './HomeRandomLocation.styled';
 import { CardLoader } from 'shared/components/CardLoader';
 import { locations } from 'shared/constants/routes';
+import { nameNormalize } from 'shared/utils/nameNormalize';
 
 export const HomeRandomLocation = ({ backgroundNum }) => {
   const { location, isLoading, error } = useOneLocation();
@@ -40,10 +41,10 @@ export const HomeRandomLocation = ({ backgroundNum }) => {
               <StyledH3>{location.name}</StyledH3>
               <Detail>
                 Dimension:
-                <span> {location.dimension}</span>
+                <span> {nameNormalize(location.dimension)}</span>
               </Detail>
               <Detail>
-                Type:<span> {location.type}</span>
+                Type:<span> {nameNormalize(location.type)}</span>
               </Detail>
               <Detail>
                 Number of residents:

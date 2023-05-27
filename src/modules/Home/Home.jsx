@@ -52,8 +52,8 @@ export const Home = () => {
 
   // Random button click
   const handleRandomBtn = () => {
-    // const audio = new Audio(randomSound);
-    // audio.play();
+    const audio = new Audio(randomSound);
+    audio.play();
     const rndLocationID = getRandomLocation();
     setLocationID(rndLocationID);
 
