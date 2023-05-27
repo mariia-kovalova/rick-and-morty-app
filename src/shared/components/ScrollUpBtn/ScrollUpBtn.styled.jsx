@@ -15,6 +15,7 @@ const show = keyframes`
 `;
 
 export const ScrollBtn = styled.div`
+  cursor: pointer;
   position: fixed;
   right: calc(8px + (24 - 8) * ((100vw - 320px) / (1280 - 320)));
   bottom: calc(8px + (24 - 8) * ((100vw - 320px) / (1280 - 320)));
