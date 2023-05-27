@@ -162,18 +162,29 @@ export const TeleportElement = styled.div`
       animation: rotor 0.5s linear 0s infinite normal;
     }
   }
+
+  position: absolute;
+  top: -5px;
+  @media screen and (min-width: ${tablet}) {
+    position: static;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+  }
 `;
 
 export const RandomContainer = styled.div`
+  position: relative;
   display: flex;
   /* flex-direction: column; */
   align-items: center;
   justify-content: space-evenly;
   gap: 10px;
-
+  padding-top: 160px;
   width: 100%;
 
   @media screen and (min-width: ${tablet}) {
+    padding-top: 0;
     flex-direction: row;
   }
 `;
