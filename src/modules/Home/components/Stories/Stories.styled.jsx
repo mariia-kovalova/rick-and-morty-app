@@ -27,9 +27,13 @@ export const StyledDiv = styled.div`
   width: 300px;
   height: 600px;
 
+  font-size: 15px;
+
   @media screen and (min-width: ${tablet}) {
     width: 650px;
     height: 300px;
+
+    font-size: 16px;
   }
 
   @media screen and (min-width: ${desktop}) {
