@@ -12,7 +12,7 @@ export const LocationsList = () => {
   const { locations, error, isLoading } = useLocations();
 
   const showResidentsBtn = true;
-  const shouldRenderList = favLocationsIds.length > 0 && !error;
+  const shouldRenderList = favLocationsIds.length > 0 && !error && !isLoading;
   const shouldShowError = !isLoading && error;
 
   return (

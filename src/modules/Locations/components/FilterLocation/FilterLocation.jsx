@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'react-router-dom';
 import { schema } from './schema';
 import { SearchInput } from 'shared/components/SearchInput';
-import { StyledDiv } from './FilterLocation.styled';
+import { Item, StyledDiv } from './FilterLocation.styled';
 import { getSearchValues } from 'shared/utils/getSearchValues';
 import { getCleanValues } from 'shared/utils/getCleanValues';
 import { inputs, filedsArr } from './inputs';
@@ -38,7 +38,7 @@ export const FilterLocation = () => {
   return (
     <StyledDiv>
       {filedsArr.map(({ id, inputName, placeholder }) => (
-        <li key={id}>
+        <Item key={id}>
           <SearchInput
             id={id}
             inputName={inputName}
@@ -47,7 +47,7 @@ export const FilterLocation = () => {
             onChange={handleSearch}
             placeholder={placeholder}
           />
-        </li>
+        </Item>
       ))}
     </StyledDiv>
   );

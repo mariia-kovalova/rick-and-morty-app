@@ -14,6 +14,7 @@ import { notfound, oops } from 'shared/constants/errorText';
 export const PARAMS_ARR = ['name', 'episode'];
 
 export const EpisodeCardList = () => {
+  const [showList, setShowList] = useState(false);
   const [searchParams] = useSearchParams();
   const { info, episodes, error, isLoading } = useEpisodes();
   const [page, setPage] = useState(1);
@@ -24,15 +25,20 @@ export const EpisodeCardList = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    dispatchFunc(
-      getEpisodesByFilter({
-        page,
-        ...getSearchValues(PARAMS_ARR, searchParams),
-      })
-    );
+    const getInfo = async () => {
+      await dispatchFunc(
+        getEpisodesByFilter({
+          page,
+          ...getSearchValues(PARAMS_ARR, searchParams),
+        })
+      ).unwrap();
+      setShowList(true);
+    };
+
+    getInfo();
   }, [dispatchFunc, page, searchParams]);
 
-  const shouldRenderList = episodes.length > 0 && !error;
+  const shouldRenderList = episodes.length > 0 && !error && showList;
   const shouldShowError = !isLoading && error && error.status !== 404;
   const shouldShowNotFoundError = !isLoading && error && error.status === 404;
   const shouldRenderPagination =

@@ -11,7 +11,7 @@ export const EpisodeCardList = () => {
   const { favEpisodesIds } = useLibrary();
   const { episodes, error, isLoading } = useEpisodes();
 
-  const shouldRenderList = favEpisodesIds.length > 0 && !error;
+  const shouldRenderList = favEpisodesIds.length > 0 && !error && !isLoading;
   const shouldShowError = !isLoading && error;
 
   return (

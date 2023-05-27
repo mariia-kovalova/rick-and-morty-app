@@ -11,7 +11,7 @@ export const CharactersList = () => {
   const { favCharactersIds } = useLibrary();
   const { characters, isLoading, error } = useCharacters();
 
-  const shouldRenderList = favCharactersIds.length > 0 && !error;
+  const shouldRenderList = favCharactersIds.length > 0 && !error && !isLoading;
   const shouldShowError = !isLoading && error;
 
   return (

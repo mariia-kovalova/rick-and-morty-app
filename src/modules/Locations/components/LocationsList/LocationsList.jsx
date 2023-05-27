@@ -15,6 +15,7 @@ import { notfound, oops } from 'shared/constants/errorText';
 export const PARAMS_ARR = ['name', 'type', 'dimension'];
 
 export const LocationsList = () => {
+  const [showList, setShowList] = useState(false);
   const [searchParams] = useSearchParams();
   const locationPath = useLocation();
   const { info, locations, error, isLoading } = useLocations();
@@ -28,15 +29,20 @@ export const LocationsList = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    dispatch(
-      getLocationsByFilter({
-        page,
-        ...getSearchValues(PARAMS_ARR, searchParams),
-      })
-    );
+    const getInfo = async () => {
+      await dispatch(
+        getLocationsByFilter({
+          page,
+          ...getSearchValues(PARAMS_ARR, searchParams),
+        })
+      ).unwrap();
+      setShowList(true);
+    };
+
+    getInfo();
   }, [dispatch, page, searchParams]);
 
-  const shouldRenderList = locations.length > 0 && !error;
+  const shouldRenderList = locations.length > 0 && !error && showList;
   const shouldShowError = !isLoading && error && error.status !== 404;
   const shouldShowNotFoundError = !isLoading && error && error.status === 404;
   const shouldRenderPagination =

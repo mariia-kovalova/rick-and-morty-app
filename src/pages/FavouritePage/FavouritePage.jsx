@@ -2,7 +2,7 @@ import { useLibrary } from 'hooks/useLibrary';
 import { CharactersList } from 'modules/Library/components/CharactersList/CharactersList';
 import { EpisodeCardList } from 'modules/Library/components/EpisodeCardList/EpisodeCardList';
 import { LocationsList } from 'modules/Library/components/LocationsList/LocationsList';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { getCharactersByIds } from 'redux/characters/thunks';
@@ -17,6 +17,7 @@ import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
 
 const FavouritePage = () => {
+  const [showList, setShowList] = useState(false);
   const { listName } = useParams();
   const { favCharactersIds, favEpisodesIds, favLocationsIds } = useLibrary();
   const dispatch = useDispatch();
@@ -26,21 +27,29 @@ const FavouritePage = () => {
   const isLocations = listName === favlocations;
 
   useEffect(() => {
-    if (favCharactersIds.length > 0)
-      dispatch(getCharactersByIds(favCharactersIds));
-    if (favEpisodesIds.length > 0) dispatch(getEpisodesByIds(favEpisodesIds));
-    if (favLocationsIds.length > 0)
-      dispatch(getLocationsByIds(favLocationsIds));
+    const getInfo = async () => {
+      if (favCharactersIds.length > 0)
+        await dispatch(getCharactersByIds(favCharactersIds)).unwrap();
+      if (favEpisodesIds.length > 0)
+        await dispatch(getEpisodesByIds(favEpisodesIds)).unwrap();
+      if (favLocationsIds.length > 0)
+        await dispatch(getLocationsByIds(favLocationsIds)).unwrap();
+
+      setShowList(true);
+    };
+    getInfo();
   }, [dispatch, favCharactersIds, favEpisodesIds, favLocationsIds]);
 
   return (
     <Section>
       <Container>
-        <>
-          {isCharacters && <CharactersList />}
-          {isEpisodes && <EpisodeCardList />}
-          {isLocations && <LocationsList />}
-        </>
+        {showList && (
+          <>
+            {isCharacters && <CharactersList />}
+            {isEpisodes && <EpisodeCardList />}
+            {isLocations && <LocationsList />}
+          </>
+        )}
       </Container>
     </Section>
   );
