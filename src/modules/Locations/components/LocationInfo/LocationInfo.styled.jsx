@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
+import { Svg } from 'shared/components/Heart/Heart.styled';
 import { desktop, mobile } from 'shared/constants/deviceSizes';
 import { getHeartColor } from 'shared/utils/getHeartColor';
 
@@ -48,8 +49,8 @@ export const Detail = styled.p`
 
 export const HeartWrap = styled.div`
   position: absolute;
-  top: -14px;
-  right: 0px;
+  top: -19px;
+  right: -8px;
 
   width: fit-content;
   height: fit-content;
@@ -59,8 +60,13 @@ export const HeartWrap = styled.div`
     right: 0px;
   }
 
-  & svg {
+  & ${Svg} {
     stroke: ${getHeartColor};
     fill: ${getHeartColor};
+
+    @media screen and (max-width: ${desktop}) {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;

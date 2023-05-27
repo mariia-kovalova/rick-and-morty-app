@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getLocationById } from 'redux/location/thunks';
 import { useDispatch } from 'react-redux';
 
@@ -21,7 +21,7 @@ import { locations } from 'shared/constants/routes';
 import { addToLibrary } from 'redux/library/slice';
 import { randomlocations } from 'shared/constants/libaryListName';
 import sprite from 'shared/icons/sprite.svg';
-import randomSound from 'shared/audio/teleport-sound-2.mp3'
+import randomSound from 'shared/audio/teleport-sound-2.mp3';
 
 const FIRST_LOCATION_ID = 1;
 
