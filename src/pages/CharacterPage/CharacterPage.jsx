@@ -42,6 +42,7 @@ const CharacterPage = () => {
   const shouldShowCard = character !== null && !error;
   const shouldShowError = !isLoading && error && error.status !== 404;
   const shouldShowNotFoundError = !isLoading && error && error.status === 404;
+  const shouldShowEpisodes = !error && !isLoading;
 
   return (
     <>
@@ -65,7 +66,7 @@ const CharacterPage = () => {
         </Container>
       </Section>
 
-      {!error && (
+      {shouldShowEpisodes && (
         <Section>
           <Container>
             <StyledH2>

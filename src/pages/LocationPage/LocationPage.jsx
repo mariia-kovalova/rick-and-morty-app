@@ -1,7 +1,7 @@
 import { useOneLocation } from 'hooks/useOneLocation';
 import { LocationCard } from 'modules/Locations/components/LocationCard/LocationCard';
 import { ResidentList } from 'modules/Locations/components/Residents/ResidentList';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router';
@@ -9,6 +9,7 @@ import { getCharactersByIds } from 'redux/characters/thunks';
 import { getLocationById } from 'redux/location/thunks';
 import { Error } from 'shared/components/Error';
 import { GoBackLink } from 'shared/components/GoBackLink/GoBackLink';
+import { Loader } from 'shared/components/Loader';
 import { notfound, oops } from 'shared/constants/errorText';
 import { home } from 'shared/constants/routes';
 import { Container } from 'shared/styles/components/Container.styled';
@@ -19,6 +20,7 @@ import { scrollUp } from 'shared/utils/scrollUp';
 const NUMBER_OF_LETTER_TO_SKIP = 42;
 
 const LocationPage = () => {
+  const [showList, setShowList] = useState(false);
   const params = useParams();
   const dispatch = useDispatch();
   const { location, isLoading, error } = useOneLocation();
@@ -29,7 +31,12 @@ const LocationPage = () => {
 
   useEffect(() => {
     scrollUp(0);
-    dispatch(getLocationById(params.locationId));
+    const getInfo = async () => {
+      await dispatch(getLocationById(params.locationId)).unwrap();
+      setShowList(true);
+    };
+
+    getInfo();
   }, [dispatch, params]);
 
   useEffect(() => {
@@ -43,6 +50,7 @@ const LocationPage = () => {
   const shouldShowCard = location !== null && !error;
   const shouldShowError = !isLoading && error && error.status !== 404;
   const shouldShowNotFoundError = !isLoading && error && error.status === 404;
+  const shouldShowResidentsList = !error && showList && !isLoading;
 
   return (
     <>
@@ -60,6 +68,7 @@ const LocationPage = () => {
       </Section>
       <Section>
         <Container>
+          {isLoading && <Loader />}
           {shouldShowCard && (
             <LocationCard
               location={location}
@@ -71,7 +80,7 @@ const LocationPage = () => {
         </Container>
       </Section>
 
-      {!error && (
+      {shouldShowResidentsList && (
         <Section>
           <Container>
             <ResidentList />
