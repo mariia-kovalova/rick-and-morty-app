@@ -4,6 +4,8 @@ import { Loader } from 'shared/components/Loader';
 import { StyledUl } from './LocationsList.styled';
 import { LocationCard } from 'modules/Locations/components/LocationCard/LocationCard';
 import { useLibrary } from 'hooks/useLibrary';
+import { nothingonlist, oops } from 'shared/constants/errorText';
+import { Error } from 'shared/components/Error';
 
 export const LocationsList = () => {
   const { favLocationsIds } = useLibrary();
@@ -30,9 +32,9 @@ export const LocationsList = () => {
           ))}
         </StyledUl>
       ) : (
-        <div>There is nothing on this list</div>
+        <Error text={nothingonlist} />
       )}
-      {shouldShowError && <div>Oops, something went wrong </div>}
+      {shouldShowError && <Error text={oops} />}
     </>
   );
 };

@@ -7,9 +7,10 @@ import { StyledH2, StyledLink, StyledUl } from './LocationsList.styled';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useLocations } from 'hooks/useLocations';
 import { Loader } from 'shared/components/Loader';
-import { ResultsNotFound } from 'shared/components/ResultsNotFound';
 import { getSearchValues } from 'shared/utils/getSearchValues';
 import { locations as locationsRoute } from 'shared/constants/routes';
+import { Error } from 'shared/components/Error';
+import { notfound, oops } from 'shared/constants/errorText';
 
 export const PARAMS_ARR = ['name', 'type', 'dimension'];
 
@@ -70,8 +71,8 @@ export const LocationsList = () => {
           page={page}
         />
       )}
-      {shouldShowError && <div>Oops, something went wrong </div>}
-      {shouldShowNotFoundError && <ResultsNotFound />}
+      {shouldShowError && <Error text={oops} />}
+      {shouldShowNotFoundError && <Error text={notfound} />}
     </>
   );
 };

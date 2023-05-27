@@ -10,6 +10,7 @@ import {
   Btn,
   BtnsItem,
   BtnsList,
+  Form,
   FormTittle,
   List,
   ListTittle,
@@ -39,7 +40,7 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
   return (
     <>
       <FormTittle>filter</FormTittle>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         {radioFieldsArr.map(({ tittle, arr }, index) => (
           <ListWrap key={tittle}>
             <ListTittle>{tittle}</ListTittle>
@@ -61,7 +62,7 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
           <BtnsItem>
             <Btn
               className="reset"
-              type="button"
+              type="submit"
               onClick={() => reset(getValuesForReset(inputs))}
             >
               Reset filters
@@ -77,7 +78,7 @@ export const CharacterFiltersForm = ({ onCloseModal }) => {
             </Btn>
           </BtnsItem>
         </BtnsList>
-      </form>
+      </Form>
     </>
   );
 };

@@ -7,9 +7,10 @@ import { getSearchValues } from 'shared/utils/getSearchValues';
 import { Pagination } from 'shared/components/Pagination';
 import { Loader } from 'shared/components/Loader';
 import { CardsList } from 'shared/components/CardsList';
-import { ResultsNotFound } from 'shared/components/ResultsNotFound';
+import { Error } from 'shared/components/Error';
 import { CharacterCard } from '../CharacterCard';
 import { gender, name, status } from 'shared/constants/charFilterTypes';
+import { notfound, oops } from 'shared/constants/errorText';
 
 export const PARAMS_ARR = [name, status, gender];
 
@@ -51,8 +52,8 @@ export const CharactersList = () => {
           page={page}
         />
       )}
-      {shouldShowError && <div>Oops, something went wrong </div>}
-      {shouldShowNotFoundError && <ResultsNotFound />}
+      {shouldShowError && <Error text={oops} />}
+      {shouldShowNotFoundError && <Error text={notfound} />}
     </>
   );
 };

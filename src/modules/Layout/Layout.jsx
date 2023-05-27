@@ -5,8 +5,9 @@ import { Outlet, useLocation } from 'react-router';
 import { Wrap, Main } from './Layout.styled';
 import { images } from './images';
 import color_50percent from 'shared/images/color_50percent.png';
+import { ScrollUpBtn } from 'shared/components/ScrollUpBtn';
 
-const DEFAULT_IMAGE_URL = color_50percent; // та що для homepage
+const DEFAULT_IMAGE_URL = color_50percent;
 
 export const Layout = () => {
   const location = useLocation();
@@ -28,6 +29,8 @@ export const Layout = () => {
         </Suspense>
       </Main>
       <Footer />
+
+      <ScrollUpBtn />
     </Wrap>
   );
 };

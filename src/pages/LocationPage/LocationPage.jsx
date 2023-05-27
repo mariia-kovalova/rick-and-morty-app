@@ -1,13 +1,15 @@
 import { useOneLocation } from 'hooks/useOneLocation';
 import { LocationCard } from 'modules/Locations/components/LocationCard/LocationCard';
 import { ResidentList } from 'modules/Locations/components/Residents/ResidentList';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch } from 'react-redux';
 import { useLocation, useParams } from 'react-router';
 import { getCharactersByIds } from 'redux/characters/thunks';
 import { getLocationById } from 'redux/location/thunks';
+import { Error } from 'shared/components/Error';
 import { GoBackLink } from 'shared/components/GoBackLink/GoBackLink';
+import { notfound, oops } from 'shared/constants/errorText';
 import { home } from 'shared/constants/routes';
 import { Container } from 'shared/styles/components/Container.styled';
 import { Section } from 'shared/styles/components/Section.styled';
@@ -38,7 +40,9 @@ const LocationPage = () => {
     dispatch(getCharactersByIds(residentsID));
   }, [dispatch, location]);
 
-  const shouldShowLocation = location !== null && !isLoading && !error;
+  const shouldShowCard = location !== null && !error;
+  const shouldShowError = !isLoading && error && error.status !== 404;
+  const shouldShowNotFoundError = !isLoading && error && error.status === 404;
 
   return (
     <>
@@ -56,19 +60,24 @@ const LocationPage = () => {
       </Section>
       <Section>
         <Container>
-          {shouldShowLocation && (
+          {shouldShowCard && (
             <LocationCard
               location={location}
               resident={location.residents[0]}
             />
           )}
+          {shouldShowError && <Error text={oops} />}
+          {shouldShowNotFoundError && <Error text={notfound} />}
         </Container>
       </Section>
-      <Section>
-        <Container>
-          <ResidentList />
-        </Container>
-      </Section>
+
+      {!error && (
+        <Section>
+          <Container>
+            <ResidentList />
+          </Container>
+        </Section>
+      )}
     </>
   );
 };

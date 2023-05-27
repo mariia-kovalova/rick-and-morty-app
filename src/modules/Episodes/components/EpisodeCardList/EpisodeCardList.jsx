@@ -8,7 +8,8 @@ import { Item, List } from './EpisodeCardList.styled';
 import { EpisodeCard } from '../EpisodeCard/EpisodeCard';
 import { Loader } from 'shared/components/Loader';
 import { Pagination } from 'shared/components/Pagination';
-import { ResultsNotFound } from 'shared/components/ResultsNotFound';
+import { Error } from 'shared/components/Error';
+import { notfound, oops } from 'shared/constants/errorText';
 
 export const PARAMS_ARR = ['name', 'episode'];
 
@@ -56,8 +57,8 @@ export const EpisodeCardList = () => {
           page={page}
         />
       )}
-      {shouldShowError && <div>Oops, something went wrong </div>}
-      {shouldShowNotFoundError && <ResultsNotFound />}
+      {shouldShowError && <Error text={oops} />}
+      {shouldShowNotFoundError && <Error text={notfound} />}
     </>
   );
 };

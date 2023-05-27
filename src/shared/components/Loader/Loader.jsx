@@ -4,15 +4,7 @@ import { Overlay } from './Loader.styled';
 export const Loader = () => {
   return (
     <Overlay>
-      <Dna
-        visible={true}
-        height="400"
-        width="400"
-        ariaLabel="dna-loading"
-        wrapperStyle={{}}
-        wrapperClass="dna-wrapper"
-        
-      />
+      <Dna visible={true} height="40%" width="40%" ariaLabel="dna-loading" />
     </Overlay>
   );
 };

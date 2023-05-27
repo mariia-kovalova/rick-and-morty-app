@@ -18,6 +18,8 @@ import { getRandomIndex } from 'shared/utils/getRandomIndex';
 import { EpisodeDecor, EpisodeWrap, StyledH2 } from './EpisodePage.styled';
 import { getCharactersByIds } from 'redux/characters/thunks';
 import { useCharacters } from 'hooks/useCharacters';
+import { notfound, oops } from 'shared/constants/errorText';
+import { Error } from 'shared/components/Error';
 
 const NUMBER_OF_CHARS_TO_SKIP = 42;
 
@@ -44,8 +46,9 @@ const EpisodePage = () => {
     dispatch(getCharactersByIds(charactersID));
   }, [dispatch, episode.characters]);
 
-  const shouldShowEpisode = episode !== null && !error;
-  const shouldShowError = !isLoading && error;
+  const shouldShowCard = episode !== null && !error;
+  const shouldShowError = !isLoading && error && error.status !== 404;
+  const shouldShowNotFoundError = !isLoading && error && error.status === 404;
 
   return (
     <>
@@ -63,22 +66,26 @@ const EpisodePage = () => {
       </Section>
       <Section>
         <Container>
-          {shouldShowEpisode && (
+          {shouldShowCard && (
             <EpisodeDecor>
               <EpisodeWrap>
                 <Episode image={image} />
               </EpisodeWrap>
             </EpisodeDecor>
           )}
-        </Container>
-        {shouldShowError && <div>Oops, something went wrong...</div>}
-      </Section>
-      <Section>
-        <Container>
-          <StyledH2>Characters from the episode</StyledH2>
-          <CardsList items={characters} element={CharacterCard} />
+          {shouldShowError && <Error text={oops} />}
+          {shouldShowNotFoundError && <Error text={notfound} />}
         </Container>
       </Section>
+
+      {!error && (
+        <Section>
+          <Container>
+            <StyledH2>Characters from the episode</StyledH2>
+            <CardsList items={characters} element={CharacterCard} />
+          </Container>
+        </Section>
+      )}
     </>
   );
 };

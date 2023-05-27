@@ -1,10 +1,19 @@
 import styled from '@emotion/styled/macro';
 import { NavLink } from 'react-router-dom';
+import { desktop, tablet } from 'shared/constants/deviceSizes';
 
 export const Svg = styled.svg`
+  width: 20px;
+  height: 20px;
+
   stroke: ${({ theme }) => theme.crossThemeAccent};
   fill: ${({ theme }) => theme.crossThemeAccent};
   transition: trasform 250ms ${({ theme }) => theme.cubic};
+
+  @media screen and (min-width: ${tablet}) {
+    width: 30px;
+    height: 20px;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -13,10 +22,10 @@ export const StyledLink = styled(NavLink)`
   justify-content: center;
   gap: 5px;
 
-  padding: 10px 20px;
+  padding: 3px 6px;
 
   font-weight: 700;
-  font-size: 22px;
+  font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0.15px;
   text-decoration: none;
@@ -27,6 +36,16 @@ export const StyledLink = styled(NavLink)`
   border-radius: 5px;
   transition: clip-path 250ms ${({ theme }) => theme.cubic},
     color 250ms ${({ theme }) => theme.cubic};
+
+  @media screen and (min-width: ${tablet}) {
+    padding: 8px 16px;
+    font-size: 18px;
+  }
+
+  @media screen and (min-width: ${desktop}) {
+    padding: 10px 20px;
+    font-size: 22px;
+  }
 
   clip-path: polygon(
     12% 0%,

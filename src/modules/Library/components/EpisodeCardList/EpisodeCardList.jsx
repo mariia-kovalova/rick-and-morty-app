@@ -4,6 +4,8 @@ import { Item, List } from './EpisodeCardList.styled';
 import { EpisodeCard } from 'modules/Episodes/components/EpisodeCard/EpisodeCard';
 import { StyledH2 } from 'modules/Library/Library.styled';
 import { useLibrary } from 'hooks/useLibrary';
+import { Error } from 'shared/components/Error';
+import { nothingonlist, oops } from 'shared/constants/errorText';
 
 export const EpisodeCardList = () => {
   const { favEpisodesIds } = useLibrary();
@@ -25,9 +27,9 @@ export const EpisodeCardList = () => {
           ))}
         </List>
       ) : (
-        <div>There is nothing on this list</div>
+        <Error text={nothingonlist} />
       )}
-      {shouldShowError && <div>Oops, something went wrong </div>}
+      {shouldShowError && <Error text={oops} />}
     </>
   );
 };

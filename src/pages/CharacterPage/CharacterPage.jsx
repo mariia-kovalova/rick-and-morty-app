@@ -14,6 +14,8 @@ import { Section } from 'shared/styles/components/Section.styled';
 import { nameNormalize } from 'shared/utils/nameNormalize';
 import { scrollUp } from 'shared/utils/scrollUp';
 import { StyledH2 } from './CharacterPage.styled';
+import { Error } from 'shared/components/Error';
+import { notfound, oops } from 'shared/constants/errorText';
 
 const NUMBER_OF_CHARS_TO_SKIP = 40;
 
@@ -37,8 +39,9 @@ const CharacterPage = () => {
     dispatch(getEpisodesByIds(episodesIds));
   }, [character, dispatch]);
 
-  const shouldShowCharacter = character !== null && !error;
-  const shouldShowError = !isLoading && error;
+  const shouldShowCard = character !== null && !error;
+  const shouldShowError = !isLoading && error && error.status !== 404;
+  const shouldShowNotFoundError = !isLoading && error && error.status === 404;
 
   return (
     <>
@@ -55,17 +58,23 @@ const CharacterPage = () => {
         </Container>
       </Section>
       <Section>
-        <Container>{shouldShowCharacter && <CharacterBlock />}</Container>
-        {shouldShowError && <div>Oops, something went wrong...</div>}
-      </Section>
-      <Section>
         <Container>
-          <StyledH2>
-            Episodes where {character?.name ?? 'the charatcer'} was seen
-          </StyledH2>
-          <EpisodeCardList />
+          {shouldShowCard && <CharacterBlock />}
+          {shouldShowError && <Error text={oops} />}
+          {shouldShowNotFoundError && <Error text={notfound} />}
         </Container>
       </Section>
+
+      {!error && (
+        <Section>
+          <Container>
+            <StyledH2>
+              Episodes where {character?.name ?? 'the charatcer'} was seen
+            </StyledH2>
+            <EpisodeCardList />
+          </Container>
+        </Section>
+      )}
     </>
   );
 };

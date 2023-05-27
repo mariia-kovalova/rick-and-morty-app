@@ -9,11 +9,13 @@ export const Wrap = styled.div`
   background-color: ${({ theme }) => theme.bgPrimary};
   background-image: url(${({ url }) => url});
   background-size: 100%;
-  /* background-repeat: repeat; */
+  background-repeat: no-repeat;
+  background-position: 10%;
+  background-size: cover;
   background-attachment: fixed;
   color: ${({ theme }) => theme.textPrimary};
 `;
-console.log(Wrap);
+
 export const Main = styled.div`
   min-height: calc(100vh - ${headerAndFooterHeightOnMobile});
 

@@ -13,6 +13,14 @@ export const FormTittle = styled.p`
   color: ${({ theme }) => theme.textPrimary};
 `;
 
+export const Form = styled.form`
+  width: 240px;
+
+  @media (min-width: ${tablet}) {
+    width: 400px;
+  }
+`;
+
 export const ListWrap = styled.div`
   padding-top: 5px;
   padding-bottom: 5px;
@@ -45,7 +53,7 @@ export const BtnsList = styled.ul`
   gap: 5px;
 
   width: 220px;
-  margin: 20px auto;
+  margin: 20px auto 0;
 
   @media (min-width: ${tablet}) {
     width: 320px;
@@ -57,10 +65,10 @@ export const BtnsItem = styled.li`
     flex-basis: 100%;
   }
   &:nth-of-type(2) {
-    flex-basis: calc(60% - 5px);
+    flex-basis: calc(60% - 6px);
   }
   &:nth-of-type(3) {
-    flex-basis: calc(40%);
+    flex-basis: 40%;
   }
 `;
 

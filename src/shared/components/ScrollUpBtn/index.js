@@ -1,0 +1,1 @@
+export { ScrollUpBtn } from './ScrollUpBtn';
