@@ -30,6 +30,8 @@ import { Tooltip } from 'shared/components/ToolTip';
 import { Modal } from 'shared/components/Modal';
 import { GameRules } from './components/GameRules/GameRules';
 
+const audio = new Audio(randomSound);
+
 const FIRST_CHARACTER_ID = 1;
 const FIRST_LOCATION_ID = 1;
 const ABOUT = 'find out more about the website';
@@ -52,7 +54,6 @@ export const Home = () => {
 
   // Random button click
   const handleRandomBtn = () => {
-    const audio = new Audio(randomSound);
     audio.play();
     const rndLocationID = getRandomLocation();
     setLocationID(rndLocationID);

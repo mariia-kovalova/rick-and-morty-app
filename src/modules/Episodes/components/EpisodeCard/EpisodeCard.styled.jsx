@@ -19,6 +19,7 @@ export const StyledLink = styled(Link)`
 
 export const Wrap = styled(BasicWrapper)`
   position: relative;
+  overflow: hidden;
   height: 159px;
 
   background-color: ${({ theme }) => theme.bgPrimary};

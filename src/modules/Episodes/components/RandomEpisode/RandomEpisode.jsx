@@ -21,7 +21,9 @@ import {
 import { addToLibrary } from 'redux/library/slice';
 import { randomepisodes } from 'shared/constants/libaryListName';
 import { CardDecoration } from 'shared/styles/components/CardDecoration.styled';
-import randomSound from 'shared/audio/teleport-sound-6.mp3'
+import randomSound from 'shared/audio/teleport-sound-6.mp3';
+
+const audio = new Audio(randomSound);
 
 const FIRST_EPISODE_ID = 1;
 
@@ -39,9 +41,7 @@ export const RandomEpisode = () => {
   }, [dispatchFunc, id]);
 
   const handleRandomEpisode = () => {
-    const audio = new Audio(randomSound);
     audio.play();
-
     const randomId = getRandomId({ max: info.count });
     setId(randomId);
     const randomIndex = getRandomIndex(images.length);
