@@ -10,10 +10,12 @@ import {
 import imgErrorC1 from '../../shared/images/404-c1.png';
 import { GoBackLink } from 'shared/components/GoBackLink';
 import { useLocation } from 'react-router';
+import { home } from 'shared/constants/routes';
 
 const NotFoundPage = () => {
   const location = useLocation();
   const path = location.state?.from ?? home;
+
   return (
     <>
       <Helmet>
@@ -31,8 +33,9 @@ const NotFoundPage = () => {
             </span>
             <TextNum className="second-for">4</TextNum>
           </Overlay>
-          <div><GoBackLink to={path}/></div>
-          
+          <div>
+            <GoBackLink to={path} />
+          </div>
         </PageContainer>
       </Container>
     </>

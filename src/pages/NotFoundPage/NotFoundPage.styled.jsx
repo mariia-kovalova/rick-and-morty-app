@@ -7,9 +7,14 @@ export const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 55vh;
+  height: 100%;
+  padding-top: 80px;
 
+  @media screen and (min-width: ${tablet}) {
+    padding-top: 0px;
+  }
 `;
+
 export const Overlay = styled.div`
   position: relative;
   display: flex;
@@ -17,6 +22,7 @@ export const Overlay = styled.div`
   align-items: center;
   margin: 40px 0;
 `;
+
 export const TextNum = styled.p`
   margin: 0;
   font-size: 80px;
@@ -48,8 +54,9 @@ export const ImgSize = styled.img`
   height: 50%;
   width: 400px;
 `;
+
 export const H2 = styled.h2`
-  /* display: flex; */
+  display: flex;
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.crossThemeAccent};
@@ -64,11 +71,4 @@ export const H2 = styled.h2`
   @media screen and (min-width: ${desktop}) {
     font-size: 80px;
   }
-`;
-export const ButtonBack = styled.button`
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-family: 'Combo', cursive;
-
 `;
