@@ -38,6 +38,8 @@ export const lightTheme = {
   bgcHeartTransparent: 'rgba(255, 255, 255, 0.9)',
   borderModal: '#f2f9fe',
 
+  notFoundPageNum:'#7F4E1A',
+
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };
 
@@ -81,5 +83,7 @@ export const darkTheme = {
   bgcHeartTransparent: '#ffffff',
   borderModal: '#31d6b8',
 
+  notFoundPageNum:'#FBFE6E',
+  
   cubic: 'cubic-bezier(0.4, 0, 0.2, 1)',
 };
