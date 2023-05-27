@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rick-and-morty-app/static/css/main.13bcf4d4.css",
-    "main.js": "/rick-and-morty-app/static/js/main.5dabff3b.js",
+    "main.js": "/rick-and-morty-app/static/js/main.862d7223.js",
     "static/js/352.628e0fe2.chunk.js": "/rick-and-morty-app/static/js/352.628e0fe2.chunk.js",
     "static/js/410.a09005e3.chunk.js": "/rick-and-morty-app/static/js/410.a09005e3.chunk.js",
     "static/js/685.652f3d14.chunk.js": "/rick-and-morty-app/static/js/685.652f3d14.chunk.js",
@@ -9,7 +9,7 @@
     "static/js/635.75895dc1.chunk.js": "/rick-and-morty-app/static/js/635.75895dc1.chunk.js",
     "static/js/780.bc793003.chunk.js": "/rick-and-morty-app/static/js/780.bc793003.chunk.js",
     "static/js/213.0caa20af.chunk.js": "/rick-and-morty-app/static/js/213.0caa20af.chunk.js",
-    "static/js/891.bdd91331.chunk.js": "/rick-and-morty-app/static/js/891.bdd91331.chunk.js",
+    "static/js/880.78ac352b.chunk.js": "/rick-and-morty-app/static/js/880.78ac352b.chunk.js",
     "static/js/338.7f550d2e.chunk.js": "/rick-and-morty-app/static/js/338.7f550d2e.chunk.js",
     "static/js/960.63248128.chunk.js": "/rick-and-morty-app/static/js/960.63248128.chunk.js",
     "static/js/286.13619e34.chunk.js": "/rick-and-morty-app/static/js/286.13619e34.chunk.js",
@@ -42,7 +42,7 @@
     "static/media/teleport-sound-5.mp3": "/rick-and-morty-app/static/media/teleport-sound-5.34e6d55d913c50f563a7.mp3",
     "static/media/montserrat-all-400-normal.woff": "/rick-and-morty-app/static/media/montserrat-all-400-normal.327fab0afc997a2d9b16.woff",
     "static/media/teleport-sound-2.mp3": "/rick-and-morty-app/static/media/teleport-sound-2.687fe3a7d9ad7dd2705d.mp3",
-    "static/media/sprite.svg": "/rick-and-morty-app/static/media/sprite.ba059a604a74bd835d25f0090288b14a.svg",
+    "static/media/sprite.svg": "/rick-and-morty-app/static/media/sprite.1642074c75f4ca2c70d97cd8eff41f46.svg",
     "static/media/teleport-sound-1.mp3": "/rick-and-morty-app/static/media/teleport-sound-1.136fe400d92e3c40432d.mp3",
     "static/media/montserrat-latin-400-normal.woff2": "/rick-and-morty-app/static/media/montserrat-latin-400-normal.acb6629fe45c43ad5d8b.woff2",
     "static/media/montserrat-latin-ext-400-normal.woff2": "/rick-and-morty-app/static/media/montserrat-latin-ext-400-normal.0204ec08a4b574088f02.woff2",
@@ -51,7 +51,7 @@
     "static/media/montserrat-vietnamese-400-normal.woff2": "/rick-and-morty-app/static/media/montserrat-vietnamese-400-normal.8f3f4c99eb0eeb5990f1.woff2",
     "index.html": "/rick-and-morty-app/index.html",
     "main.13bcf4d4.css.map": "/rick-and-morty-app/static/css/main.13bcf4d4.css.map",
-    "main.5dabff3b.js.map": "/rick-and-morty-app/static/js/main.5dabff3b.js.map",
+    "main.862d7223.js.map": "/rick-and-morty-app/static/js/main.862d7223.js.map",
     "352.628e0fe2.chunk.js.map": "/rick-and-morty-app/static/js/352.628e0fe2.chunk.js.map",
     "410.a09005e3.chunk.js.map": "/rick-and-morty-app/static/js/410.a09005e3.chunk.js.map",
     "685.652f3d14.chunk.js.map": "/rick-and-morty-app/static/js/685.652f3d14.chunk.js.map",
@@ -59,7 +59,7 @@
     "635.75895dc1.chunk.js.map": "/rick-and-morty-app/static/js/635.75895dc1.chunk.js.map",
     "780.bc793003.chunk.js.map": "/rick-and-morty-app/static/js/780.bc793003.chunk.js.map",
     "213.0caa20af.chunk.js.map": "/rick-and-morty-app/static/js/213.0caa20af.chunk.js.map",
-    "891.bdd91331.chunk.js.map": "/rick-and-morty-app/static/js/891.bdd91331.chunk.js.map",
+    "880.78ac352b.chunk.js.map": "/rick-and-morty-app/static/js/880.78ac352b.chunk.js.map",
     "338.7f550d2e.chunk.js.map": "/rick-and-morty-app/static/js/338.7f550d2e.chunk.js.map",
     "960.63248128.chunk.js.map": "/rick-and-morty-app/static/js/960.63248128.chunk.js.map",
     "286.13619e34.chunk.js.map": "/rick-and-morty-app/static/js/286.13619e34.chunk.js.map",
@@ -71,6 +71,6 @@
   },
   "entrypoints": [
     "static/css/main.13bcf4d4.css",
-    "static/js/main.5dabff3b.js"
+    "static/js/main.862d7223.js"
   ]
 }
