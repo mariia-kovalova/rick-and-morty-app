@@ -5,13 +5,38 @@ export const NavBarLink = styled(NavLink)`
   color: ${({ theme }) => theme.textPrimary};
 `;
 
+export const StyledNavBar = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1999;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
 export const StyledUl = styled.ul`
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  gap: 20px;
+
+  padding: 60px;
 
   font-size: 22px;
   font-weight: 500;
+
+  background-color: ${({ theme }) => theme.bgPrimary};
 
   & li {
     width: 130px;
@@ -58,5 +83,41 @@ export const StyledUl = styled.ul`
         height: 100%;
       }
     }
+  }
+`;
+
+export const Button = styled.button`
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  z-index: 2001;
+
+  width: fit-content;
+  height: fit-content;
+
+  border: 1px solid transparent;
+  background-color: transparent;
+
+  cursor: pointer;
+`;
+
+export const Svg = styled.svg`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2002;
+
+  transform: translate(-50%, -50%) scale(1);
+  padding: 3px;
+  border-radius: 50%;
+
+  fill: ${({ theme }) => theme.textPrimary};
+  transition: backgrond-color 250ms ${({ theme }) => theme.cubic},
+    fill 250ms ${({ theme }) => theme.cubic};
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.bgcHoverFocus};
+    fill: ${({ theme }) => theme.bgPrimary};
   }
 `;

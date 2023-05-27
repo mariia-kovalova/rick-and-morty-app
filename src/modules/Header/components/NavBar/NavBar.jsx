@@ -1,5 +1,5 @@
+import { navLinksArr } from 'modules/Header/navLinksArr';
 import { NavBarLink, StyledUl } from './NavBar.styled';
-import { navLinksArr } from './navLinksArr';
 
 export const NavBar = () => {
   return (

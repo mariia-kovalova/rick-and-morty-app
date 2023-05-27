@@ -4,6 +4,7 @@ import { ThemeToggler } from './components/ThemeToggler/ThemeToggler';
 import { Container } from 'shared/styles/components/Container.styled';
 import { StyledDiv } from './Header.styled';
 import { RandomCounter } from './components/RandomCouter/RandomCounter';
+import { MobileMenu } from './components/MobileMenu/MobileMenu';
 
 export const Header = () => {
   return (
@@ -17,6 +18,7 @@ export const Header = () => {
           </div>
           <div className="container-right">
             <NavBar />
+            <MobileMenu />
           </div>
         </StyledDiv>
       </Container>

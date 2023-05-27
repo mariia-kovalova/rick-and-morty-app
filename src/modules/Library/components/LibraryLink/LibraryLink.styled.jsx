@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
 
 export const Svg = styled.svg`
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 
   stroke: ${({ theme }) => theme.crossThemeAccent};
   fill: ${({ theme }) => theme.crossThemeAccent};
@@ -20,14 +20,14 @@ export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 3px;
 
-  padding: 3px 6px;
+  padding: 3px 0px;
 
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
-  letter-spacing: 0.15px;
+  letter-spacing: -0.15px;
   text-decoration: none;
   color: ${({ theme }) => theme.crossThemeAccent};
 
@@ -38,6 +38,7 @@ export const StyledLink = styled(NavLink)`
     color 250ms ${({ theme }) => theme.cubic};
 
   @media screen and (min-width: ${tablet}) {
+    gap: 5px;
     padding: 8px 16px;
     font-size: 18px;
   }

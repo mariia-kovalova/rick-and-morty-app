@@ -4,6 +4,7 @@ import { Outlet, useNavigate } from 'react-router';
 import { Suspense, useEffect } from 'react';
 import { library } from 'shared/constants/routes';
 import { favcharacters } from 'shared/constants/libaryListName';
+import { StyledH1 } from './LibraryPage.styled';
 
 const LibraryPage = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const LibraryPage = () => {
       <Helmet>
         <title>Library</title>
       </Helmet>
+      <StyledH1>Library</StyledH1>
       <Library />
       <Suspense>
         <Outlet />

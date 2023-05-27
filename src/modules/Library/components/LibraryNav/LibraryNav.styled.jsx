@@ -1,14 +1,12 @@
 import styled from '@emotion/styled';
 import { desktop, tablet } from 'shared/constants/deviceSizes';
 
-export const NavBar = styled.nav``;
-
 export const List = styled.ul`
   display: flex;
   justify-content: center;
   gap: 10px;
 
-  max-width: 290px;
+  width: 100%;
   margin: 0 auto;
 
   @media screen and (min-width: ${tablet}) {
@@ -23,7 +21,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-  flex-basis: calc((100% - 10px) / 3);
+  flex-basis: calc((100% - 6px) / 3);
 
   @media screen and (min-width: ${tablet}) {
     flex-basis: calc((100% - 30px) / 3);

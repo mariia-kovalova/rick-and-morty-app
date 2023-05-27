@@ -1,10 +1,10 @@
 import { links } from './links';
 import { LibaryLink } from '../LibraryLink/LibaryLink';
-import { Item, List, NavBar } from './LibraryNav.styled';
+import { Item, List } from './LibraryNav.styled';
 
 export const LibraryNav = () => {
   return (
-    <NavBar>
+    <nav>
       <List>
         {links.map(({ path, text }) => (
           <Item key={text}>
@@ -14,6 +14,6 @@ export const LibraryNav = () => {
           </Item>
         ))}
       </List>
-    </NavBar>
+    </nav>
   );
 };
