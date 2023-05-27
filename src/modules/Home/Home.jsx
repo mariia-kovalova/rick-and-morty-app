@@ -25,7 +25,7 @@ import {
 import { useOneLocation } from 'hooks/useOneLocation';
 import { getCharacterById } from 'redux/character/thunks';
 import { getLocationById } from 'redux/location/thunks';
-// import randomSound from 'shared/audio/teleport-sound-1.mp3';
+import randomSound from 'shared/audio/teleport-sound-1.mp3';
 import { Tooltip } from 'shared/components/ToolTip';
 import { Modal } from 'shared/components/Modal';
 import { GameRules } from './components/GameRules/GameRules';
