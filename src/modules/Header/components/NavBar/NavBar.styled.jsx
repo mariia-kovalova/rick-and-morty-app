@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { desktop } from 'shared/constants/deviceSizes';
 
 export const NavBarLink = styled(NavLink)`
   color: ${({ theme }) => theme.textPrimary};
@@ -10,16 +11,24 @@ export const StyledUl = styled.ul`
   align-items: center;
   justify-content: space-around;
 
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
 
+  @media (min-width: ${desktop}) {
+    font-size: 22px;
+  }
+
   & li {
-    width: 130px;
+    width: 100px;
     position: relative;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (min-width: ${desktop}) {
+      width: 130px;
+    }
 
     /* effects for characters, locations, episodes */
     &:not(:last-child) {
