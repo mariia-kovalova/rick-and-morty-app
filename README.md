@@ -5,7 +5,7 @@
 [Rick and Morty App](https://mariia-kovalova.github.io/rick-and-morty-app/) is a
 web application where you can find information about characters, locations and
 episodes form [Rick and Morty](https://www.netflix.com/ua/title/80014749) series
-using data from [Rick and Morty Api](https://rickandmortyapi.com/)
+using data from [Rick and Morty API](https://rickandmortyapi.com/)
 
 See the live page here -
 [demo](https://mariia-kovalova.github.io/rick-and-morty-app/)
@@ -48,7 +48,7 @@ See the live page here -
 1. Change the theme mode (light/dark).
 2. See statistics - data generated with the help of teleport and randomizers.
 3. Get an alternative story about Rick and Morty's adventures using data
-   generarted with the help of teleport.
+   generated with the help of the teleport.
 
 # = PixelSquad = team
 
