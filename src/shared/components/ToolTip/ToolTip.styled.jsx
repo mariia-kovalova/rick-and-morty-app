@@ -11,7 +11,7 @@ export const Trigger = styled.div`
 
 export const Text = styled.div`
   position: absolute;
-  top: ${({ position }) => (position === up ? '-45px' : '40px')};
+  top: ${({ position }) => (position === up ? '-45px' : 'calc(100% + 10px)')};
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
