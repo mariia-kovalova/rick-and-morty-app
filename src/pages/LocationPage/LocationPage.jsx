@@ -40,11 +40,13 @@ const LocationPage = () => {
   }, [dispatch, params]);
 
   useEffect(() => {
-    const residentsID = location.residents.map(resident =>
-      resident.slice(NUMBER_OF_LETTER_TO_SKIP)
-    );
+    if (location) {
+      const residentsID = location.residents.map(resident =>
+        resident.slice(NUMBER_OF_LETTER_TO_SKIP)
+      );
 
-    dispatch(getCharactersByIds(residentsID));
+      dispatch(getCharactersByIds(residentsID));
+    }
   }, [dispatch, location]);
 
   const shouldShowCard = location !== null && !error;
@@ -58,7 +60,7 @@ const LocationPage = () => {
         <title>
           {isLoading
             ? error && 'Character'
-            : !error && nameNormalize(location?.name)}
+            : location !== null && !error && nameNormalize(location?.name)}
         </title>
       </Helmet>
       <Section>

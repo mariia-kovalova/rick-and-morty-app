@@ -33,10 +33,12 @@ const CharacterPage = () => {
   }, [characterId, dispatch]);
 
   useEffect(() => {
-    const episodesIds = character.episode.map(episode =>
-      episode.slice(NUMBER_OF_CHARS_TO_SKIP)
-    );
-    dispatch(getEpisodesByIds(episodesIds));
+    if (character) {
+      const episodesIds = character.episode.map(episode =>
+        episode.slice(NUMBER_OF_CHARS_TO_SKIP)
+      );
+      dispatch(getEpisodesByIds(episodesIds));
+    }
   }, [character, dispatch]);
 
   const shouldShowCard = character !== null && !error;
@@ -50,7 +52,7 @@ const CharacterPage = () => {
         <title>
           {isLoading
             ? error && 'Character'
-            : !error && nameNormalize(character?.name)}
+            : character !== null && !error && nameNormalize(character?.name)}
         </title>
       </Helmet>
       <Section>
