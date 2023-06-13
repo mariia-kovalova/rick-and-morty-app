@@ -4,7 +4,7 @@
 
 [Rick and Morty App](https://mariia-kovalova.github.io/rick-and-morty-app/) is a
 web application where you can find information about characters, locations and
-episodes form [Rick and Morty](https://www.netflix.com/ua/title/80014749) series
+episodes from [Rick and Morty](https://www.netflix.com/ua/title/80014749) series
 using data from [Rick and Morty API](https://rickandmortyapi.com/)
 
 See the live page here -
